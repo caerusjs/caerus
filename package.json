@@ -1,0 +1,23 @@
+{
+  "name": "caerus",
+  "version": "0.0.1",
+  "description": "An opinionated framework and ecosystem for building web applications with the goal of rapid development and low maintenence.",
+  "main": "index.js",
+  "repository": "https://github.com/krisquigley/caerus",
+  "homepage": "https://github.com/krisquigley/caerus",
+  "author": "Kris Quigley <kris@krisquigley.co.uk>",
+  "license": "MIT",
+  "keywords": [
+    "framework",
+    "reactjs",
+    "react-router",
+    "expressjs",
+    "typescript",
+    "typeorm",
+    "typegraphql",
+    "opinionated",
+    "graphql",
+    "apollo-server-express",
+    "apollo-client"
+  ]
+}

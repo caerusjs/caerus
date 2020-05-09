@@ -108,3 +108,17 @@ server/
  - Jest
  - Jest Puppeteer
  - Jest Cucumber
+
+
+## Getting Started with Caerus
+
+### Installing Caerus
+
+To install Caerus, using Yarn
+`$ yarn add caerus`
+
+Using NPM
+`$ npm install caerus --save`
+
+### Generating Entities
+`$ yarn caerus generate entity name-of-entity`
