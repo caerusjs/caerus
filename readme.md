@@ -5,7 +5,7 @@ An opinionated framework and ecosystem for building web applications with the go
 
 The stack and ecosystem will evolve over time by adopting newer and better technologies, in order to improve performance and power; whilst identifying common, stable patterns for abstraction and generation, leading to increases in productivity.
 
-## Goal of the Project
+## Project Goal
 Performance, Power and Productivity. 
 
 ## Values
