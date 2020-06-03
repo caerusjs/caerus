@@ -2,14 +2,12 @@
   "name": "caerus",
   "version": "0.1.0",
   "description": "An opinionated framework and ecosystem for building web applications with the goal of rapid development and low maintenence.",
-  "main": "index.js",
+  "main": "./dist/cli.js",
   "repository": "https://github.com/krisquigley/caerus",
   "homepage": "https://github.com/krisquigley/caerus",
   "author": "Kris Quigley <kris@krisquigley.co.uk>",
   "license": "MIT",
-  "scripts": {
-    "caerus": "NODE_ENV=development ts-node ./lib/cli/cli.ts"
-  },
+  "prepublish": "yarn tsc",
   "keywords": [
     "framework",
     "reactjs",
@@ -23,14 +21,28 @@
     "apollo-server-express",
     "apollo-client"
   ],
-  "dependencies": {
+  "bin": {
+    "caerus": "./bin/caerus"
+  },
+  "scripts": {
+    "build": "rm -rf dist/ && tsc",
+    "build:check": "tsc --noEmit",
+    "caerus": "NODE_ENV=development ts-node lib/cli/cli.ts"
+  },
+  "files": [
+    "bin/",
+    "dist/"
+  ],
+  "preferGlobal": true,
+  "devDependencies": {
     "@types/node": "^13.13.5",
-    "@types/yargs": "^15.0.4",
     "@types/title-case": "^1.1.2",
+    "@types/yargs": "^15.0.4",
     "chalk": "^4.0.0",
     "title-case": "^3.0.2",
-    "ts-node": "^8.10.1",
     "typescript": "^3.8.3",
-    "yargs": "^15.3.1"
+    "yargs": "^15.3.1",
+    "ts-node": "^8.10.2",
+    "tsc": "^1.20150623.0"
   }
 }

@@ -7,7 +7,9 @@ export const describe = 'Generate an entity named [name]'
 export const builder = {}
 export const handler = (argv: Argv) => {
   // Caerus should be installed in the project root
+  fs.mkdirSync(`${process.cwd()}/server/src/entities/`, { recursive: true })
   fs.writeFileSync(`${process.cwd()}/server/src/entities/${argv.name}.ts`, createEntity(argv.name))
+  console.log(`Created file ${process.cwd()}/server/src/entities/${argv.name}.ts`)
 }
 
 const createEntity = (name: string) => {
