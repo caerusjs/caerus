@@ -5,7 +5,7 @@
   "engines": {
     "node": "^12"
   },
-  "main": "./dist/cli.js",
+  "main": "./dist/lib/cli/cli.js",
   "repository": "https://github.com/krisquigley/caerus",
   "homepage": "https://github.com/krisquigley/caerus",
   "author": "Kris Quigley <kris@krisquigley.co.uk>",
@@ -28,8 +28,8 @@
     "caerus": "./bin/caerus"
   },
   "scripts": {
-    "build": "rm -rf dist/ && tsc",
-    "test": "yarn jest -c ./support/jest.config.js"
+    "build": "yarn tsc --build tsconfig.build.json --verbose",
+    "test": "yarn build && yarn jest -c ./support/jest.config.js"
   },
   "files": [
     "bin/",
