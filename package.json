@@ -10,7 +10,7 @@
   "homepage": "https://github.com/krisquigley/caerus",
   "author": "Kris Quigley <kris@krisquigley.co.uk>",
   "license": "MIT",
-  "prepublish": "yarn tsc",
+  "prepublish": "yarn test",
   "keywords": [
     "framework",
     "reactjs",
