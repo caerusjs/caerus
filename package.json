@@ -2,6 +2,9 @@
   "name": "caerus",
   "version": "0.1.0",
   "description": "An opinionated framework and ecosystem for building web applications with the goal of rapid development and low maintenence.",
+  "engines": {
+    "node": "^12"
+  },
   "main": "./dist/cli.js",
   "repository": "https://github.com/krisquigley/caerus",
   "homepage": "https://github.com/krisquigley/caerus",
@@ -26,8 +29,7 @@
   },
   "scripts": {
     "build": "rm -rf dist/ && tsc",
-    "build:check": "tsc --noEmit",
-    "caerus": "NODE_ENV=development ts-node lib/cli/cli.ts"
+    "test": "yarn jest -c ./support/jest.config.js"
   },
   "files": [
     "bin/",
@@ -35,14 +37,15 @@
   ],
   "preferGlobal": true,
   "devDependencies": {
+    "@types/jest": "^25.2.3",
     "@types/node": "^13.13.5",
-    "@types/title-case": "^1.1.2",
     "@types/yargs": "^15.0.4",
     "chalk": "^4.0.0",
+    "jest": "^26.0.1",
     "title-case": "^3.0.2",
+    "ts-jest": "^26.1.0",
     "typescript": "^3.8.3",
-    "yargs": "^15.3.1",
-    "ts-node": "^8.10.2",
-    "tsc": "^1.20150623.0"
-  }
+    "yargs": "^15.3.1"
+  },
+  "dependencies": {}
 }
