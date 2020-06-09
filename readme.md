@@ -23,13 +23,6 @@ Performance, Power and Productivity.
  - i18n and Accessibility as a first class citizen.
  - Templating support for generating projects with a different default stack.
 
-### Official Plugins
- - Content Management System (Template Components, Menus, JWT Auth, Multimedia Asset Management)
- - Basic Order Management System
- - PIM
- - Stripe Payments
- - Shopping Cart
-
 ## Folder Structure
 ```
 {project-name}/
@@ -125,13 +118,13 @@ Install the Caerus package from your workspace folder to get started:
 
 The Caerus CLI supports the following abilities:
 
-- Initialising projects (TBA)
-- Generating end-to-end resources including tests (TBA)
+- Initialising projects (v0.5.0)
+- Generating end-to-end resources including tests (v0.4.0)
 - Generating entities
 - Generating resolvers
-- Generating views (TBA)
-- Generating migrations (TBA)
-- Generating types (TBA)
+- Generating views (v0.3.0)
+- Generating migrations (v0.6.0)
+- Generating types (v0.7.0)
 
 ### Generating Entities
 
@@ -150,4 +143,20 @@ To generate a resolver, as well as input and arguments types and test scaffold, 
 Where `name` is the name of your resolver.  Resolvers should be singular and use `-` for multiple words, e.g. `blog-post`.
 
 
+## Roadmap
 
+Road to v1.0.0:
+
+|Feature|Implemented?|
+|---|:-:|
+|Generate Entity Command|:white_check_mark:|
+|Generate Resolver Command|:white_check_mark:|
+|Generate View Command||
+|Generate Resource Command||
+|Initialize Project Command||
+|Generate Entity Column Argument Support||
+|Better Code Splitting||
+|SSR Support||
+|Accessibility Support||
+|i18n Support||
+|Stack Template Support||
