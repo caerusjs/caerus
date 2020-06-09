@@ -1,20 +1,17 @@
 import { Argv } from 'yargs'
-import { titleCase } from 'title-case'
-import fs from 'fs'
+import { createFile } from '../../helpers/create-file'
+import titleize from '../../helpers/titleize'
 
 export const command = 'entity [name]'
 export const describe = 'Generate an entity named [name]'
 export const builder = {}
 export const handler = (argv: Argv) => {
-  // Caerus should be installed in the project root
-  fs.mkdirSync(`${process.cwd()}/server/src/entities/`, { recursive: true })
-  fs.writeFileSync(`${process.cwd()}/server/src/entities/${argv.name}.ts`, createEntity(argv.name))
-  console.log(`Created file ${process.cwd()}/server/src/entities/${argv.name}.ts`)
+  createFile(`${process.cwd()}/server/src/entities/`, `${argv.name}.ts`,  createEntity(argv.name))
 }
 
 const createEntity = (name: string) => {
   return (
-`import { 
+    `import { 
   CreateDateColumn, 
   Entity, 
   PrimaryGeneratedColumn, 
@@ -29,7 +26,7 @@ import {
 
 @ObjectType()
 @Entity()
-export class ${titleCase(name).replace('-', '')} {
+export class ${titleize(name)} {
   @Field(type => ID)
   @PrimaryGeneratedColumn('uuid')
   readonly id: string
@@ -46,5 +43,5 @@ export class ${titleCase(name).replace('-', '')} {
   @DeleteDateColumn({ name: 'deleted_at', type: 'timestamp with time zone', nullable: true })
   deletedAt?: Date
 }`
-)
+  )
 }
