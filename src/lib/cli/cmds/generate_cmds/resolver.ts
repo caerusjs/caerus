@@ -1,15 +1,16 @@
 import { Argv } from 'yargs'
 import { createFile } from '../../helpers/create-file'
 import titleize from '../../helpers/titleize'
+import camelize from '../../helpers/camelize'
 
 export const command = 'resolver [name]'
 export const describe = 'Generate a resolver named [name]'
 export const builder = {}
 export const handler = (argv: Argv) => {
-  createFile(`${process.cwd()}/server/src/resolvers/`, `${argv.name}.resolver.ts`,  createResolver(argv.name))
-  createFile(`${process.cwd()}/server/src/resolvers/`, `${argv.name}.test.ts`,  createTest(argv.name))
-  createFile(`${process.cwd()}/server/src/resolvers/`, `${argv.name}.input.ts`,  createInput(argv.name))
-  createFile(`${process.cwd()}/server/src/resolvers/`, `${argv.name}.args.ts`,  createArgs(argv.name))
+  createFile(`${process.cwd()}/server/src/resolvers/${argv.name}/`, `${argv.name}.resolver.ts`,  createResolver(argv.name))
+  createFile(`${process.cwd()}/server/src/resolvers/${argv.name}/`, `${argv.name}.test.ts`,  createTest(argv.name))
+  createFile(`${process.cwd()}/server/src/resolvers/${argv.name}/`, `${argv.name}.input.ts`,  createInput(argv.name))
+  createFile(`${process.cwd()}/server/src/resolvers/${argv.name}/`, `${argv.name}.args.ts`,  createArgs(argv.name))
 }
 
 const createResolver = (name: string) => {
@@ -37,15 +38,15 @@ export class ${titleize(name)}Resolver {
   }
   
   @Mutation(returns => ${titleize(name)})
-  async add${titleize(name)}(@Arg('${name.toLowerCase()}') ${name.toLowerCase()}: Add${titleize(name)}Input): Promise<${titleize(name)}> {
+  async add${titleize(name)}(@Arg('${camelize(name)}') ${camelize(name)}: Add${titleize(name)}Input): Promise<${titleize(name)}> {
   }
   
   @Mutation(returns => ${titleize(name)})
-  async update${titleize(name)}(@Arg('${name.toLowerCase()}') ${name.toLowerCase()}: Update${titleize(name)}Input): Promise<${titleize(name)}> {
+  async update${titleize(name)}(@Arg('${camelize(name)}') ${camelize(name)}: Update${titleize(name)}Input): Promise<${titleize(name)}> {
   }
 
   @Mutation(returns => ${titleize(name)})
-  async removeVideo(@Arg('${name.toLowerCase()}') ${name.toLowerCase()}: Remove${titleize(name)}Input): Promise<${titleize(name)}> {
+  async removeVideo(@Arg('${camelize(name)}') ${camelize(name)}: Remove${titleize(name)}Input): Promise<${titleize(name)}> {
   }
 }`
 )
