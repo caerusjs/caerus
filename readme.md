@@ -128,16 +128,26 @@ The Caerus CLI supports the following abilities:
 - Initialising projects (TBA)
 - Generating end-to-end resources including tests (TBA)
 - Generating entities
-- Generating resolvers (TBA)
+- Generating resolvers
 - Generating views (TBA)
 - Generating migrations (TBA)
 - Generating types (TBA)
 
 ### Generating Entities
 
-To generate an entity with default columns (id, createdAt, updatedAt and deletedAt) and graphql typedefs, run the following command from the root of your project:
+To generate an entity with default columns (id, createdAt, updatedAt and deletedAt) and graphql typedefs; run the following command from the root of your project:
 
 `$ yarn caerus generate entity [name]`
 
-Where `name` is the name of your resource.  Entities should be singular and use `-` for multiple words, e.g. `blog-post`.
+Where `name` is the name of your entity.  Entities should be singular and use `-` for multiple words, e.g. `blog-post`.
+
+### Generating Resolvers
+
+To generate a resolver, as well as input and arguments types and test scaffold, which covers the basic CRUD actions; run the following command from the root of your project:
+
+`$ yarn caerus generate resolver [name]`
+
+Where `name` is the name of your resolver.  Resolvers should be singular and use `-` for multiple words, e.g. `blog-post`.
+
+
 
