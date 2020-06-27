@@ -55,7 +55,7 @@ test('generating a view', (done) => {
     expect(editContents).toMatch(/.*const EditTestView/)
 
     const showContents = fs.readFileSync(`${process.cwd()}/client/src/views/test/show.tsx`, { encoding: 'utf8' })
-    expect(showContents).toMatch(/.*const ShowTest/)
+    expect(showContents).toMatch(/.*const ShowTestView/)
 
     const indexContents = fs.readFileSync(`${process.cwd()}/client/src/views/test/index.tsx`, { encoding: 'utf8' })
     expect(indexContents).toMatch(/.*const IndexTestView/)
