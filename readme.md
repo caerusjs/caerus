@@ -28,19 +28,22 @@ Performance, Power and Productivity.
 {project-name}/
   client/
     src/
-      shared/
-        _{partial-component}.tsx
-        _{partial-component}.module.css
+      atoms/
+      molecules/
+      organisms/
+      routes/
+        {resource}.tsx
+        index.tsx
       support/
         fixtures/
-      {resource}/
-        _{partial-component}.tsx
-        _{partial-component}.module.css
-        {action}.view.tsx
-        {resource}.queries.graphql
-        {resource}.routes.tsx
-      application.layout.tsx
-      application.routes.tsx
+      views/
+        {resource}/
+          new.tsx
+          edit.tsx
+          show.tsx
+          index.tsx
+        layouts/
+          application.layout.tsx
       index.tsx
   server/
     src/

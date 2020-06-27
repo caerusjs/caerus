@@ -1,4 +1,5 @@
 import { Argv } from 'yargs'
+
 import { createFile } from '../../helpers/create-file'
 import titleize from '../../helpers/titleize'
 import camelize from '../../helpers/camelize'
