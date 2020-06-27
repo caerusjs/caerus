@@ -28,19 +28,22 @@ Performance, Power and Productivity.
 {project-name}/
   client/
     src/
-      shared/
-        _{partial-component}.tsx
-        _{partial-component}.module.css
+      atoms/
+      molecules/
+      organisms/
+      routes/
+        {resource}.tsx
+        index.tsx
       support/
         fixtures/
-      {resource}/
-        _{partial-component}.tsx
-        _{partial-component}.module.css
-        {action}.view.tsx
-        {resource}.queries.graphql
-        {resource}.routes.tsx
-      application.layout.tsx
-      application.routes.tsx
+      views/
+        {resource}/
+          new.tsx
+          edit.tsx
+          show.tsx
+          index.tsx
+        layouts/
+          application.layout.tsx
       index.tsx
   server/
     src/
@@ -142,6 +145,13 @@ To generate a resolver, as well as input and arguments types and test scaffold, 
 
 Where `name` is the name of your resolver.  Resolvers should be singular and use `-` for multiple words, e.g. `blog-post`.
 
+### Generating Views
+
+To generate views and routes for a given resource, run the following command from the root of your project:
+
+`$ yarn caerus generate views [name]`
+
+Where `name` is the name of your resource.  Views should be singular and use `-` for multiple words, e.g. `blog-post`.
 
 ## Roadmap
 
@@ -151,7 +161,7 @@ Road to v1.0.0:
 |---|:-:|
 |Generate Entity Command|:white_check_mark:|
 |Generate Resolver Command|:white_check_mark:|
-|Generate View Command||
+|Generate Views Command|:white_check_mark:|
 |Generate Resource Command||
 |Initialize Project Command||
 |Generate Entity Column Argument Support||

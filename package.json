@@ -1,6 +1,6 @@
 {
   "name": "caerus",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "An opinionated framework and ecosystem for building web applications with the goal of rapid development and low maintenence.",
   "engines": {
     "node": "^12"
@@ -28,6 +28,7 @@
     "caerus": "./bin/caerus"
   },
   "scripts": {
+    "caerus": "./bin/caerus",
     "build": "yarn tsc --build tsconfig.build.json --verbose",
     "build:watch": "yarn tsc --build tsconfig.build.json --verbose --watch",
     "test": "yarn build && yarn jest -c ./src/tests/support/jest.config.js --detectOpenHandles --runInBand"
