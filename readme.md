@@ -145,6 +145,13 @@ To generate a resolver, as well as input and arguments types and test scaffold, 
 
 Where `name` is the name of your resolver.  Resolvers should be singular and use `-` for multiple words, e.g. `blog-post`.
 
+### Generating Views
+
+To generate views and routes for a given resource, run the following command from the root of your project:
+
+`$ yarn caerus generate views [name]`
+
+Where `name` is the name of your resource.  Views should be singular and use `-` for multiple words, e.g. `blog-post`.
 
 ## Roadmap
 
@@ -154,7 +161,7 @@ Road to v1.0.0:
 |---|:-:|
 |Generate Entity Command|:white_check_mark:|
 |Generate Resolver Command|:white_check_mark:|
-|Generate View Command||
+|Generate Views Command|:white_check_mark:|
 |Generate Resource Command||
 |Initialize Project Command||
 |Generate Entity Column Argument Support||
