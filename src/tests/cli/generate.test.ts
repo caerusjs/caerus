@@ -37,7 +37,7 @@ test('generating a resolver', (done) => {
   })
 })
 
-test('generating a view', (done) => {
+test('generating views', (done) => {
   childProcess.exec('yarn caerus g views test', (_, stdout) => {
     // Check we have the correct console message
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/views\/test\/new.tsx/)
