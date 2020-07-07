@@ -10,10 +10,12 @@ const folders = [
   '/client/src/styles',
   '/client/src/support',
   '/client/src/views',
+  '/client/src/views/example',
+  '/client/src/views/layouts'
 ]
 
-export const createFolders = () => {
+export const createFolders = (name: string) => {
   folders.forEach(folder => {
-    createFolder(`${process.cwd()}${folder}`)
+    createFolder(`${name}${folder}`)
   })
 }
