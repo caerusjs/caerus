@@ -11,6 +11,7 @@
   "author": "Kris Quigley <kris@krisquigley.co.uk>",
   "license": "MIT",
   "prepublish": "yarn test",
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "keywords": [
     "framework",
     "reactjs",

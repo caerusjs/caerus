@@ -14,7 +14,7 @@ const folders = [
   '/client/src/views/layouts'
 ]
 
-export const createFolders = (name: string) => {
+export const createClientFolders = (name: string) => {
   folders.forEach(folder => {
     createFolder(`${name}${folder}`)
   })
