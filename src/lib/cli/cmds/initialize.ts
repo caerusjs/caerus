@@ -20,6 +20,10 @@ import { createGitIgnore } from './initialize_cmd/root/create-gitignore'
 import { createExampleOrganism } from './initialize_cmd/client/create-example-organism'
 import { createUseGetExample } from './initialize_cmd/client/create-use-get-example'
 import { createGetExampleDocument } from './initialize_cmd/client/create-get-example-document'
+import { createP } from './initialize_cmd/client/create-p'
+import { createPCSS } from './initialize_cmd/client/create-p-css'
+import { createErrorCSS } from './initialize_cmd/client/create-error-css'
+import { createError } from './initialize_cmd/client/create-error'
 
 export const command = 'init [name]'
 export const describe = 'Initialize a new project [name]'
@@ -30,20 +34,39 @@ export const handler = (argv: Argv) => {
 
   // Clientside
   createClientFolders(argv.name)
+
+  // - root
   createFile(`${argv.name}/client/`, 'package.json',  createPackage(argv.name))
   createFile(`${argv.name}/client/`, 'tsconfig.json',  createTSConfig())
   createFile(`${argv.name}/client/`, '.env',  createENV())
   createFile(`${argv.name}/client/src/`, 'index.tsx',  createClientIndex())
+
+  // - public
   createFile(`${argv.name}/client/src/public/`, 'index.html',  createIndexHTML(argv.name))
+
+  // - support
   createFile(`${argv.name}/client/src/support/`, 'setupTests.ts',  createSetupTests())
   createFile(`${argv.name}/client/src/support/`, 'jest.config.js',  createJestConfig())
+
+  // - routes
   createFile(`${argv.name}/client/src/routes/`, 'index.tsx',  createIndexRoutes())
   createFile(`${argv.name}/client/src/routes/`, 'example.routes.tsx',  createExampleRoutes())
+
+  // - views
   createFile(`${argv.name}/client/src/views/example/`, 'index.view.tsx',  createExampleViews())
   createFile(`${argv.name}/client/src/views/layouts/`, 'application.layout.tsx',  createLayout())
+
+  // - atoms
   createFile(`${argv.name}/client/src/atoms/p/`, 'index.tsx',  createP())
+  createFile(`${argv.name}/client/src/atoms/p/`, 'p.module.css',  createPCSS())
+
+  // - molecules
   createFile(`${argv.name}/client/src/molecules/loading/`, 'index.tsx',  createLoadingSpinner())
   createFile(`${argv.name}/client/src/molecules/loading/`, 'loading.module.css',  createLoadingSpinnerCSS())
+  createFile(`${argv.name}/client/src/molecules/error/`, 'index.tsx',  createError())
+  createFile(`${argv.name}/client/src/molecules/error/`, 'error.module.css',  createErrorCSS())
+
+  // - organisms
   createFile(`${argv.name}/client/src/organisms/example/`, 'index.tsx',  createExampleOrganism())
   createFile(`${argv.name}/client/src/organisms/example/`, 'use-get-example.ts',  createUseGetExample())
   createFile(`${argv.name}/client/src/organisms/example/`, 'get-example.graphql',  createGetExampleDocument())
