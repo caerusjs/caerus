@@ -32,7 +32,7 @@
     "caerus": "./bin/caerus",
     "build": "yarn tsc --build tsconfig.build.json --verbose",
     "build:watch": "yarn tsc --build tsconfig.build.json --verbose --watch",
-    "test": "yarn build && yarn jest -c ./src/tests/support/jest.config.js --detectOpenHandles --runInBand"
+    "test": "yarn jest -c ./src/tests/support/jest.config.js --detectOpenHandles --runInBand"
   },
   "files": [
     "bin/",

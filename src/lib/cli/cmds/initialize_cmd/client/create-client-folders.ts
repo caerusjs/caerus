@@ -1,6 +1,6 @@
 import { createFolder } from '../../../helpers/create-folder'
 
-const folders = [
+export const folders = [
   '/client/src/atoms',
   '/client/src/molecules',
   '/client/src/organisms',

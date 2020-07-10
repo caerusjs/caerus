@@ -7,6 +7,7 @@ export const createPackage = (name: string) => {
   "dependencies": {
     "@apollo/react-hooks": "^3.1.3",
     "@types/jest": "^25.1.2",
+    "@types/lodash": "^4.14.157",
     "@types/pluralize": "^0.0.29",
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.0",
@@ -22,6 +23,7 @@ export const createPackage = (name: string) => {
     "formik": "^2.1.4",
     "graphql": "^14.6.0",
     "immutability-helper": "^3.0.2",
+    "lodash": "^4.17.19",
     "pluralize": "^8.0.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",

@@ -24,6 +24,7 @@ import { createP } from './initialize_cmd/client/create-p'
 import { createPCSS } from './initialize_cmd/client/create-p-css'
 import { createErrorCSS } from './initialize_cmd/client/create-error-css'
 import { createError } from './initialize_cmd/client/create-error'
+import { createCloneWithoutTypename } from './initialize_cmd/client/create-clone-without-typename'
 
 export const command = 'init [name]'
 export const describe = 'Initialize a new project [name]'
@@ -40,6 +41,9 @@ export const handler = (argv: Argv) => {
   createFile(`${argv.name}/client/`, 'tsconfig.json',  createTSConfig())
   createFile(`${argv.name}/client/`, '.env',  createENV())
   createFile(`${argv.name}/client/src/`, 'index.tsx',  createClientIndex())
+
+  // - lib
+  createFile(`${argv.name}/client/lib/`, 'clone-without-typename.ts',  createCloneWithoutTypename())
 
   // - public
   createFile(`${argv.name}/client/src/public/`, 'index.html',  createIndexHTML(argv.name))

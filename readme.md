@@ -1,4 +1,5 @@
 # Caerus Framework
+![](https://github.com/krisquigley/caerus/workflows/Node.js%20CI/badge.svg)
 
 ## What is it?
 An opinionated framework and ecosystem for building web applications with the goal of rapid development and low maintenence.
