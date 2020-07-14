@@ -6,6 +6,9 @@ test('initializing a project', (done) => {
   childProcess.exec('yarn caerus init my-blog', (_, stdout) => {
     // Root
     expect(stdout).toMatch(/.*Created file.*\/.gitignore/)
+    expect(stdout).toMatch(/.*Created file.*\/package.json/)
+    expect(stdout).toMatch(/.*Created file.*\/codegen.yml/)
+    expect(stdout).toMatch(/.*Created file.*\/Procfile.dev/)
 
     // Clientside
     folders.forEach(folder => {

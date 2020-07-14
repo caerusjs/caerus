@@ -1,4 +1,4 @@
-export const createPackage = (name: string) => {
+export const createClientPackage = (name: string) => {
   return (`{
   "name": "${name}-client",
   "version": "0.1.0",

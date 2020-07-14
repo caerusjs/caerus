@@ -3,7 +3,7 @@ import { Argv } from 'yargs'
 import { createFile } from '../helpers/create-file'
 
 import { createClientFolders } from './initialize_cmd/client/create-client-folders'
-import { createPackage } from './initialize_cmd/client/create-package'
+import { createClientPackage } from './initialize_cmd/client/create-package'
 import { createTSConfig } from './initialize_cmd/client/create-tsconfig'
 import { createIndexHTML } from './initialize_cmd/client/create-index-html'
 import { createSetupTests } from './initialize_cmd/client/create-setup-tests'
@@ -25,6 +25,9 @@ import { createPCSS } from './initialize_cmd/client/create-p-css'
 import { createErrorCSS } from './initialize_cmd/client/create-error-css'
 import { createError } from './initialize_cmd/client/create-error'
 import { createCloneWithoutTypename } from './initialize_cmd/client/create-clone-without-typename'
+import { createCodegen } from './initialize_cmd/root/create-codegen'
+import { createPackage } from './initialize_cmd/root/create-package'
+import { createProcfile } from './initialize_cmd/root/create-procfile'
 
 export const command = 'init [name]'
 export const describe = 'Initialize a new project [name]'
@@ -32,12 +35,15 @@ export const builder = {}
 export const handler = (argv: Argv) => {
   // Root
   createFile(`${argv.name}/`, '.gitignore',  createGitIgnore())
+  createFile(`${argv.name}/`, 'codegen.yml',  createCodegen())
+  createFile(`${argv.name}/`, 'package.json',  createPackage(argv.name))
+  createFile(`${argv.name}/`, 'Procfile.dev',  createProcfile())
 
   // Clientside
   createClientFolders(argv.name)
 
   // - root
-  createFile(`${argv.name}/client/`, 'package.json',  createPackage(argv.name))
+  createFile(`${argv.name}/client/`, 'package.json',  createClientPackage(argv.name))
   createFile(`${argv.name}/client/`, 'tsconfig.json',  createTSConfig())
   createFile(`${argv.name}/client/`, '.env',  createENV())
   createFile(`${argv.name}/client/src/`, 'index.tsx',  createClientIndex())
@@ -76,5 +82,6 @@ export const handler = (argv: Argv) => {
   createFile(`${argv.name}/client/src/organisms/example/`, 'get-example.graphql',  createGetExampleDocument())
 
   // Serverside
+  
 }
 
