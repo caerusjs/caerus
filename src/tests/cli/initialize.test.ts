@@ -1,5 +1,6 @@
 import childProcess from 'child_process'
 import { folders } from '../../lib/cli/cmds/initialize_cmd/client/create-client-folders'
+import { folders as serversideFolders } from '../../lib/cli/cmds/initialize_cmd/server/create-server-folders'
 // import fs from 'fs'
 
 test('initializing a project', (done) => {
@@ -54,7 +55,17 @@ test('initializing a project', (done) => {
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/organisms\/example\/index.tsx/)
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/organisms\/example\/use-get-example.ts/)
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/organisms\/example\/get-example.graphql/)
+
+    // Serverside
+    serversideFolders.forEach(folder => {
+      const matcher = new RegExp(`.*Created folder.*${folder}`);
+      expect(stdout).toMatch(matcher)
+    })
     done()
+
+    // - config
+    expect(stdout).toMatch(/.*Created file.*\/server\/src\/config\/apollo.ts/)
+    expect(stdout).toMatch(/.*Created file.*\/server\/src\/config\/assets.ts/)
 
     // Check our entity class name is correct
     // const contents = fs.readFileSync(`${process.cwd()}/server/src/entities/test.ts`, { encoding: 'utf8' })

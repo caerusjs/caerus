@@ -45,7 +45,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
   }
 })
 
-const httpLink = new BatchHttpLink({ uri: \`${process.env.REACT_APP_SERVER_HOST}/graphql\` })
+const httpLink = new BatchHttpLink({ uri: \`\${process.env.REACT_APP_SERVER_HOST}/graphql\` })
 
 // Required to remove __typename from nested resources. See: https://github.com/apollographql/apollo-feature-requests/issues/6
 const typenameMiddleware = new ApolloLink((operation, forward) => {

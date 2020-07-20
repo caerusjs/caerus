@@ -28,6 +28,9 @@ import { createCloneWithoutTypename } from './initialize_cmd/client/create-clone
 import { createCodegen } from './initialize_cmd/root/create-codegen'
 import { createPackage } from './initialize_cmd/root/create-package'
 import { createProcfile } from './initialize_cmd/root/create-procfile'
+import { createServersideFolders } from './initialize_cmd/server/create-server-folders'
+import { createApollo } from './initialize_cmd/server/create-apollo'
+import { createAssets } from './initialize_cmd/server/create-assets'
 
 export const command = 'init [name]'
 export const describe = 'Initialize a new project [name]'
@@ -82,6 +85,10 @@ export const handler = (argv: Argv) => {
   createFile(`${argv.name}/client/src/organisms/example/`, 'get-example.graphql',  createGetExampleDocument())
 
   // Serverside
-  
+  createServersideFolders(argv.name)
+
+  // - config
+  createFile(`${argv.name}/server/src/config/`, 'apollo.ts',  createApollo())
+  createFile(`${argv.name}/server/src/config/`, 'assets.ts',  createAssets())
 }
 
