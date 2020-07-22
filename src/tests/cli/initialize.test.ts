@@ -66,9 +66,8 @@ test('initializing a project', (done) => {
     // - config
     expect(stdout).toMatch(/.*Created file.*\/server\/src\/config\/apollo.ts/)
     expect(stdout).toMatch(/.*Created file.*\/server\/src\/config\/assets.ts/)
-
-    // Check our entity class name is correct
-    // const contents = fs.readFileSync(`${process.cwd()}/server/src/entities/test.ts`, { encoding: 'utf8' })
-    // expect(contents).toMatch(/.*export class Test/)
+    expect(stdout).toMatch(/.*Created file.*\/server\/src\/config\/cors.ts/)
+    expect(stdout).toMatch(/.*Created file.*\/server\/src\/config\/index.ts/)
+    expect(stdout).toMatch(/.*Created file.*\/server\/src\/config\/routes.ts/)
   })
 })
