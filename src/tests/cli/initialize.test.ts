@@ -63,11 +63,17 @@ test('initializing a project', (done) => {
     })
     done()
 
+    // - root
+    expect(stdout).toMatch(/.*Created file.*\/server\/ormconfig.js/)
+    expect(stdout).toMatch(/.*Created file.*\/server\/nodemon.json/)
+
     // - config
     expect(stdout).toMatch(/.*Created file.*\/server\/src\/config\/apollo.ts/)
     expect(stdout).toMatch(/.*Created file.*\/server\/src\/config\/assets.ts/)
     expect(stdout).toMatch(/.*Created file.*\/server\/src\/config\/cors.ts/)
     expect(stdout).toMatch(/.*Created file.*\/server\/src\/config\/index.ts/)
     expect(stdout).toMatch(/.*Created file.*\/server\/src\/config\/routes.ts/)
+
+    // - db
   })
 })

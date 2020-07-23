@@ -34,6 +34,8 @@ import { createAssets } from './initialize_cmd/server/config/create-assets'
 import { createCors } from './initialize_cmd/server/config/create-cors'
 import { createConfigIndex } from './initialize_cmd/server/config/create-config-index'
 import { createRoutes } from './initialize_cmd/server/config/create-routes'
+import { createDbConfig } from './initialize_cmd/server/create-db-config'
+import { createNodemon } from './initialize_cmd/server/create-nodemon'
 
 export const command = 'init [name]'
 export const describe = 'Initialize a new project [name]'
@@ -90,11 +92,17 @@ export const handler = (argv: Argv) => {
   // Serverside
   createServersideFolders(argv.name)
 
+  // - root
+  createFile(`${argv.name}/server/`, 'ormconfig.js',  createDbConfig(argv.name))
+  createFile(`${argv.name}/server/`, 'nodemon.json',  createNodemon())
+
+
   // - config
   createFile(`${argv.name}/server/src/config/`, 'apollo.ts',  createApollo())
   createFile(`${argv.name}/server/src/config/`, 'assets.ts',  createAssets())
   createFile(`${argv.name}/server/src/config/`, 'cors.ts',  createCors())
   createFile(`${argv.name}/server/src/config/`, 'index.ts',  createConfigIndex())
   createFile(`${argv.name}/server/src/config/`, 'routes.ts',  createRoutes())
-}
 
+  // - db
+}
