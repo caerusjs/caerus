@@ -95,7 +95,7 @@ export const handler = (argv: Argv) => {
   // - root
   createFile(`${argv.name}/server/`, 'ormconfig.js',  createDbConfig(argv.name))
   createFile(`${argv.name}/server/`, 'nodemon.json',  createNodemon())
-
+  createFile(`${argv.name}/server/`, 'package.json',  createPackage(argv.name))
 
   // - config
   createFile(`${argv.name}/server/src/config/`, 'apollo.ts',  createApollo())

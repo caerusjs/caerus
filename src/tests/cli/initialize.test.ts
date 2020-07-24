@@ -66,6 +66,7 @@ test('initializing a project', (done) => {
     // - root
     expect(stdout).toMatch(/.*Created file.*\/server\/ormconfig.js/)
     expect(stdout).toMatch(/.*Created file.*\/server\/nodemon.json/)
+    expect(stdout).toMatch(/.*Created file.*\/server\/package.json/)
 
     // - config
     expect(stdout).toMatch(/.*Created file.*\/server\/src\/config\/apollo.ts/)
