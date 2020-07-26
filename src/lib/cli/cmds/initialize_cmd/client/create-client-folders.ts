@@ -4,7 +4,7 @@ export const folders = [
   '/client/src/atoms',
   '/client/src/molecules',
   '/client/src/organisms',
-  '/client/src/public',
+  '/client/public',
   '/client/src/routes',
   '/client/src/lib',
   '/client/src/styles',

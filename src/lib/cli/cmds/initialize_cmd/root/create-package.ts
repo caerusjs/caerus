@@ -6,7 +6,7 @@ export const createPackage = (name: string) => {
 "engines": {
   "node": "^12"
 },
-"scripts": {
+"scripts": {  
   "dev": "yarn nf start -j Procfile.dev",
   "codegen": "NODE_ENV=development graphql-codegen --config codegen.yml",
   "install": "yarn --cwd client install && yarn --cwd server install",

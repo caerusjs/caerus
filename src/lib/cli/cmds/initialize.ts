@@ -3,9 +3,9 @@ import { Argv } from 'yargs'
 import { createFile } from '../helpers/create-file'
 
 import { createClientFolders } from './initialize_cmd/client/create-client-folders'
-import { createClientPackage } from './initialize_cmd/client/create-package'
+import { createClientPackage } from './initialize_cmd/client/create-client-package'
 import { createTSConfig } from './initialize_cmd/client/create-tsconfig'
-import { createIndexHTML } from './initialize_cmd/client/src/public/create-index-html'
+import { createIndexHTML } from './initialize_cmd/client/public/create-index-html'
 import { createSetupTests } from './initialize_cmd/client/src/support/create-setup-tests'
 import { createJestConfig } from './initialize_cmd/client/src/support/create-jest-config'
 import { createIndexRoutes } from './initialize_cmd/client/src/routes/create-index-routes'
@@ -36,6 +36,14 @@ import { createConfigIndex } from './initialize_cmd/server/config/create-config-
 import { createRoutes } from './initialize_cmd/server/config/create-routes'
 import { createDbConfig } from './initialize_cmd/server/create-db-config'
 import { createNodemon } from './initialize_cmd/server/create-nodemon'
+import { createTsconfig } from './initialize_cmd/server/create-tsconfig'
+import { createTsconfigProd } from './initialize_cmd/server/create-tsconfig.prod'
+import { createSeeds } from './initialize_cmd/server/db/create-seeds'
+import { createDatabase } from './initialize_cmd/server/support/create-database'
+import { createJestIntegration } from './initialize_cmd/server/support/jest/create-jest-integration'
+import { createPuppeteerConfig } from './initialize_cmd/server/support/puppeteer/create-puppeteer-config'
+import { createServer } from './initialize_cmd/server/create-server'
+import { createServerPackage } from './initialize_cmd/server/create-server-package'
 
 export const command = 'init [name]'
 export const describe = 'Initialize a new project [name]'
@@ -60,7 +68,7 @@ export const handler = (argv: Argv) => {
   createFile(`${argv.name}/client/lib/`, 'clone-without-typename.ts',  createCloneWithoutTypename())
 
   // - public
-  createFile(`${argv.name}/client/src/public/`, 'index.html',  createIndexHTML(argv.name))
+  createFile(`${argv.name}/client/public/`, 'index.html',  createIndexHTML(argv.name))
 
   // - support
   createFile(`${argv.name}/client/src/support/`, 'setupTests.ts',  createSetupTests())
@@ -95,7 +103,12 @@ export const handler = (argv: Argv) => {
   // - root
   createFile(`${argv.name}/server/`, 'ormconfig.js',  createDbConfig(argv.name))
   createFile(`${argv.name}/server/`, 'nodemon.json',  createNodemon())
-  createFile(`${argv.name}/server/`, 'package.json',  createPackage(argv.name))
+  createFile(`${argv.name}/server/`, 'package.json',  createServerPackage(argv.name))
+  createFile(`${argv.name}/server/`, 'tsconfig.json',  createTsconfig())
+  createFile(`${argv.name}/server/`, 'tsconfig.prod.json',  createTsconfigProd())
+
+  // - src
+  createFile(`${argv.name}/server/src/`, 'server.ts',  createServer())
 
   // - config
   createFile(`${argv.name}/server/src/config/`, 'apollo.ts',  createApollo())
@@ -105,4 +118,13 @@ export const handler = (argv: Argv) => {
   createFile(`${argv.name}/server/src/config/`, 'routes.ts',  createRoutes())
 
   // - db
+  createFile(`${argv.name}/server/db/`, 'seeds.ts',  createSeeds())
+
+  // - support
+  createFile(`${argv.name}/server/support/`, 'database.ts',  createDatabase())
+  createFile(`${argv.name}/server/support/jest/`, 'jest.config.js',  createJestConfig())
+  createFile(`${argv.name}/server/support/jest/`, 'jest.integration.config.js',  createJestIntegration())
+  createFile(`${argv.name}/server/support/puppeteer/`, 'puppeteer.config.js',  createPuppeteerConfig())
+  
+
 }

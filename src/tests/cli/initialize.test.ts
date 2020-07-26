@@ -67,6 +67,11 @@ test('initializing a project', (done) => {
     expect(stdout).toMatch(/.*Created file.*\/server\/ormconfig.js/)
     expect(stdout).toMatch(/.*Created file.*\/server\/nodemon.json/)
     expect(stdout).toMatch(/.*Created file.*\/server\/package.json/)
+    expect(stdout).toMatch(/.*Created file.*\/server\/tsconfig.json/)
+    expect(stdout).toMatch(/.*Created file.*\/server\/tsconfig.prod.json/)
+
+    // - src
+    expect(stdout).toMatch(/.*Created file.*\/server\/src\/server.ts/)
 
     // - config
     expect(stdout).toMatch(/.*Created file.*\/server\/src\/config\/apollo.ts/)
@@ -76,5 +81,13 @@ test('initializing a project', (done) => {
     expect(stdout).toMatch(/.*Created file.*\/server\/src\/config\/routes.ts/)
 
     // - db
+    expect(stdout).toMatch(/.*Created file.*\/server\/db\/seeds.ts/)
+
+    // - support
+    expect(stdout).toMatch(/.*Created file.*\/server\/support\/database.ts/)
+    expect(stdout).toMatch(/.*Created file.*\/server\/support\/jest\/jest.config.js/)
+    expect(stdout).toMatch(/.*Created file.*\/server\/support\/jest\/jest.integration.config.js/)
+    expect(stdout).toMatch(/.*Created file.*\/server\/support\/puppeteer\/puppeteer.config.js/)
+
   })
 })

@@ -1,4 +1,4 @@
-export const createPackage = (name: string) => {
+export const createServerPackage = (name: string) => {
   return (`{
 "name": "${name}-server",
 "version": "0.1.0",
