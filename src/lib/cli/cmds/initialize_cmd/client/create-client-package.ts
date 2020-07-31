@@ -29,7 +29,7 @@ export const createClientPackage = (name: string) => {
     "react-dom": "^16.12.0",
     "react-loading": "^2.0.3",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.3.1",
+    "react-scripts": "3.4.1",
     "typescript": "^3.9.3",
     "yum": "^0.1.1",
     "yup": "^0.28.1"

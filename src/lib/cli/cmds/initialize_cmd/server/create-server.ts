@@ -24,7 +24,7 @@ async function bootStrap() {
 
     // Serve content
     app.listen(PORT, async () => {
-      const conn = await TypeORM.createConnection(databaseConfig)
+      const conn = await TypeORM.createConnection()
       if (process.env.NODE_ENV !== 'test') await conn.runMigrations()
       console.log(\`🚀 Server ready at http://localhost:\${PORT}\${server.graphqlPath}\`)
     })

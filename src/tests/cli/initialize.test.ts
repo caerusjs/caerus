@@ -1,7 +1,6 @@
 import childProcess from 'child_process'
 import { folders } from '../../lib/cli/cmds/initialize_cmd/client/create-client-folders'
 import { folders as serversideFolders } from '../../lib/cli/cmds/initialize_cmd/server/create-server-folders'
-// import fs from 'fs'
 
 test('initializing a project', (done) => {
   childProcess.exec('yarn caerus init my-blog', (_, stdout) => {
@@ -24,10 +23,10 @@ test('initializing a project', (done) => {
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/index.tsx/)
 
     // - lib
-    expect(stdout).toMatch(/.*Created file.*\/client\/lib\/clone-without-typename.ts/)
+    expect(stdout).toMatch(/.*Created file.*\/client\/src\/lib\/clone-without-typename.ts/)
 
     // - public
-    expect(stdout).toMatch(/.*Created file.*\/client\/src\/public\/index.html/)
+    expect(stdout).toMatch(/.*Created file.*\/client\/public\/index.html/)
 
     // - support
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/support\/setupTests.ts/)
@@ -69,6 +68,7 @@ test('initializing a project', (done) => {
     expect(stdout).toMatch(/.*Created file.*\/server\/package.json/)
     expect(stdout).toMatch(/.*Created file.*\/server\/tsconfig.json/)
     expect(stdout).toMatch(/.*Created file.*\/server\/tsconfig.prod.json/)
+    expect(stdout).toMatch(/.*Created file.*\/server\/.env/)
 
     // - src
     expect(stdout).toMatch(/.*Created file.*\/server\/src\/server.ts/)
@@ -82,6 +82,12 @@ test('initializing a project', (done) => {
 
     // - db
     expect(stdout).toMatch(/.*Created file.*\/server\/db\/seeds.ts/)
+
+    // - entities
+    expect(stdout).toMatch(/.*Created file.*\/server\/src\/entities\/example.entity.ts/)
+
+    // - resolvers
+    expect(stdout).toMatch(/.*Created file.*\/server\/src\/resolvers\/example\/example.resolver.ts/)
 
     // - support
     expect(stdout).toMatch(/.*Created file.*\/server\/support\/database.ts/)

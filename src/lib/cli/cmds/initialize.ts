@@ -44,6 +44,9 @@ import { createJestIntegration } from './initialize_cmd/server/support/jest/crea
 import { createPuppeteerConfig } from './initialize_cmd/server/support/puppeteer/create-puppeteer-config'
 import { createServer } from './initialize_cmd/server/create-server'
 import { createServerPackage } from './initialize_cmd/server/create-server-package'
+import { createExampleResolver } from './initialize_cmd/server/resolvers/example/create-example-resolver'
+import { createExampleEntity } from './initialize_cmd/server/entities/create-example-entity'
+import { createServerEnv } from './initialize_cmd/server/create-server-env'
 
 export const command = 'init [name]'
 export const describe = 'Initialize a new project [name]'
@@ -65,7 +68,7 @@ export const handler = (argv: Argv) => {
   createFile(`${argv.name}/client/src/`, 'index.tsx',  createClientIndex())
 
   // - lib
-  createFile(`${argv.name}/client/lib/`, 'clone-without-typename.ts',  createCloneWithoutTypename())
+  createFile(`${argv.name}/client/src/lib/`, 'clone-without-typename.ts',  createCloneWithoutTypename())
 
   // - public
   createFile(`${argv.name}/client/public/`, 'index.html',  createIndexHTML(argv.name))
@@ -106,6 +109,7 @@ export const handler = (argv: Argv) => {
   createFile(`${argv.name}/server/`, 'package.json',  createServerPackage(argv.name))
   createFile(`${argv.name}/server/`, 'tsconfig.json',  createTsconfig())
   createFile(`${argv.name}/server/`, 'tsconfig.prod.json',  createTsconfigProd())
+  createFile(`${argv.name}/server/`, '.env',  createServerEnv())
 
   // - src
   createFile(`${argv.name}/server/src/`, 'server.ts',  createServer())
@@ -126,5 +130,9 @@ export const handler = (argv: Argv) => {
   createFile(`${argv.name}/server/support/jest/`, 'jest.integration.config.js',  createJestIntegration())
   createFile(`${argv.name}/server/support/puppeteer/`, 'puppeteer.config.js',  createPuppeteerConfig())
   
+  // - resolvers
+  createFile(`${argv.name}/server/src/resolvers/example/`, 'example.resolver.ts',  createExampleResolver())
 
+  // - entities
+  createFile(`${argv.name}/server/src/entities/`, 'example.entity.ts',  createExampleEntity())
 }

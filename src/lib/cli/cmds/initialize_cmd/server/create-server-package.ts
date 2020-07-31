@@ -24,6 +24,7 @@ export const createServerPackage = (name: string) => {
     "helmet": "^3.22.0",
     "lodash": "^4.17.15",
     "reflect-metadata": "^0.1.10",
+    "sqlite3": "^5.0.0",
     "ts-node": "^8.6.2",
     "tsconfig-paths": "^3.9.0",
     "ttypescript": "^1.5.10",
