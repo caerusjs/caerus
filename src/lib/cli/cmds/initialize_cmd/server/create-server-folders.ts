@@ -3,6 +3,7 @@ import { createFolder } from '../../../helpers/create-folder'
 export const folders = [
   '/server/src/config',
   '/server/src/db',
+  '/server/src/db/migrations',
   '/server/src/entities',
   '/server/src/features',
   '/server/src/lib',
