@@ -9,7 +9,7 @@ import { Example } from 'entities/example.entity'
 export class ImageResolver {
   @Query(returns => Example)
   getExample(): Example {
-    return { content: "This is some example content" }
+    return { content: "Welcome to Caerus!" }
   }
 }
   `)
