@@ -8,6 +8,8 @@
     "server/",
     "client/",
     "support/",
-    "dist/"
+    "dist/",
+    "my-blog/",
+    "coverage/"
   ]
 }

@@ -1,4 +1,6 @@
 node_modules
-server
-client
-dist
+/server
+/client
+/dist
+/coverage
+my-blog

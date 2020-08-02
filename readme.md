@@ -1,9 +1,10 @@
 # Caerus Framework
+![](https://github.com/krisquigley/caerus/workflows/Node.js%20CI/badge.svg)
 
 ## What is it?
-An opinionated framework and ecosystem for building web applications with the goal of rapid development and low maintenence.
+An opinionated framework for building web applications with the goal of rapid development and low maintenence.
 
-The stack and ecosystem will evolve over time by adopting newer and better technologies, in order to improve performance and power; whilst identifying common, stable patterns for abstraction and generation, leading to increases in productivity.
+The stack will evolve over time by adopting newer and better technologies, in order to improve performance and power; whilst identifying common, stable patterns for abstraction and generation, leading to increases in productivity.
 
 ## Project Goal
 Performance, Power and Productivity. 
@@ -19,8 +20,6 @@ Performance, Power and Productivity.
  - A default tech stack proven to work together, which provide rapid development, low maintenence, security and accessibility out of the box.
  - A CLI tool to generate the project folder structure. Resource scaffolding, database migrations and type generation.
  - A standard library with commonly used functions, e.g. pluralize, titalize, async forEach() and more.
- - Plugin support.
- - i18n and Accessibility as a first class citizen.
  - Templating support for generating projects with a different default stack.
 
 ## Folder Structure
@@ -53,8 +52,6 @@ Performance, Power and Productivity.
         apollo.ts
       db/
         migrations/
-        database.config.ts
-        ormconfig.js
         seeds.ts
       entities/
         {resource}.entity.ts
@@ -74,6 +71,7 @@ Performance, Power and Productivity.
         jest/
         puppeteer/
       server.ts
+      ormconfig.js
 ```
  
 ## Test suite
@@ -102,7 +100,6 @@ Performance, Power and Productivity.
  - TypeGraphQL
  - Class Validator
  - DotEnv
- - Postgres
  - Jest
  - Jest Puppeteer
  - Jest Cucumber
@@ -117,17 +114,53 @@ Install the Caerus package from your workspace folder to get started:
 
 `$ yarn global add caerus`
 
+### Initializing a new project
+
+From your workspace folder run the following:
+
+`$ yarn caerus init [name]`
+
+Where `name` is the name of your project.  Use `-` for multiple words, e.g. `my-project`.
+
+This will then create a folder based on the project name you provided and generate all relevant files and folders needed to get you started.
+
+### Installing Dependencies
+
+From the root of your newly generated project folder run:
+
+`$ yarn`
+
+This will install all the dependencies needed for both the client and server.
+
+### Booting the application
+
+Still from the root of your project folder, run:
+
+`$ yarn dev`
+
+This will start all relevant services for your project. Once booted you will likely receive a TypeScript error, this is due to GraphQL types not being generated on first boot.
+
+To resolve this, open a new terminal window and navigate to the root of your project folder again. With the app still running, run the following command:
+
+`$ yarn codegen`
+
+This will generate the relevant types and the app should restart without error now. This mild annoyance will be addressed in a future version of Caerus.
+
+
+
 ## CLI Commands
 
 The Caerus CLI supports the following abilities:
 
-- Initialising projects (v0.5.0)
-- Generating end-to-end resources including tests (v0.4.0)
+- Initialising projects 
+- Generating end-to-end resources including tests (v0.5.0)
 - Generating entities
 - Generating resolvers
-- Generating views (v0.3.0)
+- Generating views 
 - Generating migrations (v0.6.0)
-- Generating types (v0.7.0)
+- Generating types (v0.6.0)
+
+### Generating Scaffolding
 
 ### Generating Entities
 
@@ -162,11 +195,9 @@ Road to v1.0.0:
 |Generate Entity Command|:white_check_mark:|
 |Generate Resolver Command|:white_check_mark:|
 |Generate Views Command|:white_check_mark:|
+|Initialize Project Command|:white_check_mark:|
 |Generate Resource Command||
-|Initialize Project Command||
 |Generate Entity Column Argument Support||
 |Better Code Splitting||
 |SSR Support||
-|Accessibility Support||
-|i18n Support||
 |Stack Template Support||

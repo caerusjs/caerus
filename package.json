@@ -1,6 +1,6 @@
 {
   "name": "caerus",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "An opinionated framework and ecosystem for building web applications with the goal of rapid development and low maintenence.",
   "engines": {
     "node": "^12"
@@ -11,6 +11,7 @@
   "author": "Kris Quigley <kris@krisquigley.co.uk>",
   "license": "MIT",
   "prepublish": "yarn test",
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "keywords": [
     "framework",
     "reactjs",
@@ -31,7 +32,7 @@
     "caerus": "./bin/caerus",
     "build": "yarn tsc --build tsconfig.build.json --verbose",
     "build:watch": "yarn tsc --build tsconfig.build.json --verbose --watch",
-    "test": "yarn build && yarn jest -c ./src/tests/support/jest.config.js --detectOpenHandles --runInBand"
+    "test": "yarn jest -c ./src/tests/support/jest.config.js --detectOpenHandles --runInBand"
   },
   "files": [
     "bin/",
