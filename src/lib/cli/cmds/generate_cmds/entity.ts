@@ -7,5 +7,9 @@ export const command = 'entity [name]'
 export const describe = 'Generate an entity named [name]'
 export const builder = {}
 export const handler = (argv: Argv) => {
-  createFile(`${process.cwd()}/server/src/entities/`, `${argv.name}.ts`,  createEntity(argv.name))
+  createEntityFile(argv.name)
+}
+
+export const createEntityFile = (name: string) => {
+  createFile(`${process.cwd()}/server/src/entities/`, `${name}.ts`,  createEntity(name))
 }
