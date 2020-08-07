@@ -15,17 +15,17 @@ export const handler = (argv: Argv) => {
 
   // Create Organisms
   actions.forEach(action => {
-    createFile(`${process.cwd()}/client/src/organisms/${action}${argv.name}/`, `index.ts`,  createOrganism(argv.name, action))
+    createFile(`${process.cwd()}/client/src/organisms/${action}-${argv.name}/`, `index.ts`, createOrganism(argv.name, action))
   })
   
   // Create Hooks
   actions.forEach(action => {
-    createHooks(argv.name, action)
+    createFile(`${process.cwd()}/client/src/organisms/${action}-${argv.name}/`, `use-${action}-${argv.name}.ts`, createHook(argv.name, action))
   })
 
   // Create Documents
   actions.forEach(action => {
-    createDocuments(argv.name, action)
+    createFile(`${process.cwd()}/client/src/organisms/${action}-${argv.name}/`, `${action}-${argv.name}.graphql`, createDocument(argv.name, action))
   })
 
   // Create a Resolver
