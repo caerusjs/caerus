@@ -47,6 +47,8 @@ import { createServerPackage } from './initialize_cmd/server/create-server-packa
 import { createExampleResolver } from './initialize_cmd/server/resolvers/example/create-example-resolver'
 import { createExampleEntity } from './initialize_cmd/server/entities/create-example-entity'
 import { createServerEnv } from './initialize_cmd/server/create-server-env'
+import { createResourceForm } from './initialize_cmd/client/src/molecules/create-resource-form'
+import { createPropTypes } from './initialize_cmd/client/src/types/create-prop-types'
 
 export const command = 'init [name]'
 export const describe = 'Initialize a new project [name]'
@@ -77,6 +79,9 @@ export const handler = (argv: Argv) => {
   createFile(`${argv.name}/client/src/support/`, 'setupTests.ts',  createSetupTests())
   createFile(`${argv.name}/client/src/support/`, 'jest.config.js',  createJestConfig())
 
+  // - types
+  createFile(`${argv.name}/client/src/types/`, 'props.ts',  createPropTypes())
+
   // - routes
   createFile(`${argv.name}/client/src/routes/`, 'index.tsx',  createIndexRoutes())
   createFile(`${argv.name}/client/src/routes/`, 'example.routes.tsx',  createExampleRoutes())
@@ -94,6 +99,7 @@ export const handler = (argv: Argv) => {
   createFile(`${argv.name}/client/src/molecules/loading/`, 'loading.module.css',  createLoadingSpinnerCSS())
   createFile(`${argv.name}/client/src/molecules/error/`, 'index.tsx',  createError())
   createFile(`${argv.name}/client/src/molecules/error/`, 'error.module.css',  createErrorCSS())
+  createFile(`${argv.name}/client/src/molecules/resource-form/`, 'index.tsx',  createResourceForm())
 
   // - organisms
   createFile(`${argv.name}/client/src/organisms/example/`, 'index.tsx',  createExampleOrganism())

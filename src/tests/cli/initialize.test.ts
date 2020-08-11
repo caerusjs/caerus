@@ -32,6 +32,9 @@ test('initializing a project', (done) => {
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/support\/setupTests.ts/)
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/support\/jest.config.js/)
 
+    // - props
+    expect(stdout).toMatch(/.*Created file.*\/client\/src\/types\/props.ts/)
+
     // - routes
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/routes\/index.tsx/)
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/routes\/example.routes.tsx/)
@@ -49,6 +52,7 @@ test('initializing a project', (done) => {
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/molecules\/loading\/loading.module.css/)
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/molecules\/error\/error.module.css/)
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/molecules\/error\/index.tsx/)
+    expect(stdout).toMatch(/.*Created file.*\/client\/src\/molecules\/resource-form\/index.tsx/)
 
     // - organisms
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/organisms\/example\/index.tsx/)

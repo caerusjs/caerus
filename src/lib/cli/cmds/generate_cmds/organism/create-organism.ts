@@ -1,16 +1,8 @@
 import titleize from '../../../helpers/titleize'
 
-enum Type {
-  GET,
-  ADD,
-  UPDATE
-}
-
-export const actions = [Type.GET, Type.ADD, Type.UPDATE]
-
-export const createOrganism = (name: string, type: Type) => {
-  switch (type) {
-    case Type.GET:
+export const createOrganism = (name: string, action: 'Get' | 'Add' | 'Update') => {
+  switch (action) {
+    case 'Get':
       return (`import React from 'react'
 
 import useGet${titleize(name)} from 'organisms/get${titleize(name)}/use-get-${name}'
@@ -28,13 +20,17 @@ const get${titleize(name)}: React.FC = (id: string) => {
   return (
     <P>
       {data.get${titleize(name)}.id}
+      View
+      Edit
+      Remove
     </P>
   )
 }
 
-export default get${titleize(name)}`)
+export default get${titleize(name)}
+`)
 
-    case Type.ADD:
+    case 'Add':
       return (`import React from 'react'
 import { useHistory } from 'react-router-dom'
 
@@ -88,74 +84,66 @@ const Add${titleize(name)}: React.FC<{ id: string }> = ({ id }) => {
 }
 
 export default Add${titleize(name)}
-      `)
+`)
 
-    case Type.UPDATE:
+    case 'Update':
       return (`import React from 'react'
-      import { useHistory } from 'react-router-dom'
-      
-      import { IUpdate${titleize(name)}Input } from 'types/graphql'
-      
-      import useUpdate${titleize(name)} from 'organisms/update-${name}/use-update-${name}'
-      import useGet${titleize(name)} from 'organisms/update-${name}/use-get-${name}'
-      
-      import Loading from 'molecules/loading'
-      import Error from 'molecules/error'
-      import ${titleize(name)}FormFields, { ${name}FormSchema } from 'molecules/${name}-form-fields'
-      import ResourceForm from 'molecules/resource-form'
-      
-      const Update${titleize(name)}: React.FC<{ ${name}Id: string, tenant: string }> = ({ ${name}Id, tenant }) => {
-        const history = useHistory()
-        const handleReturn = () => {
-          history.push(\`/${name}s\`)
-        }
-        const [update${titleize(name)}] = useUpdate${titleize(name)}(tenant)
-        
-        const { loading, error, data } = useGet${titleize(name)}ById(${name}Id)
-        
-        if (loading) return <Loading />
-        if (error || !data?.get${titleize(name)}ById) return <Error />
-        
-        const initial${titleize(name)}Values: IUpdate${titleize(name)}Input = {
+import { useHistory } from 'react-router-dom'
+
+import { IUpdate${titleize(name)}Input } from 'types/graphql'
+
+import useUpdate${titleize(name)} from 'organisms/update-${name}/use-update-${name}'
+import useGet${titleize(name)} from 'organisms/get-${name}/use-get-${name}'
+
+import Loading from 'molecules/loading'
+import Error from 'molecules/error'
+import ${titleize(name)}FormFields, { ${name}FormSchema } from 'molecules/${name}-form-fields'
+import ResourceForm from 'molecules/resource-form'
+
+const Update${titleize(name)}: React.FC<{ ${name}Id: string }> = ({ ${name}Id }) => {
+  const history = useHistory()
+  const handleReturn = () => {
+    history.push(\`/${name}s\`)
+  }
+  const [update${titleize(name)}] = useUpdate${titleize(name)}()
+  
+  const { loading, error, data } = useGet${titleize(name)}(${name}Id)
+  
+  if (loading) return <Loading />
+  if (error || !data?.get${titleize(name)}ById) return <Error />
+  
+  const initial${titleize(name)}Values: IUpdate${titleize(name)}Input = {
+    id: ${name}Id,
+  }
+  
+  const update${titleize(name)}Mutation = async (values: IUpdate${titleize(name)}Input) => {
+    await update${titleize(name)}({
+      variables: {
+        ${name}: {
           id: ${name}Id,
-          tenant: tenant,
-          name: data.get${titleize(name)}ById.name,
-          code: data.get${titleize(name)}ById.code,
-          utmParams: data.get${titleize(name)}ById.utmParams
         }
-        
-        const update${titleize(name)}Mutation = async (values: IUpdate${titleize(name)}Input) => {
-          await update${titleize(name)}({
-            variables: {
-              ${name}: {
-                id: ${name}Id,
-                tenant: tenant,
-                name: values.name,
-                code: values.code,
-                utmParams: values.utmParams
-              }
-            }
-          })
-        
-          handleReturn()
-        }
-        
-        const resource = {
-          name: '${titleize(name)}',
-          action: 'edit',
-          handleReturn: handleReturn,
-          validation: ${name}FormSchema,
-          initialValues: initial${titleize(name)}Values,
-          handleSubmit: update${titleize(name)}Mutation
-        }
-      
-        return (
-          <ResourceForm resource={resource} FormFields={${titleize(name)}FormFields} />
-        )
-      
-      }  
-      
-      export default Update${titleize(name)}      
+      }
+    })
+  
+    handleReturn()
+  }
+  
+  const resource = {
+    name: '${titleize(name)}',
+    action: 'edit',
+    handleReturn: handleReturn,
+    validation: ${name}FormSchema,
+    initialValues: initial${titleize(name)}Values,
+    handleSubmit: update${titleize(name)}Mutation
+  }
+
+  return (
+    <ResourceForm resource={resource} FormFields={${titleize(name)}FormFields} />
+  )
+
+}  
+
+export default Update${titleize(name)}      
 `)
   }
 
