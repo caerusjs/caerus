@@ -20,9 +20,9 @@ const get${titleize(name)}: React.FC = (id: string) => {
   return (
     <P>
       {data.get${titleize(name)}.id}
-      View
-      Edit
-      Remove
+      View - add link to show view
+      Edit - add link to edit view
+      Remove - call mutation to remove
     </P>
   )
 }
@@ -53,7 +53,7 @@ const Add${titleize(name)}: React.FC<{ id: string }> = ({ id }) => {
     const ${name} = await add${titleize(name)}({
       variables: {
         ${name}: {
-          
+          // Add your values here
         }
       }
     })
@@ -62,7 +62,7 @@ const Add${titleize(name)}: React.FC<{ id: string }> = ({ id }) => {
   }
 
   const initial${titleize(name)}Values: IAdd${titleize(name)}Input = {
-    
+    // add your initial values here
   }
 
   const handleReturn = () => {
@@ -100,27 +100,29 @@ import Error from 'molecules/error'
 import ${titleize(name)}FormFields, { ${name}FormSchema } from 'molecules/${name}-form-fields'
 import ResourceForm from 'molecules/resource-form'
 
-const Update${titleize(name)}: React.FC<{ ${name}Id: string }> = ({ ${name}Id }) => {
+const Update${titleize(name)}: React.FC<{ $id: string }> = ({ id }) => {
   const history = useHistory()
   const handleReturn = () => {
     history.push(\`/${name}s\`)
   }
   const [update${titleize(name)}] = useUpdate${titleize(name)}()
   
-  const { loading, error, data } = useGet${titleize(name)}(${name}Id)
+  const { loading, error, data } = useGet${titleize(name)}(id)
   
   if (loading) return <Loading />
   if (error || !data?.get${titleize(name)}ById) return <Error />
   
   const initial${titleize(name)}Values: IUpdate${titleize(name)}Input = {
-    id: ${name}Id,
+    id: id,
+    // Add your initial values here
   }
   
   const update${titleize(name)}Mutation = async (values: IUpdate${titleize(name)}Input) => {
     await update${titleize(name)}({
       variables: {
         ${name}: {
-          id: ${name}Id,
+          id: id, 
+          // Add your values here
         }
       }
     })

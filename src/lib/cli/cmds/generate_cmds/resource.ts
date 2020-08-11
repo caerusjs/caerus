@@ -6,7 +6,8 @@ import { createEntityFile } from './entity'
 import { createOrganism } from './organism/create-organism'
 import { createFile } from 'lib/cli/helpers/create-file'
 import { createFormFields } from './molecule/create-form-fields'
-import { createDocument } from './organism/create-document'h
+import { createDocument } from './organism/create-document'
+import { createHook } from './organism/create-hook'
 
 export const command = 'resource [name]'
 export const describe = 'Generate resource named [name]'
@@ -25,7 +26,10 @@ export const handler = (argv: Argv) => {
   
   // Create Hooks
   createFile(`${process.cwd()}/client/src/organisms/get-${argv.name}/`, `use-get-${argv.name}.ts`, createHook(argv.name, 'Get'))
+  createFile(`${process.cwd()}/client/src/organisms/get-${argv.name}/`, `use-get-${argv.name}s.ts`, createHook(argv.name, 'GetAll'))
   createFile(`${process.cwd()}/client/src/organisms/add-${argv.name}/`, `use-add-${argv.name}.ts`, createHook(argv.name, 'Add'))
+  createFile(`${process.cwd()}/client/src/organisms/update-${argv.name}/`, `use-update-${argv.name}.ts`, createHook(argv.name, 'Update'))
+  createFile(`${process.cwd()}/client/src/organisms/get-${argv.name}/`, `use-remove-${argv.name}.ts`, createHook(argv.name, 'Remove'))
 
   // Create Documents
   createFile(`${process.cwd()}/client/src/organisms/get-${argv.name}/`, `get-${argv.name}s.graphql`, createDocument(argv.name, 'GetAll'))
@@ -36,7 +40,6 @@ export const handler = (argv: Argv) => {
 
   // Create a Resolver
   createResolverFiles(argv.name)
-  // resolver specs
 
   // Create an Entity
   createEntityFile(argv.name)

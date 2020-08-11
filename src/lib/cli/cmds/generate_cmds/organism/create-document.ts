@@ -1,6 +1,6 @@
 import titleize from '../../../helpers/titleize'
 
-export const createDocument = (name: string, action: string) => {
+export const createDocument = (name: string, action: 'GetAll' | 'Get' | 'Add' | 'Update' | 'Remove') => {
   switch (action) {
     case 'GetAll':
       return (`query get${titleize(name)}s {
@@ -39,7 +39,5 @@ export const createDocument = (name: string, action: string) => {
   }
 }
 `)
-    default:
-      return ''
   }
 }
