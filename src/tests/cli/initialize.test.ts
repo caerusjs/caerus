@@ -1,6 +1,4 @@
 import childProcess from 'child_process'
-// import { folders } from '../../lib/cli/cmds/initialize_cmd/client/create-client-folders'
-// import { folders as serversideFolders } from '../../lib/cli/cmds/initialize_cmd/server/create-server-folders'
 
 test('initializing a project', (done) => {
   childProcess.exec('yarn caerus init my-blog', (_, stdout) => {
@@ -9,12 +7,6 @@ test('initializing a project', (done) => {
     expect(stdout).toMatch(/.*Created file.*\/package.json/)
     expect(stdout).toMatch(/.*Created file.*\/codegen.yml/)
     expect(stdout).toMatch(/.*Created file.*\/Procfile.dev/)
-
-    // Clientside
-    // folders.forEach(folder => {
-    //   const matcher = new RegExp(`.*Created folder.*${folder}`);
-    //   expect(stdout).toMatch(matcher)
-    // })
 
     // - root
     expect(stdout).toMatch(/.*Created file.*\/client\/package.json/)
@@ -61,13 +53,6 @@ test('initializing a project', (done) => {
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/organisms\/example\/use-get-example.ts/)
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/organisms\/example\/get-example.graphql/)
 
-    // Serverside
-    // serversideFolders.forEach(folder => {
-    //   const matcher = new RegExp(`.*Created folder.*${folder}`);
-    //   expect(stdout).toMatch(matcher)
-    // })
-    // done()
-
     // - root
     expect(stdout).toMatch(/.*Created file.*\/server\/ormconfig.js/)
     expect(stdout).toMatch(/.*Created file.*\/server\/nodemon.json/)
@@ -85,9 +70,6 @@ test('initializing a project', (done) => {
     expect(stdout).toMatch(/.*Created file.*\/server\/src\/config\/cors.ts/)
     expect(stdout).toMatch(/.*Created file.*\/server\/src\/config\/index.ts/)
     expect(stdout).toMatch(/.*Created file.*\/server\/src\/config\/routes.ts/)
-
-    // - props
-    expect(stdout).toMatch(/.*Created file.*\/server\/src\/types\/props.ts/)
 
     // - db
     expect(stdout).toMatch(/.*Created file.*\/server\/db\/seeds.ts/)

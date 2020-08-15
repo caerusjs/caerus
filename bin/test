@@ -2,8 +2,6 @@
 
 yarn jest $@
 
-
-
 if [ $? -eq 0 ]
 then
   echo $'\r'

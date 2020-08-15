@@ -139,9 +139,6 @@ export const handler = (argv: Argv) => {
   createFile(`${argv.name}/server/src/config/`, 'index.ts',  createConfigIndex())
   createFile(`${argv.name}/server/src/config/`, 'routes.ts',  createRoutes())
 
-  // - props
-  createFile(`${argv.name}/server/src/types/`, 'props.ts',  createPropTypes())
-
   // - db
   createFile(`${argv.name}/server/db/`, 'seeds.ts',  createSeeds())
 

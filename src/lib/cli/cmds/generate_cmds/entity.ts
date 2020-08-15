@@ -11,5 +11,5 @@ export const handler = (argv: Argv) => {
 }
 
 export const createEntityFile = (name: string) => {
-  createFile(`${process.cwd()}/server/src/entities/`, `${name}.ts`,  createEntity(name))
+  createFile(`${process.cwd()}/server/src/entities/`, `${name}.entity.ts`,  createEntity(name))
 }

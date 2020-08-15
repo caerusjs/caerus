@@ -112,13 +112,13 @@ The Caerus Command Line Interface (CLI) makes it easy to initialise new projects
 
 Install the Caerus package from your workspace folder to get started:
 
-`$ yarn global add caerus`
+`$ yarn add caerus`
 
 ### Initializing a new project
 
 From your workspace folder run the following:
 
-`$ caerus init [name]`
+`$ yarn caerus init [name]`
 
 Where `name` is the name of your project.  Use `-` for multiple words, e.g. `my-project`.
 
@@ -165,7 +165,7 @@ The Caerus CLI supports the following abilities:
 
 To generate an entity with default columns (id, createdAt, updatedAt and deletedAt) and graphql typedefs; run the following command from the root of your project:
 
-`$ caerus generate entity [name]`
+`$ yarn caerus generate entity [name]`
 
 Where `name` is the name of your entity.  Entities should be singular and use `-` for multiple words, e.g. `blog-post`.
 
@@ -173,7 +173,7 @@ Where `name` is the name of your entity.  Entities should be singular and use `-
 
 To generate a resolver, as well as input and arguments types and test scaffold, which covers the basic CRUD actions; run the following command from the root of your project:
 
-`$ caerus generate resolver [name]`
+`$ yarn caerus generate resolver [name]`
 
 Where `name` is the name of your resolver.  Resolvers should be singular and use `-` for multiple words, e.g. `blog-post`.
 
@@ -181,7 +181,7 @@ Where `name` is the name of your resolver.  Resolvers should be singular and use
 
 To generate views and routes for a given resource, run the following command from the root of your project:
 
-`$ caerus generate views [name]`
+`$ yarn caerus generate views [name]`
 
 Where `name` is the name of your resource.  Views should be singular and use `-` for multiple words, e.g. `blog-post`.
 

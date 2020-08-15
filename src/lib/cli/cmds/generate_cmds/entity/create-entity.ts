@@ -2,11 +2,8 @@ import titleize from '../../../helpers/titleize'
 
 export const createEntity = (name: string) => {
   return (`import { 
-  CreateDateColumn, 
   Entity, 
   PrimaryGeneratedColumn, 
-  UpdateDateColumn, 
-  DeleteDateColumn,
 } from 'typeorm'
 import {
   ObjectType,
