@@ -49,6 +49,10 @@ import { createExampleEntity } from './initialize_cmd/server/entities/create-exa
 import { createServerEnv } from './initialize_cmd/server/create-server-env'
 import { createResourceForm } from './initialize_cmd/client/src/molecules/create-resource-form'
 import { createPropTypes } from './initialize_cmd/client/src/types/create-prop-types'
+import { createLinkCSS } from './initialize_cmd/client/src/molecules/create-link-css'
+import { createLink } from './initialize_cmd/client/src/molecules/create-link'
+import { createA } from './initialize_cmd/client/src/atoms/create-a'
+import { createACSS } from './initialize_cmd/client/src/atoms/create-a-css'
 
 export const command = 'init [name]'
 export const describe = 'Initialize a new project [name]'
@@ -71,7 +75,10 @@ export const handler = (argv: Argv) => {
 
   // - lib
   createFile(`${argv.name}/client/src/lib/`, 'clone-without-typename.ts',  createCloneWithoutTypename())
-
+ 
+  // - props
+  createFile(`${argv.name}/client/src/types/`, 'props.ts',  createPropTypes())
+  
   // - public
   createFile(`${argv.name}/client/public/`, 'index.html',  createIndexHTML(argv.name))
 
@@ -93,12 +100,17 @@ export const handler = (argv: Argv) => {
   // - atoms
   createFile(`${argv.name}/client/src/atoms/p/`, 'index.tsx',  createP())
   createFile(`${argv.name}/client/src/atoms/p/`, 'p.module.css',  createPCSS())
+  createFile(`${argv.name}/client/src/atoms/a/`, 'index.tsx',  createA())
+  createFile(`${argv.name}/client/src/atoms/a/`, 'a.module.css',  createACSS())
+
 
   // - molecules
   createFile(`${argv.name}/client/src/molecules/loading/`, 'index.tsx',  createLoadingSpinner())
   createFile(`${argv.name}/client/src/molecules/loading/`, 'loading.module.css',  createLoadingSpinnerCSS())
   createFile(`${argv.name}/client/src/molecules/error/`, 'index.tsx',  createError())
   createFile(`${argv.name}/client/src/molecules/error/`, 'error.module.css',  createErrorCSS())
+  createFile(`${argv.name}/client/src/molecules/link/`, 'index.tsx',  createLink())
+  createFile(`${argv.name}/client/src/molecules/link/`, 'link.module.css',  createLinkCSS())
   createFile(`${argv.name}/client/src/molecules/resource-form/`, 'index.tsx',  createResourceForm())
 
   // - organisms
@@ -126,6 +138,9 @@ export const handler = (argv: Argv) => {
   createFile(`${argv.name}/server/src/config/`, 'cors.ts',  createCors())
   createFile(`${argv.name}/server/src/config/`, 'index.ts',  createConfigIndex())
   createFile(`${argv.name}/server/src/config/`, 'routes.ts',  createRoutes())
+
+  // - props
+  createFile(`${argv.name}/server/src/types/`, 'props.ts',  createPropTypes())
 
   // - db
   createFile(`${argv.name}/server/db/`, 'seeds.ts',  createSeeds())

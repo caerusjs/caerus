@@ -1,7 +1,58 @@
 import titleize from '../../../helpers/titleize'
 
-export const createOrganism = (name: string, action: 'Get' | 'Add' | 'Update') => {
+export const createOrganism = (name: string, action: 'GetAll' | 'Get' | 'Add' | 'Update') => {
   switch (action) {
+    case 'GetAll':
+      return (`import React from 'react'
+
+import useGet${titleize(name)}s from 'organisms/get${titleize(name)}/use-get-${name}s'
+
+import P from 'atoms/p'
+import Error from 'molecules/error'
+import Loading from 'molecules/loading'
+import ${titleize(name)}Item from 'molecules/${name}-item'
+
+const Get${titleize(name)}s: React.FC = () => {
+  const { data, loading, error } = useGet${titleize(name)}s
+
+  if (loading) return <Loading />
+  if (error || !data?.get${titleize(name)}s) return <Error />
+
+  const { get${titleize(name)}s } = data
+
+  const ${titleize(name)}s = () => {
+    if (!get${titleize(name)}?.length) {
+      return (
+        <P className={bootstrap.mt3}>Please add a ${titleize(name)}</P>
+      )
+    } else {
+      return get${titleize(name)}s.map((${name}) => {
+        const handleRemove = () => {
+          remove${titleize(name)}({
+            variables: {
+              ${name}: {
+                id: ${name}.id
+              }
+            }
+          })
+        }
+
+        return (
+          <${titleize(name)}Item ${name}={${name}} handleRemove={handleRemove} />
+        )
+      })
+    }
+  }
+  
+  return (
+    <>
+      { ${titleize(name)}s() }
+    </>
+  )
+}
+
+export default Get${titleize(name)}s`)
+
     case 'Get':
       return (`import React from 'react'
 
@@ -11,7 +62,7 @@ import P from 'atoms/p'
 import Error from 'molecules/error'
 import Loading from 'molecules/loading'
 
-const get${titleize(name)}: React.FC = (id: string) => {
+const Get${titleize(name)}: React.FC = (id: string) => {
   const { data, loading, error } = useGet${titleize(name)}(id)
 
   if (loading) return <Loading />
@@ -20,14 +71,11 @@ const get${titleize(name)}: React.FC = (id: string) => {
   return (
     <P>
       {data.get${titleize(name)}.id}
-      View - add link to show view
-      Edit - add link to edit view
-      Remove - call mutation to remove
     </P>
   )
 }
 
-export default get${titleize(name)}
+export default Get${titleize(name)}
 `)
 
     case 'Add':
