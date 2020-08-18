@@ -37,20 +37,20 @@ export class ${titleize(name)}Resolver {
   
   @Mutation(returns => ${titleize(name)})
   async add${titleize(name)}(@Arg('${camelize(name)}') ${camelize(name)}: Add${titleize(name)}Input): Promise<${titleize(name)} | undefined> {
-    const ${name}Repository = getRepository(${titleize(name)})
-    return await ${name}Repository.save(${titleize(name)})
+    return getRepository(${titleize(name)})
+      .save(${titleize(name)})
   }
   
   @Mutation(returns => ${titleize(name)})
   async update${titleize(name)}(@Arg('${camelize(name)}') ${camelize(name)}: Update${titleize(name)}Input): Promise<${titleize(name)} | undefined> {
-    const ${name}Repository = getRepository(${titleize(name)})
-    return await ${name}Repository.save(${titleize(name)})
+    return getRepository(${titleize(name)})
+      .save(${titleize(name)})
   }
 
   @Mutation(returns => ${titleize(name)})
   async remove${titleize(name)}(@Arg('${camelize(name)}') ${camelize(name)}: Remove${titleize(name)}Input): Promise<${titleize(name)} | undefined> {
-    const ${name}Repository = getRepository(${titleize(name)})
-    return await ${name}Repository.remove(${titleize(name)})
+    return getRepository(${titleize(name)})
+      .remove(${titleize(name)})
   }
 }`)
 }

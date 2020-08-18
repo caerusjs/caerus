@@ -22,8 +22,5 @@ export class Update${titleize(name)}Input implements Partial<${titleize(name)}> 
 export class Remove${titleize(name)}Input implements Partial<${titleize(name)}> {
   @Field(type => ID)
   id: string
-  
-  @Field()
-  deletedAt: Date
 }`)
 }

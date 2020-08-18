@@ -104,7 +104,7 @@ Performance, Power and Productivity.
  - Jest Puppeteer
  - Jest Cucumber
 
-## Command Line Interface
+## Getting Started
 
 The Caerus Command Line Interface (CLI) makes it easy to initialise new projects and to generate scaffolding for existing projects. It’s an essential part of using Caerus.
 
@@ -145,6 +145,26 @@ To resolve this, open a new terminal window and navigate to the root of your pro
 `$ yarn codegen`
 
 This will generate the relevant types and the app should restart without error now. This mild annoyance will be addressed in a future version of Caerus
+
+## Generating your first resource
+
+It this example we will be generating a resource called `post` which will be used for adding posts to our project.
+
+### Running the generate resource command
+
+From the root folder of your application run the following command:
+
+`$ yarn caerus g resource post`
+
+This will then generate the relevant files and folders associated with your resource.
+
+### Adding extra columns to our entity
+
+- add columns to entity
+- update args
+- update tests
+- update variables
+- update forms
 
 
 ## CLI Commands
