@@ -48,8 +48,8 @@ import { createExampleResolver } from './initialize_cmd/server/resolvers/example
 import { createExampleEntity } from './initialize_cmd/server/entities/create-example-entity'
 import { createServerEnv } from './initialize_cmd/server/create-server-env'
 
-export const command = 'init [name]'
-export const describe = 'Initialize a new project [name]'
+export const command = 'init <name>'
+export const describe = 'Initialize a new project <name>'
 export const builder = {}
 export const handler = (argv: Argv) => {
   // Root
