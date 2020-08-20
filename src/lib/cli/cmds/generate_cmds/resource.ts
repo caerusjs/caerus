@@ -10,8 +10,8 @@ import { createDocument } from './organism/create-document'
 import { createHook } from './organism/create-hook'
 import { createResourceItem } from './molecule/create-resource-item'
 
-export const command = 'resource [name]'
-export const describe = 'Generate resource named [name]'
+export const command = 'resource <name>'
+export const describe = 'Generate resource named <name>'
 export const builder = {}
 export const handler = (argv: Argv) => {
   // Create Views

@@ -5,7 +5,7 @@ export const createOrganism = (name: string, action: 'GetAll' | 'Get' | 'Add' | 
     case 'GetAll':
       return (`import React from 'react'
 
-import useGet${titleize(name)}s from 'organisms/get${titleize(name)}/use-get-${name}s'
+import useGet${titleize(name)}s from 'organisms/get-${name}s/use-get-${name}s'
 
 import P from 'atoms/p'
 import Error from 'molecules/error'
@@ -13,7 +13,8 @@ import Loading from 'molecules/loading'
 import ${titleize(name)}Item from 'molecules/${name}-item'
 
 const Get${titleize(name)}s: React.FC = () => {
-  const { data, loading, error } = useGet${titleize(name)}s
+  const { data, loading, error } = useGet${titleize(name)}s()
+  const [remove${titleize(name)}] = useRemove${titleize(name)}()
 
   if (loading) return <Loading />
   if (error || !data?.get${titleize(name)}s) return <Error />
@@ -21,18 +22,16 @@ const Get${titleize(name)}s: React.FC = () => {
   const { get${titleize(name)}s } = data
 
   const ${titleize(name)}s = () => {
-    if (!get${titleize(name)}?.length) {
+    if (!get${titleize(name)}s?.length) {
       return (
-        <P className={bootstrap.mt3}>Please add a ${titleize(name)}</P>
+        <P>Please add a ${titleize(name)}</P>
       )
     } else {
       return get${titleize(name)}s.map((${name}) => {
         const handleRemove = () => {
           remove${titleize(name)}({
             variables: {
-              ${name}: {
-                id: ${name}.id
-              }
+              ${name}
             }
           })
         }
@@ -56,13 +55,13 @@ export default Get${titleize(name)}s`)
     case 'Get':
       return (`import React from 'react'
 
-import useGet${titleize(name)} from 'organisms/get${titleize(name)}/use-get-${name}'
+import useGet${titleize(name)} from 'organisms/get-${name}/use-get-${name}'
 
 import P from 'atoms/p'
 import Error from 'molecules/error'
 import Loading from 'molecules/loading'
 
-const Get${titleize(name)}: React.FC = (id: string) => {
+const Get${titleize(name)}: React.FC<{ id: string }> = ({ id }) => {
   const { data, loading, error } = useGet${titleize(name)}(id)
 
   if (loading) return <Loading />
@@ -93,16 +92,14 @@ import ${titleize(name)}FormFields, {
   ${name}FormSchema 
 } from 'molecules/${name}-form-fields'
 
-const Add${titleize(name)}: React.FC<{ id: string }> = ({ id }) => {
+const Add${titleize(name)}: React.FC = () => {
   const history = useHistory()
-  const [add${titleize(name)}] = useAdd${titleize(name)}(id)
+  const [add${titleize(name)}] = useAdd${titleize(name)}()
 
   const add${titleize(name)}Mutation = async (values: IAdd${titleize(name)}Input) => {
     const ${name} = await add${titleize(name)}({
       variables: {
-        ${name}: {
-          // Add your values here
-        }
+        ${name}: values
       }
     })
 
@@ -148,7 +145,7 @@ import Error from 'molecules/error'
 import ${titleize(name)}FormFields, { ${name}FormSchema } from 'molecules/${name}-form-fields'
 import ResourceForm from 'molecules/resource-form'
 
-const Update${titleize(name)}: React.FC<{ $id: string }> = ({ id }) => {
+const Update${titleize(name)}: React.FC<{ id: string }> = ({ id }) => {
   const history = useHistory()
   const handleReturn = () => {
     history.push(\`/${name}s\`)
@@ -168,10 +165,7 @@ const Update${titleize(name)}: React.FC<{ $id: string }> = ({ id }) => {
   const update${titleize(name)}Mutation = async (values: IUpdate${titleize(name)}Input) => {
     await update${titleize(name)}({
       variables: {
-        ${name}: {
-          id: id, 
-          // Add your values here
-        }
+        ${name}: values
       }
     })
   

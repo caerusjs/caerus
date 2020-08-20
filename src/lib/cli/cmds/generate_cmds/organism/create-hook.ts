@@ -10,7 +10,7 @@ import {
   Get${titleize(name)}sDocument 
 } from 'types/graphql'
 
-const useGet${titleize(name)}s = (tenant: string) => {
+const useGet${titleize(name)}s = () => {
   return useQuery<IGet${titleize(name)}sQuery>(
     Get${titleize(name)}sDocument
   )
@@ -27,7 +27,7 @@ import {
   Get${titleize(name)}Document 
 } from 'types/graphql'
 
-const useGet${titleize(name)} = (code: string) => {
+const useGet${titleize(name)} = (id: string) => {
   return useQuery<IGet${titleize(name)}Query, IGet${titleize(name)}QueryVariables>(
     Get${titleize(name)}Document, { 
     variables: { 
@@ -40,8 +40,7 @@ export default useGet${titleize(name)}
 `)
 
     case 'Add':
-      return (`import { useContext } from 'react'
-import { useMutation } from '@apollo/react-hooks'
+      return (`import { useMutation } from '@apollo/react-hooks'
 
 import {
   Add${titleize(name)}Document,
@@ -59,8 +58,7 @@ export default useAdd${titleize(name)}
       `)
 
     case 'Update':
-      return (`import { useContext } from 'react'
-import { useMutation } from '@apollo/react-hooks'
+      return (`import { useMutation } from '@apollo/react-hooks'
 
 import { 
   Update${titleize(name)}Document, 
@@ -68,9 +66,7 @@ import {
   IUpdate${titleize(name)}MutationVariables 
 } from 'types/graphql'
 
-const useUpdate${titleize(name)} = (tenant: string) => {
-  const { showAlert } = useContext(AlertsContext)
-
+const useUpdate${titleize(name)} = () => {
   return useMutation<IUpdate${titleize(name)}Mutation, IUpdate${titleize(name)}MutationVariables>(
     Update${titleize(name)}Document,
   )
@@ -80,8 +76,7 @@ export default useUpdate${titleize(name)}
 `)
 
     case 'Remove':
-      return (`import { useContext } from 'react'
-import { useMutation } from '@apollo/react-hooks'
+      return (`import { useMutation } from '@apollo/react-hooks'
 
 import {
   IRemove${titleize(name)}MutationVariables,
@@ -89,7 +84,7 @@ import {
   Remove${titleize(name)}Document
 } from 'types/graphql'
 
-const useRemove${titleize(name)} = (id: string) => {
+const useRemove${titleize(name)} = () => {
   return useMutation<IRemove${titleize(name)}Mutation, IRemove${titleize(name)}MutationVariables>(
     Remove${titleize(name)}Document
   )

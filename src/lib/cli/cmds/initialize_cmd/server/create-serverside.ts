@@ -43,13 +43,13 @@ export const createServerside = (name: string) => {
   createFile(`${name}/server/src/config/`, 'routes.ts',  createRoutes())
 
   // - db
-  createFile(`${name}/server/db/`, 'seeds.ts',  createSeeds())
+  createFile(`${name}/server/src/db/`, 'seeds.ts',  createSeeds())
 
   // - support
-  createFile(`${name}/server/support/`, 'database.ts',  createDatabase())
-  createFile(`${name}/server/support/jest/`, 'jest.config.js',  createJestConfig())
-  createFile(`${name}/server/support/jest/`, 'jest.integration.config.js',  createJestIntegration())
-  createFile(`${name}/server/support/puppeteer/`, 'puppeteer.config.js',  createPuppeteerConfig())
+  createFile(`${name}/server/src/support/`, 'database.ts',  createDatabase())
+  createFile(`${name}/server/src/support/jest/`, 'jest.config.js',  createJestConfig())
+  createFile(`${name}/server/src/support/jest/`, 'jest.integration.config.js',  createJestIntegration())
+  createFile(`${name}/server/src/support/puppeteer/`, 'puppeteer.config.js',  createPuppeteerConfig())
   
   // - resolvers
   createFile(`${name}/server/src/resolvers/example/`, 'example.resolver.ts',  createExampleResolver())

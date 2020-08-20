@@ -10,8 +10,8 @@ export const createDocument = (name: string, action: 'GetAll' | 'Get' | 'Add' | 
 }`)
 
     case 'Get':
-      return (`query get${titleize(name)}($${name}: Get${titleize(name)}Args) {
-  get${titleize(name)}(${name}: $${name}) {
+      return (`query get${titleize(name)}($id: ID!) {
+  get${titleize(name)}(id: $id) {
     id
   }
 }`)

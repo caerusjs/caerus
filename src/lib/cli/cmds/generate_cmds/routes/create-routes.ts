@@ -12,10 +12,10 @@ import Edit${titleize(name)}View from 'views/${name}/edit'
 const ${titleize(name)}Routes: React.FC<RouteComponentProps> = () => {
   return (
     <>
-      <Route path='${name}/new' component={New${titleize(name)}View} />
-      <Route path='${name}/edit' component={Edit${titleize(name)}View} />
-      <Route path='${name}/:id' component={Show${titleize(name)}View} />
-      <Route path='${name}' component={Index${titleize(name)}View} />
+      <Route path='/new' component={New${titleize(name)}View} />
+      <Route path='/edit' component={Edit${titleize(name)}View} />
+      <Route path='/:id' component={Show${titleize(name)}View} />
+      <Route path='/' component={Index${titleize(name)}View} />
     </>
   )
 }

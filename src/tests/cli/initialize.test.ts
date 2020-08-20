@@ -38,6 +38,10 @@ test('initializing a project', (done) => {
     // - atoms
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/atoms\/p\/index.tsx/)
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/atoms\/p\/p.module.css/)
+    expect(stdout).toMatch(/.*Created file.*\/client\/src\/atoms\/a\/index.tsx/)
+    expect(stdout).toMatch(/.*Created file.*\/client\/src\/atoms\/a\/a.module.css/)
+    expect(stdout).toMatch(/.*Created file.*\/client\/src\/atoms\/button\/index.tsx/)
+    expect(stdout).toMatch(/.*Created file.*\/client\/src\/atoms\/button\/button.module.css/)
 
     // - molecules
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/molecules\/loading\/index.tsx/)

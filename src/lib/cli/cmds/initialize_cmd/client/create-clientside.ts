@@ -28,6 +28,8 @@ import { createLinkCSS } from './src/molecules/create-link-css'
 import { createLink } from './src/molecules/create-link'
 import { createA } from './src/atoms/create-a'
 import { createACSS } from './src/atoms/create-a-css'
+import { createButtonCSS } from './src/atoms/create-button-css'
+import { createButton } from './src/atoms/create-button'
 
 export const createClient = (name: string) => {
   createClientFolders(name)
@@ -67,6 +69,8 @@ export const createClient = (name: string) => {
   createFile(`${name}/client/src/atoms/p/`, 'p.module.css',  createPCSS())
   createFile(`${name}/client/src/atoms/a/`, 'index.tsx',  createA())
   createFile(`${name}/client/src/atoms/a/`, 'a.module.css',  createACSS())
+  createFile(`${name}/client/src/atoms/button/`, 'index.tsx',  createButton())
+  createFile(`${name}/client/src/atoms/button/`, 'button.module.css',  createButtonCSS())
 
   // - molecules
   createFile(`${name}/client/src/molecules/loading/`, 'index.tsx',  createLoadingSpinner())

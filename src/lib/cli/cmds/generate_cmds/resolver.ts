@@ -7,8 +7,8 @@ import { createTest } from './resolver/create-test'
 import { createInput } from './resolver/create-input'
 import { createArgs } from './resolver/create-args'
 
-export const command = 'resolver [name]'
-export const describe = 'Generate a resolver named [name]'
+export const command = 'resolver <name>'
+export const describe = 'Generate a resolver named <name>'
 export const builder = {}
 export const handler = (argv: Argv) => {
   createResolverFiles(argv.name)

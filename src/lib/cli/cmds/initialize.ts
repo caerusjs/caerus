@@ -11,8 +11,8 @@ import { createClient } from './initialize_cmd/client/create-clientside'
 import { createServerside } from './initialize_cmd/server/create-serverside'
 
 
-export const command = 'init [name]'
-export const describe = 'Initialize a new project [name]'
+export const command = 'init <name>'
+export const describe = 'Initialize a new project <name>'
 export const builder = {}
 export const handler = (argv: Argv) => {
   // Root
