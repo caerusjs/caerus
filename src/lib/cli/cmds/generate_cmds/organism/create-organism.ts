@@ -31,7 +31,9 @@ const Get${titleize(name)}s: React.FC = () => {
         const handleRemove = () => {
           remove${titleize(name)}({
             variables: {
-              ${name}
+              ${name}: {
+                id: ${name}.id
+              }
             }
           })
         }
@@ -97,13 +99,13 @@ const Add${titleize(name)}: React.FC = () => {
   const [add${titleize(name)}] = useAdd${titleize(name)}()
 
   const add${titleize(name)}Mutation = async (values: IAdd${titleize(name)}Input) => {
-    const ${name} = await add${titleize(name)}({
+    await add${titleize(name)}({
       variables: {
         ${name}: values
       }
     })
 
-    history.push(\`/${name}s/\${${name}.data?.add${titleize(name)}.id}/edit\`)
+    history.push(\`/${name}s/\`)
   }
 
   const initial${titleize(name)}Values: IAdd${titleize(name)}Input = {
@@ -111,7 +113,7 @@ const Add${titleize(name)}: React.FC = () => {
   }
 
   const handleReturn = () => {
-    history.push(\`/\`)
+    history.push(\`/${name}s\`)
   }
 
   const resource = {

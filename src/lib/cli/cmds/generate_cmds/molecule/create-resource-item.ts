@@ -20,15 +20,17 @@ interface I${titleize(name)}ItemProps {
 
 const ${titleize(name)}Item: React.FC<I${titleize(name)}ItemProps> = ({ handleRemove, ${name} }) => {
   return (
-    <P>
-      ${name}.id
-      <Link
-        to={\`/\$\{${name}.id}\`}
-      >
-        <A>View ${titleize(name)}</A>
-      </Link>
+    <>
+      <P>{${name}.id}</P>
+      <P>
+        <Link
+          to={\`/${name}s/\$\{${name}.id}\`}
+        >
+          <A>View ${titleize(name)}</A>
+        </Link>
+      </P>
       <Button onClick={handleRemove}>Remove</Button>
-    </P>
+    </>
   )
 }
 

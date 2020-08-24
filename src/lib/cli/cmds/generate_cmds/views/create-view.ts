@@ -27,11 +27,11 @@ import Update${titleize(name)} from 'organisms/update-${name}'
 import ApplicationLayout from 'views/layouts/application.layout'
 
 const Edit${titleize(name)}View: React.FC = () => {
-  const { id } = useParams()
+  const { ${name}Id } = useParams()
 
   return (
     <ApplicationLayout>
-      <Update${titleize(name)} id={id as string} />
+      <Update${titleize(name)} id={${name}Id as string} />
     </ApplicationLayout>
   )
 }
@@ -42,12 +42,16 @@ export default Edit${titleize(name)}View
     case 'Index':
       return (`import React from 'react'
 
+      import A from 'atoms/a'
+import Link from 'molecules/link'
 import Get${titleize(name)}s from 'organisms/get-${name}s'
+
 import ApplicationLayout from 'views/layouts/application.layout'
 
 const Index${titleize(name)}View: React.FC = () => {
   return (
     <ApplicationLayout>
+      <Link to={'/${name}/new'}><A>Add ${titleize(name)}</A></Link>
       <Get${titleize(name)}s />
     </ApplicationLayout>
   )
@@ -64,11 +68,11 @@ import Get${titleize(name)} from 'organisms/get-${name}'
 import ApplicationLayout from 'views/layouts/application.layout'
 
 const Show${titleize(name)}View: React.FC = () => {
-  const { id } = useParams()
+  const { ${name}Id } = useParams()
 
   return (
     <ApplicationLayout>
-      <Get${titleize(name)} id={id as string} />
+      <Get${titleize(name)} id={${name}Id as string} />
     </ApplicationLayout>
   )
 }

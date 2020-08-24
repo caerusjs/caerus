@@ -7,7 +7,8 @@ export const createResolver = (name: string) => {
   Arg,
   Resolver,
   Mutation,
-  Query
+  Query,
+  DeleteResult
 } from 'type-graphql'
 import { getRepository } from 'typeorm'
 
@@ -48,9 +49,13 @@ export class ${titleize(name)}Resolver {
   }
 
   @Mutation(returns => ${titleize(name)})
-  async remove${titleize(name)}(@Arg('${camelize(name)}') ${camelize(name)}: Remove${titleize(name)}Input): Promise<${titleize(name)} | undefined> {
+  async remove${titleize(name)}(@Arg('${camelize(name)}') { id }: Remove${titleize(name)}Input): Promise<DeleteResult> {
     return getRepository(${titleize(name)})
-      .remove(${titleize(name)})
+      .createQueryBuilder()
+      .delete()
+      .from(Post)
+      .where('id = :id', { id: id })
+      .execute()
   }
 }`)
 }

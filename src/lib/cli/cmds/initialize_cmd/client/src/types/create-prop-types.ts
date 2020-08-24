@@ -9,7 +9,7 @@ export const createPropTypes = () => {
 }
 
 export type IFormFields = {
-  values: object
+  values: any
   touched: FormikTouched<any>
   errors: FormikErrors<any>
   handleChange: (e: React.ChangeEvent<any>) => void
