@@ -64,3 +64,19 @@ test('generating views', (done) => {
     expect(routeContents).toMatch(/.*const TestRoutes/)
   })
 })
+
+test('generating a resource', (done) => {
+  childProcess.exec('yarn caerus g resource test', (_, stdout) => {
+    // Check we have the correct console message
+    expect(stdout).toMatch(/.*Created file.*\/client\/src\/views\/test\/new.tsx/)
+    expect(stdout).toMatch(/.*Created file.*\/client\/src\/views\/test\/edit.tsx/)
+    expect(stdout).toMatch(/.*Created file.*\/client\/src\/views\/test\/show.tsx/)
+    expect(stdout).toMatch(/.*Created file.*\/client\/src\/views\/test\/index.tsx/)
+    expect(stdout).toMatch(/.*Created file.*\/client\/src\/routes\/test.tsx/)
+    done()
+
+    // Check all other resource related files have been generated
+
+    // Check for GraphQL cache files
+  })
+})

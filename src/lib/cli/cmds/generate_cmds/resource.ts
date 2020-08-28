@@ -14,6 +14,10 @@ export const command = 'resource <name>'
 export const describe = 'Generate resource named <name>'
 export const builder = {}
 export const handler = (argv: Argv) => {
+  // Create cache
+  createFile(`${process.cwd()}/client/src/cache/`, `${argv.name}.cache.ts`, createCache(argv.name, 'AddRemove'))
+  createFile(`${process.cwd()}/client/src/cache/`, `${argv.name}.cache.ts`, createCache(argv.name, 'Update'))
+
   // Create Views
   createViews(argv.name)
 

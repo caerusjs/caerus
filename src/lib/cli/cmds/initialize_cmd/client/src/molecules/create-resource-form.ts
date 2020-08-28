@@ -32,7 +32,7 @@ const ResourceForm: React.FC<IResourceFormProps> = ({ FormFields, resource }) =>
             noValidate
             data-testid={\`\${resource.action}\${resource.name}Form\`}
           >
-            <div>
+            <form>
               <span
                 data-testid={\`cancel\${resource.action}\${resource.name}\`}
                 onClick={resource.handleReturn}
@@ -45,11 +45,11 @@ const ResourceForm: React.FC<IResourceFormProps> = ({ FormFields, resource }) =>
               >
                 Done
               </button>
-            </div>
-            <h5>
-              {resource.action} {resource.name}
-            </h5>
-            <FormFields values={values} touched={touched} errors={errors} handleChange={handleChange} />
+              <h5>
+                {resource.action} {resource.name}
+              </h5>
+              <FormFields values={values} touched={touched} errors={errors} handleChange={handleChange} />
+            </form>
           </Form>
         )
       }}

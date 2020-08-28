@@ -48,14 +48,17 @@ export class ${titleize(name)}Resolver {
       .save(${titleize(name)})
   }
 
+
   @Mutation(returns => ${titleize(name)})
-  async remove${titleize(name)}(@Arg('${camelize(name)}') { id }: Remove${titleize(name)}Input): Promise<DeleteResult> {
-    return getRepository(${titleize(name)})
+  async remove${titleize(name)}(@Arg('${camelize(name)}') { id }: Remove${titleize(name)}Input): Promise<Partial<${titleize(name)}>> {
+    await getRepository(${titleize(name)})
       .createQueryBuilder()
       .delete()
       .from(Post)
       .where('id = :id', { id: id })
       .execute()
+
+    return { id }
   }
 }`)
 }

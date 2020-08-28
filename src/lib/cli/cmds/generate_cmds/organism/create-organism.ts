@@ -101,7 +101,7 @@ const Add${titleize(name)}: React.FC = () => {
   const add${titleize(name)}Mutation = async (values: IAdd${titleize(name)}Input) => {
     await add${titleize(name)}({
       variables: {
-        ${name}: values
+        ...values
       }
     })
 
@@ -121,7 +121,7 @@ const Add${titleize(name)}: React.FC = () => {
     handleSubmit: add${titleize(name)}Mutation,
     handleReturn: handleReturn,
     validation: ${name}FormSchema,
-    name: '${titleize(name)}',
+    name: '${name}',
     action: 'new'
   }
 
@@ -157,17 +157,18 @@ const Update${titleize(name)}: React.FC<{ id: string }> = ({ id }) => {
   const { loading, error, data } = useGet${titleize(name)}(id)
   
   if (loading) return <Loading />
-  if (error || !data?.get${titleize(name)}ById) return <Error />
+  if (error || !data?.get${titleize(name)}) return <Error />
+
+  const { get${titleize(name)} } = data
   
   const initial${titleize(name)}Values: IUpdate${titleize(name)}Input = {
-    id: id,
-    // Add your initial values here
+    ...get${titleize(name)}
   }
   
   const update${titleize(name)}Mutation = async (values: IUpdate${titleize(name)}Input) => {
     await update${titleize(name)}({
       variables: {
-        ${name}: values
+        ...values
       }
     })
   
@@ -175,7 +176,7 @@ const Update${titleize(name)}: React.FC<{ id: string }> = ({ id }) => {
   }
   
   const resource = {
-    name: '${titleize(name)}',
+    name: '${name}',
     action: 'edit',
     handleReturn: handleReturn,
     validation: ${name}FormSchema,
@@ -192,5 +193,4 @@ const Update${titleize(name)}: React.FC<{ id: string }> = ({ id }) => {
 export default Update${titleize(name)}      
 `)
   }
-
 }
