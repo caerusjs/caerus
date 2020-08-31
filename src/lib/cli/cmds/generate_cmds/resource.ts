@@ -9,13 +9,14 @@ import { createFormFields } from './molecule/create-form-fields'
 import { createDocument } from './organism/create-document'
 import { createHook } from './organism/create-hook'
 import { createResourceItem } from './molecule/create-resource-item'
+import { createCache } from './resource/create-cache'
 
 export const command = 'resource <name>'
 export const describe = 'Generate resource named <name>'
 export const builder = {}
 export const handler = (argv: Argv) => {
   // Create cache
-  createFile(`${process.cwd()}/client/src/cache/`, `${argv.name}.cache.ts`, createCache(argv.name, 'AddRemove'))
+  createFile(`${process.cwd()}/client/src/cache/`, `${argv.name}s.cache.ts`, createCache(argv.name, 'AddRemove'))
   createFile(`${process.cwd()}/client/src/cache/`, `${argv.name}.cache.ts`, createCache(argv.name, 'Update'))
 
   // Create Views
@@ -43,7 +44,7 @@ export const handler = (argv: Argv) => {
   createFile(`${process.cwd()}/client/src/organisms/get-${argv.name}/`, `get-${argv.name}.graphql`, createDocument(argv.name, 'Get'))
   createFile(`${process.cwd()}/client/src/organisms/add-${argv.name}/`, `add-${argv.name}.graphql`, createDocument(argv.name, 'Add'))
   createFile(`${process.cwd()}/client/src/organisms/update-${argv.name}/`, `update-${argv.name}.graphql`, createDocument(argv.name, 'Update'))
-  createFile(`${process.cwd()}/client/src/organisms/get-${argv.name}/`, `remove-${argv.name}.graphql`, createDocument(argv.name, 'Remove'))
+  createFile(`${process.cwd()}/client/src/organisms/get-${argv.name}s/`, `remove-${argv.name}.graphql`, createDocument(argv.name, 'Remove'))
 
   // Create a Resolver
   createResolverFiles(argv.name)

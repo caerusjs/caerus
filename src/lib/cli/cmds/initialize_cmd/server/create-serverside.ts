@@ -18,7 +18,7 @@ import { createExampleResolver } from './resolvers/example/create-example-resolv
 import { createExampleEntity } from './entities/create-example-entity'
 import { createServerEnv } from './create-server-env'
 import { createJestConfig } from './support/jest/create-jest-config'
-import { createFile } from 'lib/cli/helpers/create-file'
+import { createFile } from '../../../helpers/create-file'
 
 
 export const createServerside = (name: string) => {
