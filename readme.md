@@ -114,7 +114,7 @@ Install the Caerus package from your workspace folder to get started:
 
 `$ yarn add caerus`
 
-### Initializing a new project
+## Initializing a new project
 
 From your workspace folder run the following:
 
@@ -160,12 +160,13 @@ This will then generate the relevant files and folders associated with your reso
 
 ### Adding extra columns to our entity
 
+
+
 - add columns to entity
 - update args
 - update tests
 - update variables
 - update forms
-
 
 ## CLI Commands
 
@@ -183,7 +184,7 @@ The Caerus CLI supports the following abilities:
 
 ### Generating Entities
 
-To generate an entity with default columns (id, createdAt, updatedAt and deletedAt) and graphql typedefs; run the following command from the root of your project:
+To generate an entity with default columns (id, createdAt and updatedAt) and graphql typedefs; run the following command from the root of your project:
 
 `$ yarn caerus generate entity <name>`
 
@@ -205,6 +206,14 @@ To generate views and routes for a given resource, run the following command fro
 
 Where `name` is the name of your resource.  Views should be singular and use `-` for multiple words, e.g. `blog-post`.
 
+### Generating Resources
+
+To generate an entity, resolvers, organisms, views, routes and tests for a given resource, run the following command from the root of your project:
+
+`$ yarn caerus generate resource <name>`
+
+Where `name` is the name of your resource.  Views should be singular and use `-` for multiple words, e.g. `blog-post`.
+
 ## Roadmap
 
 Road to v1.0.0:
@@ -215,8 +224,12 @@ Road to v1.0.0:
 |Generate Resolver Command|:white_check_mark:|
 |Generate Views Command|:white_check_mark:|
 |Initialize Project Command|:white_check_mark:|
-|Generate Resource Command||
+|Generate Resource Command|:white_check_mark:|
 |Generate Entity Column Argument Support||
+|Generate Resource with Column Argument Support||
+|More Atoms and Molecules||
+|Default Styling||
+|Feature Tests||
 |Better Code Splitting||
 |SSR Support||
 |Stack Template Support||
