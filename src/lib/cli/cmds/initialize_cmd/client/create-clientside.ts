@@ -77,8 +77,6 @@ export const createClient = (name: string) => {
   createFile(`${name}/client/src/molecules/loading/`, 'loading.module.css',  createLoadingSpinnerCSS())
   createFile(`${name}/client/src/molecules/error/`, 'index.tsx',  createError())
   createFile(`${name}/client/src/molecules/error/`, 'error.module.css',  createErrorCSS())
-  createFile(`${name}/client/src/molecules/link/`, 'index.tsx',  createLink())
-  createFile(`${name}/client/src/molecules/link/`, 'link.module.css',  createLinkCSS())
   createFile(`${name}/client/src/molecules/resource-form/`, 'index.tsx',  createResourceForm())
 
   // - organisms
