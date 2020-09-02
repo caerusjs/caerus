@@ -2,11 +2,10 @@ import titleize from '../../../helpers/titleize'
 
 export const createEntity = (name: string) => {
   return (`import { 
-  CreateDateColumn, 
   Entity, 
-  PrimaryGeneratedColumn, 
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
   UpdateDateColumn, 
-  DeleteDateColumn,
 } from 'typeorm'
 import {
   ObjectType,
@@ -21,16 +20,10 @@ export class ${titleize(name)} {
   @PrimaryGeneratedColumn('uuid')
   readonly id: string
 
-  @Field()
-  @CreateDateColumn({ name: 'created_at', type: 'timestamp with time zone' })
+  @CreateDateColumn({ type: 'date' })
   createdAt: Date
-
-  @Field()
-  @UpdateDateColumn({ name: 'updated_at', type: 'timestamp with time zone' })
+  
+  @UpdateDateColumn({ type: 'date' })
   updatedAt: Date
-
-  @Field()
-  @DeleteDateColumn({ name: 'deleted_at', type: 'timestamp with time zone', nullable: true })
-  deletedAt?: Date
 }`)
 }

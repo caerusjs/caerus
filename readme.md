@@ -104,7 +104,7 @@ Performance, Power and Productivity.
  - Jest Puppeteer
  - Jest Cucumber
 
-## Command Line Interface
+## Getting Started
 
 The Caerus Command Line Interface (CLI) makes it easy to initialise new projects and to generate scaffolding for existing projects. It’s an essential part of using Caerus.
 
@@ -112,13 +112,13 @@ The Caerus Command Line Interface (CLI) makes it easy to initialise new projects
 
 Install the Caerus package from your workspace folder to get started:
 
-`$ yarn global add caerus`
+`$ yarn add caerus`
 
 ### Initializing a new project
 
 From your workspace folder run the following:
 
-`$ caerus init [name]`
+`$ yarn caerus init <name>`
 
 Where `name` is the name of your project.  Use `-` for multiple words, e.g. `my-project`.
 
@@ -146,6 +146,26 @@ To resolve this, open a new terminal window and navigate to the root of your pro
 
 This will generate the relevant types and the app should restart without error now. This mild annoyance will be addressed in a future version of Caerus
 
+## Generating your first resource
+
+In this example we will be generating a resource called `post` which will be used for adding posts to our project.
+
+### Running the generate resource command
+
+From the root folder of your application run the following command:
+
+`$ yarn caerus g resource post`
+
+This will then generate the relevant files and folders associated with your resource.
+
+### Adding extra columns to our entity
+
+- add columns to entity
+- update args
+- update tests
+- update variables
+- update forms
+
 
 ## CLI Commands
 
@@ -165,7 +185,7 @@ The Caerus CLI supports the following abilities:
 
 To generate an entity with default columns (id, createdAt, updatedAt and deletedAt) and graphql typedefs; run the following command from the root of your project:
 
-`$ caerus generate entity [name]`
+`$ yarn caerus generate entity <name>`
 
 Where `name` is the name of your entity.  Entities should be singular and use `-` for multiple words, e.g. `blog-post`.
 
@@ -173,7 +193,7 @@ Where `name` is the name of your entity.  Entities should be singular and use `-
 
 To generate a resolver, as well as input and arguments types and test scaffold, which covers the basic CRUD actions; run the following command from the root of your project:
 
-`$ caerus generate resolver [name]`
+`$ yarn caerus generate resolver <name>`
 
 Where `name` is the name of your resolver.  Resolvers should be singular and use `-` for multiple words, e.g. `blog-post`.
 
@@ -181,7 +201,7 @@ Where `name` is the name of your resolver.  Resolvers should be singular and use
 
 To generate views and routes for a given resource, run the following command from the root of your project:
 
-`$ caerus generate views [name]`
+`$ yarn caerus generate views <name>`
 
 Where `name` is the name of your resource.  Views should be singular and use `-` for multiple words, e.g. `blog-post`.
 

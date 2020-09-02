@@ -39,7 +39,8 @@ export const createPackage = (name: string) => {
   "graphql": "^14.6.0",
   "graphql-tag": "^2.10.3",
   "jscpd": "^2.0.16",
-  "source-map-explorer": "^2.4.1"
+  "source-map-explorer": "^2.4.1",
+  "caerus": "^0.5.0"
 },
 "dependencies": {}
 }

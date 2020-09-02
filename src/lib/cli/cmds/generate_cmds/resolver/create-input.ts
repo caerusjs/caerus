@@ -6,7 +6,7 @@ export const createInput = (name: string) => {
   Field,
   ID
 } from 'type-graphql'
-import { ${titleize(name)} } from '../../entities/${name}.entity'
+import { ${titleize(name)} } from 'entities/${name}.entity'
 
 @InputType()
 export class Add${titleize(name)}Input implements Partial<${titleize(name)}> {
@@ -22,8 +22,5 @@ export class Update${titleize(name)}Input implements Partial<${titleize(name)}> 
 export class Remove${titleize(name)}Input implements Partial<${titleize(name)}> {
   @Field(type => ID)
   id: string
-  
-  @Field()
-  deletedAt: Date
 }`)
 }
