@@ -7,7 +7,7 @@ import A from 'atoms/a'
 import P from 'atoms/p'
 import Button from 'atoms/button'
 
-import Link from 'molecules/link'
+import { Link } from 'react-router-dom'
 
 import { 
   IGet${titleize(name)}sQuery,
@@ -31,7 +31,7 @@ const ${titleize(name)}Item: React.FC<I${titleize(name)}ItemProps> = ({ handleRe
       </P>
       <P>
       <Link
-        to={\`/${name}s/\$\{${name}.id/edit}\`}
+        to={\`/${name}s/\$\{${name}.id}/edit\`}
       >
         <A>Edit ${titleize(name)}</A>
       </Link>

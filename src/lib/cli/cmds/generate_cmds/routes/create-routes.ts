@@ -12,10 +12,10 @@ const Edit${titleize(name)}View = lazy(() => import('views/${name}/edit'))
 const ${titleize(name)}Routes: React.FC<RouteComponentProps> = () => {
   return (
     <Switch>
-      <Route path='/${name}/:${name}Id/edit' component={Edit${titleize(name)}View} />
-      <Route path='/${name}/new' component={New${titleize(name)}View} />
-      <Route path='/${name}/:${name}Id' component={Show${titleize(name)}View} />
-      <Route path='/${name}/' component={Index${titleize(name)}View} />
+      <Route path='/${name}s/:${name}Id/edit' component={Edit${titleize(name)}View} />
+      <Route path='/${name}s/new' component={New${titleize(name)}View} />
+      <Route path='/${name}s/:${name}Id' component={Show${titleize(name)}View} />
+      <Route path='/${name}s/' component={Index${titleize(name)}View} />
     </Switch>
   )
 }

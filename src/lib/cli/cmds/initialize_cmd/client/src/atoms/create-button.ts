@@ -3,9 +3,9 @@ export const createButton = () => {
 
 import styles from './button.module.css'
 
-const Button:React.FC = ({ children }) => {
+const Button:React.FC<{ onClick: () => void }> = ({ onClick, children }) => {
   return (
-    <button className={styles.root}>{children}</button>
+    <button onClick={onClick} className={styles.root}>{children}</button>
   )
 }
 

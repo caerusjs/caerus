@@ -5,7 +5,7 @@ export const createView = (name: string, action: 'New' | 'Edit' | 'Show' | 'Inde
     case 'New':
       return (`import React from 'react'
 
-import Add${titleize(name)} from 'organisms/add-${titleize(name)}'
+import Add${titleize(name)} from 'organisms/add-${name}'
 import ApplicationLayout from 'views/layouts/application.layout'
 
 const New${titleize(name)}View: React.FC = () => {
@@ -42,8 +42,8 @@ export default Edit${titleize(name)}View
     case 'Index':
       return (`import React from 'react'
 
-      import A from 'atoms/a'
-import Link from 'molecules/link'
+import A from 'atoms/a'
+import { Link } from 'react-router-dom'
 import Get${titleize(name)}s from 'organisms/get-${name}s'
 
 import ApplicationLayout from 'views/layouts/application.layout'
@@ -51,7 +51,7 @@ import ApplicationLayout from 'views/layouts/application.layout'
 const Index${titleize(name)}View: React.FC = () => {
   return (
     <ApplicationLayout>
-      <Link to={'/${name}/new'}><A>Add ${titleize(name)}</A></Link>
+      <Link to={'/${name}s/new'}><A>Add ${titleize(name)}</A></Link>
       <Get${titleize(name)}s />
     </ApplicationLayout>
   )

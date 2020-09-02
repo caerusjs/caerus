@@ -42,6 +42,8 @@ export default useGet${titleize(name)}
     case 'Add':
       return (`import { useMutation } from '@apollo/react-hooks'
 
+import { get${titleize(name)}sCache, write${titleize(name)}sCache } from 'cache/${name}s.cache'
+
 import {
   Add${titleize(name)}Document,
   IAdd${titleize(name)}Mutation,
@@ -68,6 +70,8 @@ export default useAdd${titleize(name)}
 
     case 'Update':
       return (`import { useMutation } from '@apollo/react-hooks'
+
+import { get${titleize(name)}sCache, write${titleize(name)}sCache } from 'cache/${name}s.cache'
 
 import { 
   Update${titleize(name)}Document, 
@@ -99,6 +103,8 @@ export default useUpdate${titleize(name)}
 
     case 'Remove':
       return (`import { useMutation } from '@apollo/react-hooks'
+
+import { get${titleize(name)}sCache, write${titleize(name)}sCache } from 'cache/${name}s.cache'
 
 import {
   IRemove${titleize(name)}MutationVariables,

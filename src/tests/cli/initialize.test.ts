@@ -48,8 +48,6 @@ test('initializing a project', (done) => {
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/molecules\/loading\/loading.module.css/)
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/molecules\/error\/error.module.css/)
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/molecules\/error\/index.tsx/)
-    expect(stdout).toMatch(/.*Created file.*\/client\/src\/molecules\/link\/link.module.css/)
-    expect(stdout).toMatch(/.*Created file.*\/client\/src\/molecules\/link\/index.tsx/)
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/molecules\/resource-form\/index.tsx/)
 
     // - organisms

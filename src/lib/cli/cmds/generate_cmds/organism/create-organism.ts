@@ -6,6 +6,7 @@ export const createOrganism = (name: string, action: 'GetAll' | 'Get' | 'Add' | 
       return (`import React from 'react'
 
 import useGet${titleize(name)}s from 'organisms/get-${name}s/use-get-${name}s'
+import useRemove${titleize(name)} from 'organisms/get-${name}s/use-remove-${name}'
 
 import P from 'atoms/p'
 import Error from 'molecules/error'
@@ -101,7 +102,7 @@ const Add${titleize(name)}: React.FC = () => {
   const add${titleize(name)}Mutation = async (values: IAdd${titleize(name)}Input) => {
     await add${titleize(name)}({
       variables: {
-        ...values
+        ${name}: {...values}
       }
     })
 
@@ -168,7 +169,7 @@ const Update${titleize(name)}: React.FC<{ id: string }> = ({ id }) => {
   const update${titleize(name)}Mutation = async (values: IUpdate${titleize(name)}Input) => {
     await update${titleize(name)}({
       variables: {
-        ...values
+        ${name}: {...values}
       }
     })
   

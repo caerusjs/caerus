@@ -1,5 +1,8 @@
 export const createPropTypes = () => {
-  return (`  export type IResource = {
+  return (`import { FormikTouched, FormikErrors } from "formik"
+import { ObjectSchema } from "yup"
+  
+export type IResource = {
   initialValues: object
   name: string
   action: string
