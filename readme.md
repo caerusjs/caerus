@@ -148,7 +148,7 @@ This will generate the relevant types and the app should restart without error n
 
 ## Generating your first resource
 
-It this example we will be generating a resource called `post` which will be used for adding posts to our project.
+In this example we will be generating a resource called `post` which will be used for adding posts to our project.
 
 ### Running the generate resource command
 

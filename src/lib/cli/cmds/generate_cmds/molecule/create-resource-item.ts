@@ -30,12 +30,12 @@ const ${titleize(name)}Item: React.FC<I${titleize(name)}ItemProps> = ({ handleRe
         </Link>
       </P>
       <P>
-      <Link
-        to={\`/${name}s/\$\{${name}.id}/edit\`}
-      >
-        <A>Edit ${titleize(name)}</A>
-      </Link>
-    </P>
+        <Link
+          to={\`/${name}s/\$\{${name}.id}/edit\`}
+        >
+          <A>Edit ${titleize(name)}</A>
+        </Link>
+      </P>
       <Button onClick={handleRemove}>Remove</Button>
     </>
   )
