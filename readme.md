@@ -293,7 +293,7 @@ mutation UpdatePost($post: UpdatePostInput!) {
 
 ### Adding a Title Field to our Form
 
-Within `post-form-fields/index.tsx` add the following field:
+Within `post-form-fields/index.tsx` add the following `Field` **AND** `yup` validation:
 
 ```typescript
 import React from 'react'
