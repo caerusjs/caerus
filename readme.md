@@ -7,7 +7,7 @@ An opinionated framework for building web applications with the goal of rapid de
 The stack will evolve over time by adopting newer and better technologies, in order to improve performance and power; whilst identifying common, stable patterns for abstraction and generation, leading to increases in productivity.
 
 ## Project Goal
-Performance, Power and Productivity. 
+Productivity, Power and Performance. 
 
 ## Values
 - Fast
@@ -18,6 +18,8 @@ Performance, Power and Productivity.
 
 ## What Caerus Provides
  - A default tech stack proven to work together, which provide rapid development, low maintenence, security and accessibility out of the box.
+ - Atomic approach to frontend development.
+ - 
  - A CLI tool to generate the project folder structure. Resource scaffolding, database migrations and type generation.
  - A standard library with commonly used functions, e.g. pluralize, titalize, async forEach() and more.
  - Templating support for generating projects with a different default stack.
@@ -31,16 +33,16 @@ Performance, Power and Productivity.
       molecules/
       organisms/
       routes/
-        {resource}.tsx
+        {resource}.routes.tsx
         index.tsx
       support/
         fixtures/
       views/
         {resource}/
-          new.tsx
-          edit.tsx
-          show.tsx
-          index.tsx
+          new.view.tsx
+          edit.view.tsx
+          show.view.tsx
+          index.view.tsx
         layouts/
           application.layout.tsx
       index.tsx
@@ -146,11 +148,11 @@ To resolve this, open a new terminal window and navigate to the root of your pro
 
 This will generate the relevant types and the app should restart without error now. This mild annoyance will be addressed in a future version of Caerus
 
-## Generating your first resource
+## Generating your First Resource
 
 In this example we will be generating a resource called `post` which will be used for adding posts to our project.
 
-### Running the generate resource command
+### Running the Generate Resource Command
 
 From the root folder of your application run the following command:
 
@@ -158,15 +160,220 @@ From the root folder of your application run the following command:
 
 This will then generate the relevant files and folders associated with your resource.
 
+* In a future version of Caerus the following steps will be automated by the generator. The proposed API being `yarn caerus g resource <name> [column:type:options] `.  For example, `yarn caerus g resource post title:string author:string:null`, would generate a Post resource with the columns title and author; both of which are strings with author being nullable.
+
 ### Adding extra columns to our entity
 
+Lets start by adding a title column to our Post entity.
+
+```typescript
+@Field()
+@Column()
+title: string
+```
+
+`@Field()` Exposes the column for the GraphQL API.
+`@Column()` Defines the column for the database.
+
+See https://typeorm.io/#/entities for more information about defining entities for the database, and https://typegraphql.com/docs/types-and-fields.html about exposing GraphQL fields. 
+
+Update `post.entity.ts` to the following:
+
+```typescript
+import { 
+  Entity, 
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn, 
+  Column, 
+} from 'typeorm'
+import {
+  ObjectType,
+  Field,
+  ID,
+} from 'type-graphql'
+
+@ObjectType()
+@Entity()
+export class Post {
+  @Field(type => ID)
+  @PrimaryGeneratedColumn('uuid')
+  readonly id: string
+  
+  @Field()
+  @Column()
+  title: string
+
+  @CreateDateColumn({ type: 'date' })
+  createdAt: Date
+  
+  @UpdateDateColumn({ type: 'date' })
+  updatedAt: Date
+}
+```
+
+### Create a New Database Migration
+
+From the root of your server folder run the following command:
+
+`$ yarn typeorm migration:generate -n AddPosts`
+
+This will create a new db migration based on the entity details, which will be automatically run once the server restarts.
+
+### Updating Resolver Input
+
+Next we need to update our resolver input to be aware of the new title column.
+
+Within `post.input.ts`, update the classes to the following:
+
+```typescript
+@InputType()
+export class AddPostInput implements Partial<Post> {
+  @Field()
+  title: string
+}
+
+@InputType()
+export class UpdatePostInput implements Partial<Post> {
+  @Field(type => ID)
+  id: string
+
+  @Field()
+  title: string
+}
+```
+
+### Updating Clientside GraphQL Documents
+
+Update `get-post.graphql` to the following:
+
+```typescript
+query getPost($id: ID!) {
+  getPost(id: $id) {
+    id
+    title
+  }
+}
+```
+
+Update `get-posts.graphql` to the following:
+
+```typescript
+query getPosts {
+  getPosts {
+    id
+    title
+  }
+}
+```
+
+Update `add-post.graphql` to the following:
+
+```typescript
+mutation AddPost($post: AddPostInput!) {
+  addPost(post: $post) {
+    id
+    title
+  }
+}
+```
+
+Update `update-post.graphql` to the following:
+
+```typescript
+mutation UpdatePost($post: UpdatePostInput!) {
+  updatePost(post: $post) {
+    id
+    title
+  }
+}
+```
+  
+* In a future version of Caerus, these documents will share a common fragment so that only one document need updating.
+
+### Adding a Title Field to our Form
+
+Within `post-form-fields/index.tsx` add the following field:
+
+```typescript
+import React from 'react'
+import { object, string } from 'yup'
+
+import { IFormFields } from 'types/props'
+import { Field } from 'formik'
+
+export const postFormSchema = object().shape({
+  title: string().required()
+})
+
+const PostFormFields: React.FC<IFormFields> = ({ errors, handleChange, values }) => {
+  return (
+    <>
+        <label htmlFor='title'>Title *</label>
+        <Field
+          name='title'
+          type='text'
+          aria-labelledby='title'
+          placeholder='Title'
+          value={values.title}
+          onChange={handleChange}
+        />
+        <div>
+          {errors.name}
+        </div>
+    </>
+  )
+}
 
 
-- add columns to entity
-- update args
-- update tests
-- update variables
-- update forms
+export default PostFormFields
+```
+
+This adds a title field to our form and also validates it's presence when submitting the form.  For more information on form fields see https://formik.org/docs/api/field and https://github.com/jquense/yup about validation.
+
+### Adding a Default Value for the Title Field
+
+Within `add-post/index.tsx`, add title to the list of initial values:
+
+```typescript
+  const initialPostValues: IAddPostInput = {
+    title: ''
+  }
+```
+
+### Adding the Post Routes to our application
+
+Update `routes/index.tsx` to the following:
+
+```typescript
+import React, { Suspense, lazy } from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom'
+import Loading from 'molecules/loading'
+
+const ExampleRoutes = lazy(() => import('routes/example.routes'))
+const PostRoutes = lazy(() => import('routes/post.routes'))
+
+const AppRoutes = () => {
+  return (
+    <Router>
+      <Suspense fallback={<Loading />}>
+        <Switch>
+          <Route path='/posts' component={PostRoutes} />
+          <Route path='/' component={ExampleRoutes} />
+        </Switch>
+      </Suspense>
+    </Router>
+  )
+}
+
+export default AppRoutes
+```
+
+Voila, you should now be able to visit `http://localhost:3000/posts` to start adding some new posts!
 
 ## CLI Commands
 
@@ -229,6 +436,7 @@ Road to v1.0.0:
 |Generate Resource with Column Argument Support||
 |More Atoms and Molecules||
 |Default Styling||
+|Theme Support||
 |Feature Tests||
 |Better Code Splitting||
 |SSR Support||
