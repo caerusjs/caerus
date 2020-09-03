@@ -40,10 +40,10 @@ test('generating a resolver', (done) => {
 test('generating views', (done) => {
   childProcess.exec('yarn caerus g views test', (_, stdout) => {
     // Check we have the correct console message
-    expect(stdout).toMatch(/.*Created file.*\/client\/src\/views\/test\/new.tsx/)
-    expect(stdout).toMatch(/.*Created file.*\/client\/src\/views\/test\/edit.tsx/)
-    expect(stdout).toMatch(/.*Created file.*\/client\/src\/views\/test\/show.tsx/)
-    expect(stdout).toMatch(/.*Created file.*\/client\/src\/views\/test\/index.tsx/)
+    expect(stdout).toMatch(/.*Created file.*\/client\/src\/views\/test\/new.view.tsx/)
+    expect(stdout).toMatch(/.*Created file.*\/client\/src\/views\/test\/edit.view.tsx/)
+    expect(stdout).toMatch(/.*Created file.*\/client\/src\/views\/test\/show.view.tsx/)
+    expect(stdout).toMatch(/.*Created file.*\/client\/src\/views\/test\/index.view.tsx/)
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/routes\/test.routes.tsx/)
     done()
 
@@ -74,10 +74,10 @@ test('generating a resource', (done) => {
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/cache\/tests.cache.ts/)
 
     // Views
-    expect(stdout).toMatch(/.*Created file.*\/client\/src\/views\/test\/new.tsx/)
-    expect(stdout).toMatch(/.*Created file.*\/client\/src\/views\/test\/edit.tsx/)
-    expect(stdout).toMatch(/.*Created file.*\/client\/src\/views\/test\/show.tsx/)
-    expect(stdout).toMatch(/.*Created file.*\/client\/src\/views\/test\/index.tsx/)
+    expect(stdout).toMatch(/.*Created file.*\/client\/src\/views\/test\/new.view.tsx/)
+    expect(stdout).toMatch(/.*Created file.*\/client\/src\/views\/test\/edit.view.tsx/)
+    expect(stdout).toMatch(/.*Created file.*\/client\/src\/views\/test\/show.view.tsx/)
+    expect(stdout).toMatch(/.*Created file.*\/client\/src\/views\/test\/index.view.tsx/)
 
     // Routes
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/routes\/test.routes.tsx/)

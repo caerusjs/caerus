@@ -4,10 +4,10 @@ export const createRoutes = (name: string) => {
   return (`import React, { lazy } from 'react'
 import { Route, RouteComponentProps, Switch } from 'react-router-dom'
 
-const Show${titleize(name)}View = lazy(() => import('views/${name}/show'))
-const Index${titleize(name)}View = lazy(() => import('views/${name}/index'))
-const New${titleize(name)}View = lazy(() => import('views/${name}/new'))
-const Edit${titleize(name)}View = lazy(() => import('views/${name}/edit'))
+const Show${titleize(name)}View = lazy(() => import('views/${name}/show.view'))
+const Index${titleize(name)}View = lazy(() => import('views/${name}/index.view'))
+const New${titleize(name)}View = lazy(() => import('views/${name}/new.view'))
+const Edit${titleize(name)}View = lazy(() => import('views/${name}/edit.view'))
 
 const ${titleize(name)}Routes: React.FC<RouteComponentProps> = () => {
   return (

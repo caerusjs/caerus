@@ -14,8 +14,8 @@ export const handler = (argv: Argv) => {
 
 export const createViews = (name: string) => {
   createFile(`${process.cwd()}/client/src/routes/`, `${name}.routes.tsx`,  createRoutes(name))
-  createFile(`${process.cwd()}/client/src/views/${name}/`, `new.tsx`,  createView(name, 'New'))
-  createFile(`${process.cwd()}/client/src/views/${name}/`, `edit.tsx`,  createView(name, 'Edit'))
-  createFile(`${process.cwd()}/client/src/views/${name}/`, `show.tsx`,  createView(name, 'Show'))
-  createFile(`${process.cwd()}/client/src/views/${name}/`, `index.tsx`,  createView(name, 'Index'))
+  createFile(`${process.cwd()}/client/src/views/${name}/`, `new.view.tsx`,  createView(name, 'New'))
+  createFile(`${process.cwd()}/client/src/views/${name}/`, `edit.view.tsx`,  createView(name, 'Edit'))
+  createFile(`${process.cwd()}/client/src/views/${name}/`, `show.view.tsx`,  createView(name, 'Show'))
+  createFile(`${process.cwd()}/client/src/views/${name}/`, `index.view.tsx`,  createView(name, 'Index'))
 }
