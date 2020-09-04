@@ -1,9 +1,40 @@
 import titleize from '../../../helpers/titleize'
 
 export const createTest = (name: string) => {
-  return (`test('get${titleize(name)}', async () => {
+  return (`import dotenv from 'dotenv'
+dotenv.config()
+import { ApolloServerBase } from 'apollo-server-core'
+import { createTestClient, ApolloServerTestClient } from 'apollo-server-testing'
+import nock from 'nock'
+
+import { 
+  Get${titleize(name)}Document, 
+  IGet${titleize(name)}Query, 
+  Get${titleize(name)}sDocument, 
+  IGet${titleize(name)}sQuery, 
+  Add${titleize(name)}Document, 
+  IAdd${titleize(name)}Mutation, 
+  Update${titleize(name)}Document, 
+  IUpdate${titleize(name)}Mutation, 
+  Remove${titleize(name)}Document, 
+  IRemove${titleize(name)}Mutation 
+} from "types/graphql"
+
+import { serverConfig } from 'config/apollo'
+import { 
+  connectDatabase, 
+  disconnectDatabase 
+} from 'support/database'
+
+import { ${titleize(name)} } from 'entities/${name}.entity'
+import { getRepository } from 'typeorm'
+
+let mutate: ApolloServerTestClient['mutate']
+let query: ApolloServerTestClient['query']
+
+test('get${titleize(name)}', async () => {
   // Arrange
-  const ${name} = await create(${titleize(name)})
+  const ${name} = await getRepository(${titleize(name)}).save()
 
   // Act
   const res = await query({
@@ -20,8 +51,8 @@ export const createTest = (name: string) => {
 
 test('get${titleize(name)}s', async () => {
   // Arrange
-  const quantity = 2
-  const ${name}s = await create(${titleize(name)}, { quantity })
+  await getRepository(${titleize(name)}).save()
+  await getRepository(${titleize(name)}).save()
 
   // Act
   const res = await query({
@@ -39,7 +70,7 @@ test('add${titleize(name)}', async () => {
     mutation: Add${titleize(name)}Document, 
     variables: {
       ${name}: {
-        // Your variables here
+        
       }
     } 
   })
@@ -47,20 +78,19 @@ test('add${titleize(name)}', async () => {
   const add${titleize(name)}: IAdd${titleize(name)}Mutation['add${titleize(name)}'] = res.data?.add${titleize(name)}
 
   // Assert
-  expect(add${titleize(name)}).toHaveProperty('variable', 'value')
+  expect(add${titleize(name)}).toHaveProperty('prop', 'value')
 })
 
 test('update${titleize(name)}', async () => {
   // Arrange
-  const ${name} = await create(${titleize(name)})
+  const ${name} = await getRepository(${titleize(name)}).save()
 
   // Act
   const res = await mutate({ 
     mutation: Update${titleize(name)}Document, 
     variables: { 
-      ${titleize(name)}: {
-        id: ${name}.id,
-        // Your variables here
+      ${name}: {
+        id: ${name}.id
       }
     } 
   })
@@ -68,12 +98,12 @@ test('update${titleize(name)}', async () => {
   const update${titleize(name)}: IUpdate${titleize(name)}Mutation['update${titleize(name)}'] = res.data?.update${titleize(name)}
 
   // Assert
-  expect(update${titleize(name)}).toHaveProperty('variable', 'value')
+  expect(update${titleize(name)}).toHaveProperty('prop', 'value')
 })
 
 test('remove${titleize(name)}', async () => {
   // Arrange
-  const ${name} = await create(${titleize(name)})
+  const ${name} = await getRepository(${titleize(name)}).save()
 
   // Act
   const res = await mutate({ 
@@ -85,9 +115,25 @@ test('remove${titleize(name)}', async () => {
     } 
   })
 
-  const removeVideo: I${titleize(name)}VideoMutation['remove${titleize(name)}'] = res.data?.remove${titleize(name)}
+  const remove${titleize(name)}: IRemove${titleize(name)}Mutation['remove${titleize(name)}'] = res.data?.remove${titleize(name)}
 
   // Assert
   expect(remove${titleize(name)}).toHaveProperty('id', ${name}.id)
+})
+
+beforeEach(async () => {
+  const schema = await serverConfig()
+  const server = new ApolloServerBase({ schema })
+  const testClient = createTestClient(server)
+
+  mutate = testClient.mutate
+  query = testClient.query
+
+  return connectDatabase()
+})
+
+afterEach(async () => {
+  nock.restore()
+  await disconnectDatabase()
 })`)
 }
