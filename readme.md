@@ -19,7 +19,6 @@ Productivity, Power and Performance.
 ## What Caerus Provides
  - A default tech stack proven to work together, which provide rapid development, low maintenence, security and accessibility out of the box.
  - Atomic approach to frontend development.
- - 
  - A CLI tool to generate the project folder structure. Resource scaffolding, database migrations and type generation.
  - A standard library with commonly used functions, e.g. pluralize, titalize, async forEach() and more.
  - Templating support for generating projects with a different default stack.
