@@ -77,7 +77,7 @@ Productivity, Power and Performance.
 ```
  
 ## Test suite
-  - End-to-end acceptance tests through `jest-cucumber`
+  - End-to-end acceptance tests through `jest-cucumber` (WIP)
   - Resolver tests through `jest`
 
 ## Clientside
