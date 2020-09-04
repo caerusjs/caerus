@@ -16,7 +16,7 @@ export const createPackage = (name: string) => {
   "typeorm": "yarn --cwd server typeorm",
   "seed": "yarn --cwd server seed",
   "seed:production": "yarn --cwd server seed:production",
-  "test": "yarn --cwd server test && yarn --cwd client test",
+  "test": "yarn --cwd server test:unit && yarn --cwd client test",
   "coverage": "yarn --cwd server coverage && yarn --cwd client coverage",
   "report": "yarn jscpd -r console,time,html -o ./report/server -i 'server/src/support/jest/coverage' server/src && yarn jscpd -r console,time,html -o ./report/client -i 'client/src/__tests__/support/jest/coverage' client/src"
 },
@@ -40,7 +40,7 @@ export const createPackage = (name: string) => {
   "graphql-tag": "^2.10.3",
   "jscpd": "^2.0.16",
   "source-map-explorer": "^2.4.1",
-  "caerus": "^0.5.0"
+  "caerus": "^0.5.2"
 },
 "dependencies": {}
 }
