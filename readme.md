@@ -109,6 +109,25 @@ Productivity, Power and Performance.
 
 The Caerus Command Line Interface (CLI) makes it easy to initialise new projects and to generate scaffolding for existing projects. It’s an essential part of using Caerus.
 
+## Pre-requisite for running on Windows
+
+The commands that are executed require you to have access to a Bash shell. Assuming you have installed e.g. Git on your machine, the following command will configure your environment such that the Bash shell is used when executing the `caerus` commands:
+
+For x64 variants:
+
+
+`npm config set script-shell "c:\Program Files\Git\bin\bash.exe"`
+
+For x32 variants:
+
+`npm config set script-shell "c:\Program Files (x86)\Git\bin\bash.exe"`
+
+If you haven't got Git, but you have a Bash shell installed somewhere, replace the path above the with path to your local `bash.exe` file.
+
+If you want to revert this, for any reason, the following command should be executed:
+
+`npm config delete script-shell`
+
 ### Installing the Caerus CLI Tool
 
 Install the Caerus package from your workspace folder to get started:

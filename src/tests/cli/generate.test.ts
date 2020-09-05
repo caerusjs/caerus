@@ -48,16 +48,16 @@ test('generating views', (done) => {
     done()
 
     // Check our view function name is correct
-    const newContents = fs.readFileSync(`${process.cwd()}/client/src/views/test/new.tsx`, { encoding: 'utf8' })
+    const newContents = fs.readFileSync(`${process.cwd()}/client/src/views/test/new.view.tsx`, { encoding: 'utf8' })
     expect(newContents).toMatch(/.*const NewTestView/)
 
-    const editContents = fs.readFileSync(`${process.cwd()}/client/src/views/test/edit.tsx`, { encoding: 'utf8' })
+    const editContents = fs.readFileSync(`${process.cwd()}/client/src/views/test/edit.view.tsx`, { encoding: 'utf8' })
     expect(editContents).toMatch(/.*const EditTestView/)
 
-    const showContents = fs.readFileSync(`${process.cwd()}/client/src/views/test/show.tsx`, { encoding: 'utf8' })
+    const showContents = fs.readFileSync(`${process.cwd()}/client/src/views/test/show.view.tsx`, { encoding: 'utf8' })
     expect(showContents).toMatch(/.*const ShowTestView/)
 
-    const indexContents = fs.readFileSync(`${process.cwd()}/client/src/views/test/index.tsx`, { encoding: 'utf8' })
+    const indexContents = fs.readFileSync(`${process.cwd()}/client/src/views/test/index.view.tsx`, { encoding: 'utf8' })
     expect(indexContents).toMatch(/.*const IndexTestView/)
 
     const routeContents = fs.readFileSync(`${process.cwd()}/client/src/routes/test.routes.tsx`, { encoding: 'utf8' })
