@@ -11,4 +11,5 @@ else
   echo $'\r'
   echo $'\r'
   echo "Have you run $ yarn build?" >&2
+  exit 1
 fi
