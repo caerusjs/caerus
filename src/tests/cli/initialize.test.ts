@@ -53,7 +53,7 @@ test('initializing a project', (done) => {
     // - organisms
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/organisms\/example\/index.tsx/)
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/organisms\/example\/use-get-example.ts/)
-    expect(stdout).toMatch(/.*Created file.*\/client\/src\/organisms\/example\/get-example.graphql/)
+    expect(stdout).toMatch(/.*Created file.*\/client\/src\/organisms\/example\/get-exaample.graphql/)
 
     // - root
     expect(stdout).toMatch(/.*Created file.*\/server\/ormconfig.js/)
