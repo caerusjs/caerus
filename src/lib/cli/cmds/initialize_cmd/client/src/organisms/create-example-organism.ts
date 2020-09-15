@@ -1,24 +1,21 @@
 export const createExampleOrganism = () => {
-  return (`import React from 'react'
+  return (`import React from 'react';
 
-import useGetExample from 'organisms/example/use-get-example'
+import useGetExample from 'organisms/example/use-get-example';
 
-import P from 'atoms/p'
-import Error from 'molecules/error'
-import Loading from 'molecules/loading'
+import Paragraph from 'atoms/paragraph';
+import Error from 'molecules/error';
+import Loading from 'molecules/loading';
 
 const Example: React.FC = () => {
-  const { data, loading, error } = useGetExample()
+  const { data, loading, error } = useGetExample();
 
-  if (loading) return <Loading />
-  if (error || !data?.getExample) return <Error />
-  
-  return (
-    <P>
-      {data.getExample.content}
-    </P>
-  )
-}
+  if (loading) return <Loading />;
+  if (error || !data?.getExample) return <Error />;
 
-export default Example`)
+  return <Paragraph>{data.getExample.content}</Paragraph>;
+};
+
+export default Example;
+`)
 }

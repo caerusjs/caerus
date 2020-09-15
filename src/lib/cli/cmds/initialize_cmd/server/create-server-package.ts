@@ -1,5 +1,5 @@
 export const createServerPackage = (name: string) => {
-  return (`{
+    return (`{
 "name": "${name}-server",
 "version": "0.1.0",
 "main": "server.js",
@@ -69,4 +69,5 @@ export const createServerPackage = (name: string) => {
     "ts-jest": "^25.2.0",
     "typeorm-test-transactions": "^1.10.0"
 }
-}`)}
+}`)
+}

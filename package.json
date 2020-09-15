@@ -1,6 +1,6 @@
 {
   "name": "caerus",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "description": "An opinionated framework and ecosystem for building web applications with the goal of rapid development and low maintenence.",
   "engines": {
     "node": "^12"

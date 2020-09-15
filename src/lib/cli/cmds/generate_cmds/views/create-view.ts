@@ -20,64 +20,77 @@ const New${titleize(name)}View: React.FC = () => {
 export default New${titleize(name)}View`)
 
     case 'Edit':
-      return (`import React from 'react'
-import { useParams } from 'react-router-dom'
+      return (`import React from 'react';
+import { useParams } from 'react-router-dom';
 
-import Update${titleize(name)} from 'organisms/update-${name}'
-import ApplicationLayout from 'views/layouts/application.layout'
+import Update${titleize(name)} from 'organisms/update-${name}';
+import ApplicationLayout from 'views/layouts/application.layout';
+
+interface RouteParams {
+  ${name}Id: string;
+}
 
 const Edit${titleize(name)}View: React.FC = () => {
-  const { ${name}Id } = useParams()
+  const { ${name}Id } = useParams<RouteParams>();
 
   return (
     <ApplicationLayout>
-      <Update${titleize(name)} id={${name}Id as string} />
+      <Update${titleize(name)} id={${name}Id} />
     </ApplicationLayout>
-  )
-}
+  );
+};
 
-export default Edit${titleize(name)}View
+export default Edit${titleize(name)}View;
+      
 `)
 
     case 'Index':
-      return (`import React from 'react'
+      return (`import React from 'react';
 
-import A from 'atoms/a'
-import { Link } from 'react-router-dom'
-import Get${titleize(name)}s from 'organisms/get-${name}s'
+import Anchor from 'atoms/anchor';
+import { Link } from 'react-router-dom';
+import Get${titleize(name)}s from 'organisms/get-${name}s';
 
-import ApplicationLayout from 'views/layouts/application.layout'
+import ApplicationLayout from 'views/layouts/application.layout';
 
 const Index${titleize(name)}View: React.FC = () => {
   return (
     <ApplicationLayout>
-      <Link to={'/${name}s/new'}><A>Add ${titleize(name)}</A></Link>
+      <Link to={'/${name}s/new'}>
+        <Anchor>Add ${titleize(name)}</Anchor>
+      </Link>
       <Get${titleize(name)}s />
     </ApplicationLayout>
-  )
-}
+  );
+};
 
-export default Index${titleize(name)}View
+export default Index${titleize(name)}View;
+      
 `)
 
     case 'Show':
-      return (`import React from 'react'
-import { useParams } from 'react-router-dom'
+      return (`import React from 'react';
+import { useParams } from 'react-router-dom';
 
-import Get${titleize(name)} from 'organisms/get-${name}'
-import ApplicationLayout from 'views/layouts/application.layout'
+import Get${titleize(name)} from 'organisms/get-${name}';
+import ApplicationLayout from 'views/layouts/application.layout';
+
+interface RouteParams {
+  ${name}Id: string;
+}
 
 const Show${titleize(name)}View: React.FC = () => {
-  const { ${name}Id } = useParams()
+  const { ${name}Id } = useParams<RouteParams>();
 
   return (
     <ApplicationLayout>
-      <Get${titleize(name)} id={${name}Id as string} />
+      <Get${titleize(name)} id={${name}Id} />
     </ApplicationLayout>
-  )
-}
+  );
+};
 
-export default Show${titleize(name)}View
+export default Show${titleize(name)}View;
+
 `)
   }
 }

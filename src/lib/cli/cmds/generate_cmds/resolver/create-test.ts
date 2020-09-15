@@ -5,19 +5,18 @@ export const createTest = (name: string) => {
 dotenv.config()
 import { ApolloServerBase } from 'apollo-server-core'
 import { createTestClient, ApolloServerTestClient } from 'apollo-server-testing'
-import nock from 'nock'
 
 import { 
   Get${titleize(name)}Document, 
-  IGet${titleize(name)}Query, 
+  Get${titleize(name)}Query, 
   Get${titleize(name)}sDocument, 
-  IGet${titleize(name)}sQuery, 
+  Get${titleize(name)}sQuery, 
   Add${titleize(name)}Document, 
-  IAdd${titleize(name)}Mutation, 
+  Add${titleize(name)}Mutation, 
   Update${titleize(name)}Document, 
-  IUpdate${titleize(name)}Mutation, 
+  Update${titleize(name)}Mutation, 
   Remove${titleize(name)}Document, 
-  IRemove${titleize(name)}Mutation 
+  Remove${titleize(name)}Mutation 
 } from "types/graphql"
 
 import { serverConfig } from 'config/apollo'
@@ -43,7 +42,7 @@ test('get${titleize(name)}', async () => {
       id: ${name}.id
     } 
   })
-  const get${titleize(name)}: IGet${titleize(name)}Query['get${titleize(name)}'] = res.data?.get${titleize(name)}
+  const get${titleize(name)}: Get${titleize(name)}Query['get${titleize(name)}'] = res.data?.get${titleize(name)}
 
   // Assert
   expect(get${titleize(name)}).toHaveProperty('id', ${name}.id)
@@ -58,7 +57,7 @@ test('get${titleize(name)}s', async () => {
   const res = await query({
     query: Get${titleize(name)}sDocument
   })
-  const get${titleize(name)}s: IGet${titleize(name)}sQuery['get${titleize(name)}s'] = res.data?.get${titleize(name)}s
+  const get${titleize(name)}s: Get${titleize(name)}sQuery['get${titleize(name)}s'] = res.data?.get${titleize(name)}s
 
   // Assert
   expect(get${titleize(name)}s).toHaveLength(2)
@@ -75,7 +74,7 @@ test('add${titleize(name)}', async () => {
     } 
   })
 
-  const add${titleize(name)}: IAdd${titleize(name)}Mutation['add${titleize(name)}'] = res.data?.add${titleize(name)}
+  const add${titleize(name)}: Add${titleize(name)}Mutation['add${titleize(name)}'] = res.data?.add${titleize(name)}
 
   // Assert
   expect(add${titleize(name)}).toHaveProperty('prop', 'value')
@@ -95,7 +94,7 @@ test('update${titleize(name)}', async () => {
     } 
   })
 
-  const update${titleize(name)}: IUpdate${titleize(name)}Mutation['update${titleize(name)}'] = res.data?.update${titleize(name)}
+  const update${titleize(name)}: Update${titleize(name)}Mutation['update${titleize(name)}'] = res.data?.update${titleize(name)}
 
   // Assert
   expect(update${titleize(name)}).toHaveProperty('prop', 'value')
@@ -115,7 +114,7 @@ test('remove${titleize(name)}', async () => {
     } 
   })
 
-  const remove${titleize(name)}: IRemove${titleize(name)}Mutation['remove${titleize(name)}'] = res.data?.remove${titleize(name)}
+  const remove${titleize(name)}: Remove${titleize(name)}Mutation['remove${titleize(name)}'] = res.data?.remove${titleize(name)}
 
   // Assert
   expect(remove${titleize(name)}).toHaveProperty('id', ${name}.id)
@@ -133,7 +132,6 @@ beforeEach(async () => {
 })
 
 afterEach(async () => {
-  nock.restore()
   await disconnectDatabase()
 })`)
 }
