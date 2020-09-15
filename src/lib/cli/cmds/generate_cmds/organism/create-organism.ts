@@ -8,7 +8,7 @@ export const createOrganism = (name: string, action: 'GetAll' | 'Get' | 'Add' | 
 import useGet${titleize(name)}s from 'organisms/get-${name}s/use-get-${name}s'
 import useRemove${titleize(name)} from 'organisms/get-${name}s/use-remove-${name}'
 
-import P from 'atoms/p'
+import Paragraph from 'atoms/paragraph'
 import Error from 'molecules/error'
 import Loading from 'molecules/loading'
 import ${titleize(name)}Item from 'molecules/${name}-item'
@@ -25,7 +25,7 @@ const Get${titleize(name)}s: React.FC = () => {
   const ${titleize(name)}s = () => {
     if (!get${titleize(name)}s?.length) {
       return (
-        <P>Please add a ${titleize(name)}</P>
+        <Paragraph>Please add a ${titleize(name)}</Paragraph>
       )
     } else {
       return get${titleize(name)}s.map((${name}) => {

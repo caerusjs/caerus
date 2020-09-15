@@ -3,15 +3,15 @@ import titleize from '../../../helpers/titleize'
 export const createHook = (name: string, action: 'GetAll' | 'Get' | 'Add' | 'Update' | 'Remove') => {
   switch (action) {
     case 'GetAll':
-      return (`import { useQuery } from '@apollo/react-hooks'
+      return (`import { useQuery } from '@apollo/client'
 
 import { 
-  IGet${titleize(name)}sQuery, 
-  Get${titleize(name)}sDocument 
+  Get${titleize(name)}sQuery, 
+  Get${titleize(name)}sDocument
 } from 'types/graphql'
 
 const useGet${titleize(name)}s = () => {
-  return useQuery<IGet${titleize(name)}sQuery>(
+  return useQuery<Get${titleize(name)}sQuery>(
     Get${titleize(name)}sDocument
   )
 }
@@ -75,7 +75,7 @@ export default useAdd${titleize(name)};
       `)
 
     case 'Update':
-      return (`iimport { useMutation } from '@apollo/client';
+      return (`import { useMutation } from '@apollo/client';
 
 import {
   Update${titleize(name)}Document,
@@ -94,27 +94,26 @@ export default useUpdate${titleize(name)};
 `)
 
     case 'Remove':
-      return (`import { useMutation } from '@apollo/react-hooks'
+      return (`import { useMutation } from '@apollo/client';
 
 import { get${titleize(name)}sCache, write${titleize(name)}sCache } from 'cache/${name}s.cache'
 
 import {
-  IRemove${titleize(name)}MutationVariables,
-  IRemove${titleize(name)}Mutation,
+  Remove${titleize(name)}MutationVariables,
+  Remove${titleize(name)}Mutation,
   Remove${titleize(name)}Document
 } from 'types/graphql'
 
 const useRemove${titleize(name)} = () => {
-  return useMutation<IRemove${titleize(name)}Mutation, IRemove${titleize(name)}MutationVariables>(
+  return useMutation<Remove${titleize(name)}Mutation, Remove${titleize(name)}MutationVariables>(
     Remove${titleize(name)}Document, {
       update(cache, { data }) {
         const dataCache = get${titleize(name)}sCache({ cache })
 
         if (dataCache?.get${titleize(name)}s && data?.remove${titleize(name)}) {
           const ${name}s = dataCache.get${titleize(name)}s.filter(${name} => ${name}.id !== data.remove${titleize(name)}.id)
-          dataCache.get${titleize(name)}s = ${name}s
 
-          write${titleize(name)}sCache({ cache, data: dataCache })
+          write${titleize(name)}sCache({ cache, data: { get${titleize(name)}s: ${name}s }})
         }
       },
     }

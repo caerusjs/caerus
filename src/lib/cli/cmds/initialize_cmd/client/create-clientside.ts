@@ -63,10 +63,10 @@ export const createClient = (name: string) => {
   createFile(`${name}/client/src/views/layouts/`, 'application.layout.tsx', createLayout())
 
   // - atoms
-  createFile(`${name}/client/src/atoms/p/`, 'index.tsx', createParagraph())
-  createFile(`${name}/client/src/atoms/p/`, 'p.module.css', createParagraphCSS())
-  createFile(`${name}/client/src/atoms/a/`, 'index.tsx', createAnchor())
-  createFile(`${name}/client/src/atoms/a/`, 'a.module.css', createAnchorCSS())
+  createFile(`${name}/client/src/atoms/paragraph/`, 'index.tsx', createParagraph())
+  createFile(`${name}/client/src/atoms/paragraph/`, 'paragraph.module.css', createParagraphCSS())
+  createFile(`${name}/client/src/atoms/anchor/`, 'index.tsx', createAnchor())
+  createFile(`${name}/client/src/atoms/anchor/`, 'anchor.module.css', createAnchorCSS())
   createFile(`${name}/client/src/atoms/button/`, 'index.tsx', createButton())
   createFile(`${name}/client/src/atoms/button/`, 'button.module.css', createButtonCSS())
 
