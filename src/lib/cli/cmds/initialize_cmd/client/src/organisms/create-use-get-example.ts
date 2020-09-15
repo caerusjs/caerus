@@ -1,15 +1,11 @@
 export const createUseGetExample = () => {
-  return (`import { useQuery } from '@apollo/react-hooks'
-import { 
-  GetExampleDocument,
-  IGetExampleQuery
-} from 'types/graphql'
+  return (`import { useQuery } from '@apollo/client';
+import { GetExampleDocument, GetExampleQuery } from 'types/graphql';
 
 const useGetExample = () => {
-  return useQuery<IGetExampleQuery>(
-    GetExampleDocument
-  )
-}
+  return useQuery<GetExampleQuery>(GetExampleDocument);
+};
 
-export default useGetExample`)
+export default useGetExample;
+`)
 }

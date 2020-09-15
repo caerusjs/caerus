@@ -6,7 +6,7 @@ export const createPackage = (name: string) => {
 "engines": {
   "node": "^12"
 },
-"scripts": {  
+"scripts": {
   "dev": "yarn nf start -j Procfile.dev",
   "codegen": "NODE_ENV=development graphql-codegen --config codegen.yml",
   "install": "yarn --cwd client install && yarn --cwd server install",
@@ -23,24 +23,22 @@ export const createPackage = (name: string) => {
 "devDependencies": {
   "@apollo/react-common": "^3.1.3",
   "@graphql-codegen/cli": "^1.12.2",
-  "@graphql-codegen/introspection": "1.12.2",
+  "@graphql-codegen/introspection": "1.17.8",
   "@graphql-codegen/typescript-operations": "^1.12.2",
-  "@graphql-codegen/typescript-react-apollo": "^1.12.2",
-  "@graphql-codegen/typescript-resolvers": "1.12.2",
+  "@graphql-codegen/typescript-react-apollo": "^2.0.6",
+  "@graphql-codegen/typescript-resolvers": "1.17.9",
   "@graphql-codegen/typescript-type-graphql": "^1.15.2",
   "@types/react": "^16.9.22",
-  "@typescript-eslint/eslint-plugin": "^2.23.0",
-  "@typescript-eslint/parser": "^2.23.0",
+  "@typescript-eslint/eslint-plugin": "^4.1.1",
+  "@typescript-eslint/parser": "^4.1.1",
   "apollo-client": "^2.6.8",
   "apollo-utilities": "^1.3.3",
-  "eslint": "^6.8.0",
-  "eslint-plugin-react": "^7.17.0",
+  "caerus": "^0.6.0",
   "foreman": "^3.0.1",
-  "graphql": "^14.6.0",
+  "graphql": "^15.3.0",
   "graphql-tag": "^2.10.3",
-  "jscpd": "^2.0.16",
-  "source-map-explorer": "^2.4.1",
-  "caerus": "^0.5.2"
+  "jscpd": "^3.3.19",
+  "source-map-explorer": "^2.4.1"
 },
 "dependencies": {}
 }

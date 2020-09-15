@@ -56,66 +56,62 @@ const Get${titleize(name)}s: React.FC = () => {
 export default Get${titleize(name)}s`)
 
     case 'Get':
-      return (`import React from 'react'
+      return (`import React from 'react';
 
-import useGet${titleize(name)} from 'organisms/get-${name}/use-get-${name}'
+import useGet${titleize(name)} from 'organisms/get-${name}/use-get-${name}';
 
-import P from 'atoms/p'
-import Error from 'molecules/error'
-import Loading from 'molecules/loading'
+import Paragraph from 'atoms/paragraph';
+import Error from 'molecules/error';
+import Loading from 'molecules/loading';
 
 const Get${titleize(name)}: React.FC<{ id: string }> = ({ id }) => {
-  const { data, loading, error } = useGet${titleize(name)}(id)
+  const { data, loading, error } = useGet${titleize(name)}(id);
 
-  if (loading) return <Loading />
-  if (error || !data?.get${titleize(name)}) return <Error />
-  
+  if (loading) return <Loading />;
+  if (error || !data?.get${titleize(name)}) return <Error />;
+
   return (
-    <P>
+    <Paragraph>
       {data.get${titleize(name)}.id}
-    </P>
-  )
-}
+    </Paragraph>
+  );
+};
 
-export default Get${titleize(name)}
+export default Get${titleize(name)};
 `)
 
     case 'Add':
-      return (`import React from 'react'
-import { useHistory } from 'react-router-dom'
+      return (`import React from 'react';
+import { useHistory } from 'react-router-dom';
 
-import {
-  IAdd${titleize(name)}Input
-} from 'types/graphql'
+import { Add${titleize(name)}Input } from 'types/graphql';
 
-import useAdd${titleize(name)} from 'organisms/add-${name}/use-add-${name}'
+import useAdd${titleize(name)} from 'organisms/add-${name}/use-add-${name}';
 
-import ResourceForm from 'molecules/resource-form'
-import ${titleize(name)}FormFields, { 
-  ${name}FormSchema 
-} from 'molecules/${name}-form-fields'
+import ResourceForm from 'molecules/resource-form';
+import ${titleize(name)}FormFields, { ${name}FormSchema } from 'molecules/${name}-form-fields';
 
 const Add${titleize(name)}: React.FC = () => {
-  const history = useHistory()
-  const [add${titleize(name)}] = useAdd${titleize(name)}()
+  const history = useHistory();
+  const [add${titleize(name)}] = useAdd${titleize(name)}();
 
-  const add${titleize(name)}Mutation = async (values: IAdd${titleize(name)}Input) => {
+  const add${titleize(name)}Mutation = async (values: Add${titleize(name)}Input) => {
     await add${titleize(name)}({
       variables: {
-        ${name}: {...values}
-      }
-    })
+        ${name}: { ...values },
+      },
+    });
 
-    history.push(\`/${name}s/\`)
-  }
+    history.push(\`/${name}s/\`);
+  };
 
-  const initial${titleize(name)}Values: IAdd${titleize(name)}Input = {
-    // add your initial values here
-  }
+  const initial${titleize(name)}Values: Add${titleize(name)}Input = {
+    // Add your initial values here
+  };
 
   const handleReturn = () => {
-    history.push(\`/${name}s\`)
-  }
+    history.push(\`/${name}s\`);
+  };
 
   const resource = {
     initialValues: initial${titleize(name)}Values,
@@ -123,75 +119,71 @@ const Add${titleize(name)}: React.FC = () => {
     handleReturn: handleReturn,
     validation: ${name}FormSchema,
     name: '${name}',
-    action: 'new'
-  }
+    action: 'new',
+  };
 
-  return (
-    <ResourceForm resource={resource} FormFields={${titleize(name)}FormFields} />
-  )
-}
+  return <ResourceForm resource={resource} FormFields={${titleize(name)}FormFields} />;
+};
 
-export default Add${titleize(name)}
+export default Add${titleize(name)};
 `)
 
     case 'Update':
-      return (`import React from 'react'
-import { useHistory } from 'react-router-dom'
+      return (`import React from 'react';
+import { useHistory } from 'react-router-dom';
 
-import { IUpdate${titleize(name)}Input } from 'types/graphql'
+import { Update${titleize(name)}Input } from 'types/graphql';
 
-import useUpdate${titleize(name)} from 'organisms/update-${name}/use-update-${name}'
-import useGet${titleize(name)} from 'organisms/get-${name}/use-get-${name}'
+import useUpdate${titleize(name)} from 'organisms/update-${name}/use-update-${name}';
+import useGet${titleize(name)} from 'organisms/get-${name}/use-get-${name}';
 
-import Loading from 'molecules/loading'
-import Error from 'molecules/error'
-import ${titleize(name)}FormFields, { ${name}FormSchema } from 'molecules/${name}-form-fields'
-import ResourceForm from 'molecules/resource-form'
+import Loading from 'molecules/loading';
+import Error from 'molecules/error';
+import ${titleize(name)}FormFields, { ${name}FormSchema } from 'molecules/${name}-form-fields';
+import ResourceForm from 'molecules/resource-form';
 
 const Update${titleize(name)}: React.FC<{ id: string }> = ({ id }) => {
-  const history = useHistory()
+  const history = useHistory();
   const handleReturn = () => {
-    history.push(\`/${name}s\`)
-  }
-  const [update${titleize(name)}] = useUpdate${titleize(name)}()
-  
-  const { loading, error, data } = useGet${titleize(name)}(id)
-  
-  if (loading) return <Loading />
-  if (error || !data?.get${titleize(name)}) return <Error />
+    history.push(\`/${name}s\`);
+  };
+  const [update${titleize(name)}] = useUpdate${titleize(name)}();
 
-  const { get${titleize(name)} } = data
-  
-  const initial${titleize(name)}Values: IUpdate${titleize(name)}Input = {
-    ...get${titleize(name)}
-  }
-  
-  const update${titleize(name)}Mutation = async (values: IUpdate${titleize(name)}Input) => {
+  const { loading, error, data } = useGet${titleize(name)}(id);
+
+  if (loading) return <Loading />;
+  if (error || !data?.get${titleize(name)}) return <Error />;
+
+  const { __typename, ...values } = data.get${titleize(name)};
+
+  const initial${titleize(name)}Values: Update${titleize(name)}Input = {
+    ...values,
+  };
+
+  const update${titleize(name)}Mutation = async (values: Update${titleize(name)}Input) => {
     await update${titleize(name)}({
       variables: {
-        ${name}: {...values}
-      }
-    })
-  
-    handleReturn()
-  }
-  
+        ${name}: { ...values },
+      },
+    });
+
+    handleReturn();
+  };
+
   const resource = {
     name: '${name}',
     action: 'edit',
     handleReturn: handleReturn,
     validation: ${name}FormSchema,
     initialValues: initial${titleize(name)}Values,
-    handleSubmit: update${titleize(name)}Mutation
-  }
+    handleSubmit: update${titleize(name)}Mutation,
+  };
 
-  return (
-    <ResourceForm resource={resource} FormFields={${titleize(name)}FormFields} />
-  )
+  return <ResourceForm resource={resource} FormFields={${titleize(name)}FormFields} />;
+};
 
-}  
-
-export default Update${titleize(name)}      
+export default Update${titleize(name)};
+      
 `)
   }
 }
