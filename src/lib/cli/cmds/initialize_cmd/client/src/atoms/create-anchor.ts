@@ -1,4 +1,4 @@
-export const createA = () => {
+export const createAnchor = () => {
   return (`import React from 'react';
 
 import styles from './anchor.module.css';

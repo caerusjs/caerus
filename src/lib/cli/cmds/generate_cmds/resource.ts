@@ -17,7 +17,6 @@ export const builder = {}
 export const handler = (argv: Argv) => {
   // Create cache
   createFile(`${process.cwd()}/client/src/cache/`, `${argv.name}s.cache.ts`, createCache(argv.name, 'AddRemove'))
-  createFile(`${process.cwd()}/client/src/cache/`, `${argv.name}.cache.ts`, createCache(argv.name, 'Update'))
 
   // Create Views
   createViews(argv.name)
@@ -31,7 +30,7 @@ export const handler = (argv: Argv) => {
   // Create Molecules
   createFile(`${process.cwd()}/client/src/molecules/${argv.name}-form-fields/`, `index.tsx`, createFormFields(argv.name))
   createFile(`${process.cwd()}/client/src/molecules/${argv.name}-item/`, `index.tsx`, createResourceItem(argv.name))
-  
+
   // Create Hooks
   createFile(`${process.cwd()}/client/src/organisms/get-${argv.name}s/`, `use-get-${argv.name}s.ts`, createHook(argv.name, 'GetAll'))
   createFile(`${process.cwd()}/client/src/organisms/get-${argv.name}/`, `use-get-${argv.name}.ts`, createHook(argv.name, 'Get'))

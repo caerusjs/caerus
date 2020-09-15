@@ -70,7 +70,6 @@ test('generating a resource', (done) => {
     // Check we have the correct console message
 
     // Cache
-    expect(stdout).toMatch(/.*Created file.*\/client\/src\/cache\/test.cache.ts/)
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/cache\/tests.cache.ts/)
 
     // Views
@@ -105,14 +104,14 @@ test('generating a resource', (done) => {
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/organisms\/get-test\/get-test.graphql/)
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/organisms\/add-test\/add-test.graphql/)
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/organisms\/update-test\/update-test.graphql/)
-    
+
 
     // Resolvers
     expect(stdout).toMatch(/.*Created file.*\/server\/src\/resolvers\/test\/test.resolver.ts/)
     expect(stdout).toMatch(/.*Created file.*\/server\/src\/resolvers\/test\/test.test.ts/)
     expect(stdout).toMatch(/.*Created file.*\/server\/src\/resolvers\/test\/test.input.ts/)
     expect(stdout).toMatch(/.*Created file.*\/server\/src\/resolvers\/test\/test.args.ts/)
-    
+
     // Entity
     expect(stdout).toMatch(/.*Created file.*\/server\/src\/entities\/test.entity.ts/)
 

@@ -17,15 +17,15 @@ import { createENV } from './create-env'
 import { createExampleOrganism } from './src/organisms/create-example-organism'
 import { createUseGetExample } from './src/organisms/create-use-get-example'
 import { createGetExampleDocument } from './src/organisms/create-get-example-document'
-import { createP } from './src/atoms/create-paragraph'
-import { createPCSS } from './src/atoms/create-paragraph-css'
+import { createParagraph } from './src/atoms/create-paragraph'
+import { createParagraphCSS } from './src/atoms/create-paragraph-css'
 import { createErrorCSS } from './src/molecules/create-error-css'
 import { createError } from './src/molecules/create-error'
 import { createCloneWithoutTypename } from './src/lib/create-clone-without-typename'
 import { createResourceForm } from './src/molecules/create-resource-form'
 import { createPropTypes } from './src/types/create-prop-types'
-import { createA } from './src/atoms/create-anchor'
-import { createACSS } from './src/atoms/create-anchor-css'
+import { createAnchor } from './src/atoms/create-anchor'
+import { createAnchorCSS } from './src/atoms/create-anchor-css'
 import { createButtonCSS } from './src/atoms/create-button-css'
 import { createButton } from './src/atoms/create-button'
 
@@ -63,10 +63,10 @@ export const createClient = (name: string) => {
   createFile(`${name}/client/src/views/layouts/`, 'application.layout.tsx', createLayout())
 
   // - atoms
-  createFile(`${name}/client/src/atoms/p/`, 'index.tsx', createP())
-  createFile(`${name}/client/src/atoms/p/`, 'p.module.css', createPCSS())
-  createFile(`${name}/client/src/atoms/a/`, 'index.tsx', createA())
-  createFile(`${name}/client/src/atoms/a/`, 'a.module.css', createACSS())
+  createFile(`${name}/client/src/atoms/p/`, 'index.tsx', createParagraph())
+  createFile(`${name}/client/src/atoms/p/`, 'p.module.css', createParagraphCSS())
+  createFile(`${name}/client/src/atoms/a/`, 'index.tsx', createAnchor())
+  createFile(`${name}/client/src/atoms/a/`, 'a.module.css', createAnchorCSS())
   createFile(`${name}/client/src/atoms/button/`, 'index.tsx', createButton())
   createFile(`${name}/client/src/atoms/button/`, 'button.module.css', createButtonCSS())
 
