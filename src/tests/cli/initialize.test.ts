@@ -36,10 +36,10 @@ test('initializing a project', (done) => {
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/views\/layouts\/application.layout.tsx/)
 
     // - atoms
-    expect(stdout).toMatch(/.*Created file.*\/client\/src\/atoms\/p\/index.tsx/)
-    expect(stdout).toMatch(/.*Created file.*\/client\/src\/atoms\/p\/p.module.css/)
-    expect(stdout).toMatch(/.*Created file.*\/client\/src\/atoms\/a\/index.tsx/)
-    expect(stdout).toMatch(/.*Created file.*\/client\/src\/atoms\/a\/a.module.css/)
+    expect(stdout).toMatch(/.*Created file.*\/client\/src\/atoms\/paragraph\/index.tsx/)
+    expect(stdout).toMatch(/.*Created file.*\/client\/src\/atoms\/paragraph\/paragraph.module.css/)
+    expect(stdout).toMatch(/.*Created file.*\/client\/src\/atoms\/anchor\/index.tsx/)
+    expect(stdout).toMatch(/.*Created file.*\/client\/src\/atoms\/anchor\/anchor.module.css/)
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/atoms\/button\/index.tsx/)
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/atoms\/button\/button.module.css/)
 
@@ -87,7 +87,7 @@ test('initializing a project', (done) => {
     expect(stdout).toMatch(/.*Created file.*\/server\/src\/support\/jest\/jest.config.js/)
     expect(stdout).toMatch(/.*Created file.*\/server\/src\/support\/jest\/jest.integration.config.js/)
     expect(stdout).toMatch(/.*Created file.*\/server\/src\/support\/puppeteer\/puppeteer.config.js/)
-    
+
     done()
   })
 })
