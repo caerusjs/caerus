@@ -4,7 +4,7 @@ export const createFormFields = (name: string) => {
   return `import React from 'react';
 import { object } from 'yup';
 
-import { FormFields } from 'types/props';
+import { FormFields } from 'types/caerus';
 
 export const ${name}FormSchema = object().shape({
 });

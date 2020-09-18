@@ -38,7 +38,7 @@ const Get${titleize(name)}s: React.FC = () => {
           remove${titleize(name)}({
             variables: {
               ${name}: {
-                id: ${name}.id;
+                id: ${name}.id
               }
             }
           });

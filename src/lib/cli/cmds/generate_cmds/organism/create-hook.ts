@@ -111,7 +111,7 @@ export default useUpdate${titleize(name)};
 
 import { get${titleize(name)}sCache, write${titleize(
         name,
-      )}sCache } from 'cache/${name}s.cache;'
+      )}sCache } from 'cache/${name}s.cache';
 
 import {
   Remove${titleize(name)}MutationVariables,

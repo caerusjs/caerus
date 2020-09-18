@@ -2,7 +2,7 @@ export const createResourceForm = () => {
   return `import React from 'react';
   import { Formik, Form } from 'formik';
   
-  import { ResourceFormProps } from 'types/props';
+  import { ResourceFormProps } from 'types/caerus';
   
   const ResourceForm: React.FC<ResourceFormProps> = ({
     FormFields,
