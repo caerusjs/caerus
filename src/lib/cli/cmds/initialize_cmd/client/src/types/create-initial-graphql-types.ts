@@ -36,10 +36,10 @@ export type GetExampleQuery = (
 
 
 export const GetExampleDocument = gql\`
-    query getExample {
-  getExample {
-    content
-  }
+  query getExample {
+    getExample {
+      content
+    }
 }
 \`;
 export type GetExampleQueryResult = Apollo.QueryResult<GetExampleQuery, GetExampleQueryVariables>;

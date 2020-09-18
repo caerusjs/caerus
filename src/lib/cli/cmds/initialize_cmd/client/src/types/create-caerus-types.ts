@@ -1,4 +1,4 @@
-export const createPropTypes = () => {
+export const createCaerusTypes = () => {
   return `import { FormikTouched, FormikErrors } from 'formik';
 import { ObjectSchema } from 'yup';
   

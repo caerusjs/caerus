@@ -23,7 +23,7 @@ import { createErrorCSS } from './src/molecules/create-error-css';
 import { createError } from './src/molecules/create-error';
 import { createCloneWithoutTypename } from './src/lib/create-clone-without-typename';
 import { createResourceForm } from './src/molecules/create-resource-form';
-import { createPropTypes } from './src/types/create-prop-types';
+import { createCaerusTypes } from './src/types/create-caerus-types';
 import { createAnchor } from './src/atoms/create-anchor';
 import { createAnchorCSS } from './src/atoms/create-anchor-css';
 import { createButtonCSS } from './src/atoms/create-button-css';
@@ -46,8 +46,13 @@ export const createClient = (name: string) => {
     createCloneWithoutTypename(),
   );
 
-  // - props
-  createFile(`${name}/client/src/types/`, 'props.ts', createPropTypes());
+  // - types
+  createFile(`${name}/client/src/types/`, 'caerus.ts', createCaerusTypes());
+  createFile(
+    `${name}/client/src/types/`,
+    'graphql.ts',
+    createInitialGraphqlTypes(),
+  );
 
   // - public
   createFile(`${name}/client/public/`, 'index.html', createIndexHTML(name));
@@ -62,14 +67,6 @@ export const createClient = (name: string) => {
     `${name}/client/src/support/`,
     'jest.config.js',
     createJestConfig(),
-  );
-
-  // - types
-  createFile(`${name}/client/src/types/`, 'props.ts', createPropTypes());
-  createFile(
-    `${name}/client/src/types/`,
-    'graphql.ts',
-    createInitialGraphqlTypes(),
   );
 
   // - routes

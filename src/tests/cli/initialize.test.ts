@@ -31,7 +31,7 @@ test('initializing a project', (done) => {
     );
 
     // - types
-    expect(stdout).toMatch(/.*Created file.*\/client\/src\/types\/props.ts/);
+    expect(stdout).toMatch(/.*Created file.*\/client\/src\/types\/caerus.ts/);
     expect(stdout).toMatch(/.*Created file.*\/client\/src\/types\/graphql.ts/);
 
     // - routes
