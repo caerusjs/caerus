@@ -1,7 +1,7 @@
-import titleize from '../../../helpers/titleize'
+import titleize from '../../../helpers/titleize';
 
 export const createResourceItem = (name: string) => {
-  return (`import React from 'react';
+  return `import React from 'react';
 
 import Paragraph from 'atoms/paragraph';
 import Button from 'atoms/button';
@@ -15,15 +15,19 @@ interface ${titleize(name)}ItemProps {
   handleRemove: () => void;
 }
 
-const ${titleize(name)}Item: React.FC<${titleize(name)}ItemProps> = ({ handleRemove, ${name} }) => {
+const ${titleize(name)}Item: React.FC<${titleize(
+    name,
+  )}ItemProps> = ({ handleRemove, ${name} }) => {
   return (
     <>
-      <Paragraph>{${name}.title}</Paragraph>
+      <Paragraph>{${name}.id}</Paragraph>
       <Paragraph>
         <Link to={\`/${name}s/\${${name}.id}\`}>View ${titleize(name)}</Link>
       </Paragraph>
       <Paragraph>
-        <Link to={\`/${name}s/\${${name}.id}/edit\`}>Edit ${titleize(name)}</Link>
+        <Link to={\`/${name}s/\${${name}.id}/edit\`}>Edit ${titleize(
+    name,
+  )}</Link>
       </Paragraph>
       <Button onClick={handleRemove}>Remove</Button>
     </>
@@ -32,5 +36,5 @@ const ${titleize(name)}Item: React.FC<${titleize(name)}ItemProps> = ({ handleRem
 
 export default ${titleize(name)}Item;
 
-`)
-}
+`;
+};

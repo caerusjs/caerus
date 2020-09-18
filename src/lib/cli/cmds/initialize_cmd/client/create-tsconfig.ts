@@ -1,5 +1,5 @@
 export const createTSConfig = () => {
-  return (`{
+  return `{
   "compilerOptions": {
     "baseUrl": "./src/",
     "target": "es5",
@@ -28,5 +28,5 @@ export const createTSConfig = () => {
   },
   "exclude": ["node_modules"],
   "include": ["src", "src/support/setupTests.ts", "src/support"]
-}`)
-}
+}`;
+};

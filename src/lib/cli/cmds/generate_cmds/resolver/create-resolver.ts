@@ -1,29 +1,35 @@
-import titleize from '../../../helpers/titleize'
-import camelize from '../../../helpers/camelize'
+import titleize from '../../../helpers/titleize';
+import camelize from '../../../helpers/camelize';
 
 export const createResolver = (name: string) => {
-  return (`import {
+  return `import {
   Args,
   Arg,
   Resolver,
   Mutation,
   Query,
-} from 'type-graphql'
-import { getRepository } from 'typeorm'
+} from 'type-graphql';
+import { getRepository } from 'typeorm';
 
-import { ${titleize(name)} } from 'entities/${name}.entity'
-import { Get${titleize(name)}Args } from 'resolvers/${name}/${name}.args'
-import { Add${titleize(name)}Input, Update${titleize(name)}Input, Remove${titleize(name)}Input } from 'resolvers/${name}/${name}.input'
+import { ${titleize(name)} } from 'entities/${name}.entity';
+import { Get${titleize(name)}Args } from 'resolvers/${name}/${name}.args';
+import { Add${titleize(name)}Input, Update${titleize(
+    name,
+  )}Input, Remove${titleize(
+    name,
+  )}Input } from 'resolvers/${name}/${name}.input';
 
 @Resolver(${titleize(name)})
 export class ${titleize(name)}Resolver {
   @Query(returns => ${titleize(name)})
-  async get${titleize(name)}(@Args() { id }: Get${titleize(name)}Args): Promise<${titleize(name)} | undefined> {
+  async get${titleize(name)}(@Args() { id }: Get${titleize(
+    name,
+  )}Args): Promise<${titleize(name)} | undefined> {
     return getRepository(${titleize(name)})
       .createQueryBuilder('${name}')
       .where('${name}.id = :id', { id: id })
-      .getOne()
-  }
+      .getOne();
+  };
 
   @Query(returns => [${titleize(name)}])
   async get${titleize(name)}s(): Promise<${titleize(name)}[]> {
@@ -32,32 +38,40 @@ export class ${titleize(name)}Resolver {
       .orderBy({
         '${name}.createdAt': 'DESC',
       })
-      .getMany()
-  }
+      .getMany();
+  };
   
   @Mutation(returns => ${titleize(name)})
-  async add${titleize(name)}(@Arg('${camelize(name)}') ${camelize(name)}: Add${titleize(name)}Input): Promise<${titleize(name)} | undefined> {
+  async add${titleize(name)}(@Arg('${camelize(name)}') ${camelize(
+    name,
+  )}: Add${titleize(name)}Input): Promise<${titleize(name)} | undefined> {
     return getRepository(${titleize(name)})
-      .save(${name})
-  }
+      .save(${name});
+  };
   
   @Mutation(returns => ${titleize(name)})
-  async update${titleize(name)}(@Arg('${camelize(name)}') ${camelize(name)}: Update${titleize(name)}Input): Promise<${titleize(name)} | undefined> {
+  async update${titleize(name)}(@Arg('${camelize(name)}') ${camelize(
+    name,
+  )}: Update${titleize(name)}Input): Promise<${titleize(name)} | undefined> {
     return getRepository(${titleize(name)})
-      .save(${name})
+      .save(${name});
   }
 
 
   @Mutation(returns => ${titleize(name)})
-  async remove${titleize(name)}(@Arg('${camelize(name)}') { id }: Remove${titleize(name)}Input): Promise<Partial<${titleize(name)}>> {
+  async remove${titleize(name)}(@Arg('${camelize(
+    name,
+  )}') { id }: Remove${titleize(name)}Input): Promise<Partial<${titleize(
+    name,
+  )}>> {
     await getRepository(${titleize(name)})
       .createQueryBuilder()
       .delete()
-      .from(Post)
+      .from(${titleize(name)})
       .where('id = :id', { id: id })
-      .execute()
+      .execute();
 
-    return { id }
+    return { id };
   }
-}`)
-}
+}`;
+};

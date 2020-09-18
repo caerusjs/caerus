@@ -1,13 +1,13 @@
 export const createExampleEntity = () => {
-  return (`import {
+  return `import {
   ObjectType,
   Field
-} from 'type-graphql'
+} from 'type-graphql';
 
 @ObjectType()
 export class Example {
   @Field({ nullable: true })
-  content?: string
-}
-  `)
-}
+  content?: string;
+};
+  `;
+};

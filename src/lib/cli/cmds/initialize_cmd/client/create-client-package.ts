@@ -1,5 +1,5 @@
 export const createClientPackage = (name: string) => {
-  return (`{
+  return `{
   "name": "${name}-client",
   "version": "0.1.0",
   "main": "index.js",
@@ -74,5 +74,5 @@ export const createClientPackage = (name: string) => {
     "subscriptions-transport-ws": "^0.9.18",
     "ts-jest": "^24.3.0"
   }
-}`)
-}
+}`;
+};

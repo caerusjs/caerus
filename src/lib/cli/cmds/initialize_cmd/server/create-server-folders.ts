@@ -1,4 +1,4 @@
-import { createFolder } from '../../../helpers/create-folder'
+import { createFolder } from '../../../helpers/create-folder';
 
 export const folders = [
   '/server/src/config',
@@ -9,11 +9,11 @@ export const folders = [
   '/server/src/lib',
   '/server/src/resolvers',
   '/server/src/support',
-  '/server/src/types'
-]
+  '/server/src/types',
+];
 
 export const createServersideFolders = (name: string) => {
-  folders.forEach(folder => {
-    createFolder(`${name}${folder}`)
-  })
-}
+  folders.forEach((folder) => {
+    createFolder(`${name}${folder}`);
+  });
+};

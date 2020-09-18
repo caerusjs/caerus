@@ -1,5 +1,5 @@
 export const createPackage = (name: string) => {
-  return (`{
+  return `{
 "name": "${name}",
 "version": "0.1.0",
 "license": "MIT",
@@ -33,7 +33,7 @@ export const createPackage = (name: string) => {
   "@typescript-eslint/parser": "^4.1.1",
   "apollo-client": "^2.6.8",
   "apollo-utilities": "^1.3.3",
-  "caerus": "^0.6.0",
+  "caerus": "^0.6.1",
   "foreman": "^3.0.1",
   "graphql": "^15.3.0",
   "graphql-tag": "^2.10.3",
@@ -42,5 +42,5 @@ export const createPackage = (name: string) => {
 },
 "dependencies": {}
 }
-  `)
-}
+  `;
+};

@@ -1,6 +1,6 @@
-import fs from 'fs'
+import fs from 'fs';
 
 export const createFolder = (folderPath: string) => {
   // Caerus should be installed in the project root
-  fs.mkdirSync(folderPath, { recursive: true })
-}
+  fs.mkdirSync(folderPath, { recursive: true });
+};

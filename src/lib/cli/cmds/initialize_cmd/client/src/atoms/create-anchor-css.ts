@@ -1,5 +1,5 @@
 export const createAnchorCSS = () => {
-  return (`.root {
+  return `.root {
 
-}`)
-}
+}`;
+};

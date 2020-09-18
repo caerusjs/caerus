@@ -1,5 +1,5 @@
 export const createError = () => {
-  return (`import React from 'react';
+  return `import React from 'react';
 
 import Paragraph from 'atoms/paragraph';
 
@@ -18,5 +18,5 @@ const Error: React.FC<{ message?: string }> = ({ message }) => {
 
 export default Error;
   
-`)
-}
+`;
+};

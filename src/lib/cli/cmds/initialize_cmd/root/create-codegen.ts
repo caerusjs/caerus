@@ -1,5 +1,5 @@
 export const createCodegen = () => {
-  return (`overwrite: true
+  return `overwrite: true
 schema: 'http://localhost:4000/graphql'
 documents: 'client/src/**/*.graphql'
 generates:
@@ -26,5 +26,5 @@ generates:
       - 'introspection'
 config:
   useIndexSignature: true
-`)
-}
+`;
+};

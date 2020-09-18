@@ -1,5 +1,5 @@
 export const createParagraphCSS = () => {
-  return (`.root {
+  return `.root {
 
-}`)
-}
+}`;
+};

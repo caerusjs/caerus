@@ -1,5 +1,5 @@
 export const createTsconfigProd = () => {
-  return (`{
+  return `{
   "extends": "./tsconfig.json",
   "exclude": [
     "./**/node_modules",
@@ -8,5 +8,5 @@ export const createTsconfigProd = () => {
     "./**/support"
   ]
 }
-`)
-}
+`;
+};

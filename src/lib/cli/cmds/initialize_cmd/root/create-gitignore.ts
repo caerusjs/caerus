@@ -1,5 +1,5 @@
 export const createGitIgnore = () => {
-  return (`**/node_modules
+  return `**/node_modules
 **/built
 **/build
 **/dist
@@ -8,5 +8,5 @@ export const createGitIgnore = () => {
 **/coverage
 **/tmp
 **/temp
-**/report`)
-}
+**/report`;
+};

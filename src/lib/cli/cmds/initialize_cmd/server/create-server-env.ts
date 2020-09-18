@@ -1,3 +1,3 @@
 export const createServerEnv = () => {
-  return (`ORIGINS=*`)
-}
+  return `ORIGINS=*`;
+};

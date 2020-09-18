@@ -1,5 +1,5 @@
 export const createTsconfig = () => {
-  return (`{
+  return `{
   "compilerOptions": {
     "target": "es2018",
     "module": "commonjs",
@@ -35,5 +35,5 @@ export const createTsconfig = () => {
     "./**/support"
   ]
 }
-`)
-}
+`;
+};

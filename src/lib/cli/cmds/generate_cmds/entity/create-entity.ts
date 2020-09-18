@@ -1,7 +1,7 @@
-import titleize from '../../../helpers/titleize'
+import titleize from '../../../helpers/titleize';
 
 export const createEntity = (name: string) => {
-  return (`import { 
+  return `import { 
   Entity, 
   PrimaryGeneratedColumn,
   CreateDateColumn,
@@ -11,19 +11,19 @@ import {
   ObjectType,
   Field,
   ID,
-} from 'type-graphql'
+} from 'type-graphql';
 
 @ObjectType()
 @Entity()
 export class ${titleize(name)} {
   @Field(type => ID)
   @PrimaryGeneratedColumn('uuid')
-  readonly id: string
+  readonly id: string;
 
   @CreateDateColumn({ type: 'date' })
-  createdAt: Date
+  createdAt: Date;
   
   @UpdateDateColumn({ type: 'date' })
-  updatedAt: Date
-}`)
-}
+  updatedAt: Date;
+}`;
+};

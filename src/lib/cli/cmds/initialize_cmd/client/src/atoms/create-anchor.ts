@@ -1,5 +1,5 @@
 export const createAnchor = () => {
-  return (`import React from 'react';
+  return `import React from 'react';
 
 import styles from './anchor.module.css';
 
@@ -8,5 +8,5 @@ const Anchor: React.FC = ({ children }) => {
 };
 
 export default Anchor;
-  `)
-}
+  `;
+};

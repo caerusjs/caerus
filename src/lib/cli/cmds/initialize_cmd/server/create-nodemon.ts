@@ -1,5 +1,5 @@
 export const createNodemon = () => {
-  return (`{
+  return `{
 "verbose": true,
 "watch": [
   "src"
@@ -11,5 +11,5 @@ export const createNodemon = () => {
 ],
 "exec": "TS_NODE_PROJECT='./tsconfig.json' ts-node -r tsconfig-paths/register src/server.ts",
 "port": 4000
-}`)
-}
+}`;
+};

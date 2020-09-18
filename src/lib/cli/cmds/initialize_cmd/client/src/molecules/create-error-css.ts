@@ -1,5 +1,5 @@
 export const createErrorCSS = () => {
-  return (`.root {
+  return `.root {
   text-align: center;
-}`)
-}
+}`;
+};

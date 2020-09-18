@@ -1,7 +1,7 @@
 export const createGetExampleDocument = () => {
-  return (`query getExample {
+  return `query getExample {
   getExample {
     content
   }
-}`)
-}
+}`;
+};

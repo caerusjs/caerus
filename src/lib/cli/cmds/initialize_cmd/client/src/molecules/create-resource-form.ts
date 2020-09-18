@@ -1,5 +1,5 @@
 export const createResourceForm = () => {
-  return (`import React from 'react';
+  return `import React from 'react';
   import { Formik, Form } from 'formik';
   
   import { ResourceFormProps } from 'types/props';
@@ -65,5 +65,5 @@ export const createResourceForm = () => {
   
   export default ResourceForm;
   
-`)
-}
+`;
+};

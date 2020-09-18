@@ -1,5 +1,5 @@
 export const createDbConfig = (name: string) => {
-  return (`const path = process.env.NODE_ENV === 'production' ? 'dist' : 'src'
+  return `const path = process.env.NODE_ENV === 'production' ? 'dist' : 'src';
 
   module.exports = {
     'type': 'sqlite',
@@ -23,6 +23,6 @@ export const createDbConfig = (name: string) => {
       'migrationsDir': \`\${path}/db/migrations\`,
       'subscribersDir': \`\${path}/db/subscribers\`
     }
-  }
-`)
-}
+  };
+`;
+};

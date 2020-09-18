@@ -1,11 +1,11 @@
 export const createDatabase = () => {
-  return (`import * as TypeORM from 'typeorm'
+  return `import * as TypeORM from 'typeorm';
 
 export const connectDatabase = async () => {
-  return TypeORM.createConnection()
-}
+  return TypeORM.createConnection();
+};
 
 export const disconnectDatabase = () => {
-  return TypeORM.getConnection().close()
-}`)
-}
+  return TypeORM.getConnection().close();
+};`;
+};

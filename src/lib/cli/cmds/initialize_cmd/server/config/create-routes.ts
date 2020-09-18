@@ -1,15 +1,15 @@
 export const createRoutes = () => {
-  return (`// Core
-import { join } from 'path'
+  return `// Core
+import { join } from 'path';
 
 // Types
-import { Router } from 'express'
+import { Router } from 'express';
 
-const routes = Router()
+const routes = Router();
 
 routes.get('*', (_, res) => {
-  res.sendFile(join(__dirname, '../../../client/build', 'index.html'))
-})
+  res.sendFile(join(__dirname, '../../../client/build', 'index.html'));
+});
 
-export default routes`)
-}
+export default routes;`;
+};

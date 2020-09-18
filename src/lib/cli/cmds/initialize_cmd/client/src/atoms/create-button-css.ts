@@ -1,5 +1,5 @@
 export const createButtonCSS = () => {
-  return (`.root {
+  return `.root {
 
-}`)
-}
+}`;
+};

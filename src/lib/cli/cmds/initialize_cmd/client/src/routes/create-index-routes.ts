@@ -1,13 +1,13 @@
 export const createIndexRoutes = () => {
-  return (`import React, { Suspense, lazy } from 'react'
+  return `import React, { Suspense, lazy } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route
-} from 'react-router-dom'
-import Loading from 'molecules/loading'
+} from 'react-router-dom';
+import Loading from 'molecules/loading';
 
-const ExampleRoutes = lazy(() => import('routes/example.routes'))
+const ExampleRoutes = lazy(() => import('routes/example.routes'));
 
 const AppRoutes = () => {
   return (
@@ -18,9 +18,9 @@ const AppRoutes = () => {
         </Switch>
       </Suspense>
     </Router>
-  )
-}
+  );
+};
 
-export default AppRoutes
-`)
-}
+export default AppRoutes;
+`;
+};

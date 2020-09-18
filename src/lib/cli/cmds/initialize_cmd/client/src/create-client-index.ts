@@ -1,5 +1,5 @@
 export const createClientIndex = () => {
-  return (`import React from 'react';
+  return `import React from 'react';
 import ReactDOM from 'react-dom';
 import ApplicationRoutes from 'routes';
 import { ApolloClient, InMemoryCache, ApolloLink } from '@apollo/client';
@@ -80,5 +80,5 @@ ReactDOM.render(
   </ApolloProvider>,
   document.getElementById('root'),
 );
-`)
-}
+`;
+};

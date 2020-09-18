@@ -1,5 +1,5 @@
 export const createExampleOrganism = () => {
-  return (`import React from 'react';
+  return `import React from 'react';
 
 import useGetExample from 'organisms/example/use-get-example';
 
@@ -17,5 +17,5 @@ const Example: React.FC = () => {
 };
 
 export default Example;
-`)
-}
+`;
+};

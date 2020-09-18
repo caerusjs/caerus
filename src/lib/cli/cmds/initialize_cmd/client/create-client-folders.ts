@@ -1,4 +1,4 @@
-import { createFolder } from '../../../helpers/create-folder'
+import { createFolder } from '../../../helpers/create-folder';
 
 export const folders = [
   '/client/src/atoms',
@@ -11,11 +11,11 @@ export const folders = [
   '/client/src/support',
   '/client/src/views',
   '/client/src/views/example',
-  '/client/src/views/layouts'
-]
+  '/client/src/views/layouts',
+];
 
 export const createClientFolders = (name: string) => {
-  folders.forEach(folder => {
-    createFolder(`${name}${folder}`)
-  })
-}
+  folders.forEach((folder) => {
+    createFolder(`${name}${folder}`);
+  });
+};

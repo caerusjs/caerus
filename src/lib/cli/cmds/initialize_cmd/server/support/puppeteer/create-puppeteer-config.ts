@@ -1,5 +1,5 @@
 export const createPuppeteerConfig = () => {
-  return (`module.exports = {
+  return `module.exports = {
   server: [
     {
       command: 'PORT=4444 NODE_ENV=test TS_NODE_PROJECT=./tsconfig.json yarn run ts-node -r tsconfig-paths/register src/server.ts',
@@ -29,6 +29,6 @@ export const createPuppeteerConfig = () => {
   },
   browser: 'chromium',
   browserContext: 'incognito'
-}
-`)
-}
+};
+`;
+};

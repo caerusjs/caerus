@@ -1,5 +1,5 @@
 export const createJestConfig = () => {
-  return (`module.exports = {
+  return `module.exports = {
   testEnvironment: 'node',
   roots: ['<rootDir>../../../'],
   modulePaths: ['<rootDir>../../../'],
@@ -20,6 +20,6 @@ export const createJestConfig = () => {
     }
   },
   testTimeout: process.env.TEST_TIMEOUT ? parseInt(process.env.TEST_TIMEOUT) : 30000
-}
-`)
-}
+};
+`;
+};
