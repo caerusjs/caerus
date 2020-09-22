@@ -22,6 +22,7 @@ export const createPackage = (name: string) => {
 },
 "devDependencies": {
   "@apollo/react-common": "^3.1.3",
+  "@caerusjs/cli": "^0.6.2",
   "@graphql-codegen/cli": "^1.12.2",
   "@graphql-codegen/introspection": "1.17.8",
   "@graphql-codegen/typescript-operations": "^1.12.2",
@@ -33,7 +34,6 @@ export const createPackage = (name: string) => {
   "@typescript-eslint/parser": "^4.1.1",
   "apollo-client": "^2.6.8",
   "apollo-utilities": "^1.3.3",
-  "caerus": "^0.6.1",
   "foreman": "^3.0.1",
   "graphql": "^15.3.0",
   "graphql-tag": "^2.10.3",

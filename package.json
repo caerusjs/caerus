@@ -1,16 +1,19 @@
 {
-  "name": "caerus",
-  "version": "0.6.1",
-  "description": "An opinionated framework and ecosystem for building web applications with the goal of rapid development and low maintenence.",
+  "name": "@caerusjs/cli",
+  "version": "0.6.2",
+  "description": "Caerus, an opinionated framework and ecosystem for building web applications with the goal of rapid development and low maintenence.",
   "engines": {
     "node": "^12"
   },
   "main": "./dist/lib/cli/cli.js",
-  "repository": "https://github.com/krisquigley/caerus",
-  "homepage": "https://github.com/krisquigley/caerus",
+  "repository": "https://github.com/caerusjs/caerus",
+  "homepage": "https://github.com/caerusjs/caerus",
   "author": "Kris Quigley <kris@krisquigley.co.uk>",
   "license": "MIT",
   "prepublish": "yarn test",
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "framework",
     "reactjs",
