@@ -1,4 +1,4 @@
-# Caerus Framework
+# Caerus CLI
 ![](https://github.com/krisquigley/caerus/workflows/Node.js%20CI/badge.svg)
 
 ## What is it?
