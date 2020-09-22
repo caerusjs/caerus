@@ -132,7 +132,7 @@ If you want to revert this, for any reason, the following command should be exec
 
 Install the Caerus package from your workspace folder to get started:
 
-`$ yarn add caerus`
+`$ yarn add @caerusjs/cli`
 
 ## Initializing a new project
 
