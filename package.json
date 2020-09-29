@@ -2,10 +2,7 @@
   "name": "@caerusjs/dalton",
   "version": "0.0.1",
   "description": "The Caerus Atomic Standard Library",
-  "engines": {
-    "node": "^12"
-  },
-  "main": "./dist/index.js",
+  "main": "./dist/",
   "repository": "https://github.com/caerusjs/dalton",
   "homepage": "https://github.com/caerusjs/dalton",
   "author": "Kris Quigley <kris@krisquigley.co.uk>",

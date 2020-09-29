@@ -1,11 +1,3 @@
 {
-  "extends": "./tsconfig.json",
-  "include": ["./**/*"],
-  "exclude": [
-    "./node_modules",
-    "./**/tests/",
-    "./support/",
-    "./build/",
-    "./coverage/"
-  ]
+  "extends": "./tsconfig.json"
 }
