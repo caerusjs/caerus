@@ -1,9 +1,10 @@
+import GetAtom from 'organisms/get-atom';
 import React from 'react';
 
-const ApplicationLayout: React.FC = ({ children }) => {
+const ApplicationLayout: React.FC = () => {
   return (
     <>
-      {children}
+      <GetAtom />
     </>
   );
 };

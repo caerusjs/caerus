@@ -1,0 +1,5 @@
+query getAtom {
+  getAtom {
+    href
+  }
+}
