@@ -1,0 +1,41 @@
+{
+  "name": "@caerusjs/dalton",
+  "version": "0.0.1",
+  "description": "The Caerus Atomic Standard Library",
+  "main": "./dist/",
+  "repository": "https://github.com/caerusjs/dalton",
+  "homepage": "https://github.com/caerusjs/dalton",
+  "author": "Kris Quigley <kris@krisquigley.co.uk>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "caerus",
+    "atomic",
+    "reactjs",
+    "graphql",
+    "apollo-client"
+  ],
+  "scripts": {
+    "build": "yarn tsc --build tsconfig.build.json --verbose",
+    "build:watch": "yarn tsc --build tsconfig.build.json --verbose --watch",
+    "test": "./bin/test -c ./src/tests/support/jest.config.js --detectOpenHandles --runInBand"
+  },
+  "files": [
+    "./dist/"
+  ],
+  "preferGlobal": true,
+  "devDependencies": {
+    "@types/jest": "^26.0.14",
+    "@types/node": "^14.11.2",
+    "@types/react": "16.9.49",
+    "@types/react-dom": "16.9.8",
+    "jest": "^26.0.1",
+    "ts-jest": "^26.1.0",
+    "typescript": "^4.0.3",
+    "typescript-plugin-css-modules": "^2.7.0",
+    "react": "^16.13.1"
+  },
+  "dependencies": {}
+}
