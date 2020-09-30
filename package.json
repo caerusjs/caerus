@@ -1,56 +1,14 @@
 {
-  "name": "@caerusjs/cli",
-  "version": "0.6.2",
-  "description": "Caerus, an opinionated framework and ecosystem for building web applications with the goal of rapid development and low maintenence.",
-  "engines": {
-    "node": "^12"
-  },
-  "main": "./dist/lib/cli/cli.js",
-  "repository": "https://github.com/caerusjs/caerus",
-  "homepage": "https://github.com/caerusjs/caerus",
-  "author": "Kris Quigley <kris@krisquigley.co.uk>",
-  "license": "MIT",
-  "prepublish": "yarn test",
-  "publishConfig": {
-    "access": "public"
-  },
-  "keywords": [
-    "framework",
-    "reactjs",
-    "react-router",
-    "expressjs",
-    "typescript",
-    "typeorm",
-    "typegraphql",
-    "opinionated",
-    "graphql",
-    "apollo-server-express",
-    "apollo-client"
+  "private": true,
+  "name": "@caerusjs/monorepo",
+  "version": "0.1.0",
+  "workspaces": [
+    "packages/*"
   ],
-  "bin": {
-    "caerus": "./bin/caerus"
-  },
-  "scripts": {
-    "caerus": "./bin/caerus",
-    "build": "yarn tsc --build tsconfig.build.json --verbose",
-    "build:watch": "yarn tsc --build tsconfig.build.json --verbose --watch",
-    "test": "./bin/test -c ./src/tests/support/jest.config.js --detectOpenHandles --runInBand"
-  },
-  "files": [
-    "bin/",
-    "dist/"
-  ],
-  "preferGlobal": true,
+  "scripts": {},
+  "dependencies": {},
   "devDependencies": {
-    "@types/jest": "^25.2.3",
-    "@types/node": "^13.13.5",
-    "@types/yargs": "^15.0.4",
-    "jest": "^26.0.1",
-    "ts-jest": "^26.1.0",
-    "typescript": "^3.8.3"
-  },
-  "dependencies": {
-    "title-case": "^3.0.2",
-    "yargs": "^15.3.1"
+    "lerna": "^3.22.1",
+    "unorepo": "^0.1.0"
   }
 }
