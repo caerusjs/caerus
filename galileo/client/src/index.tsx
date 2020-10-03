@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ApplicationRoutes from 'routes';
+import ApplicationRoutes from 'routes/index.routes';
 import { ApolloClient, InMemoryCache, ApolloLink } from '@apollo/client';
 import { ApolloProvider } from '@apollo/client';
 import { onError } from '@apollo/client/link/error';

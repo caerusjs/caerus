@@ -7,4 +7,3 @@ const Anchor: React.FC = ({ children }) => {
 };
 
 export default Anchor;
-  
