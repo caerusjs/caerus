@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const IndexAtomView: React.FC = () => {
-  const atoms = ['anchor', 'paragraph', 'button'];
+  const atoms = ['heading1'];
 
   const atomList = atoms.map((atom) => {
     return (

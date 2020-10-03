@@ -10,7 +10,11 @@ const ShowAtomView: React.FC = () => {
   const [atom, setAtom] = useState<any>();
 
   const importAtom = () =>
-    lazy(() => import(`atoms/${atomId}`).catch(() => import(`atoms/null`)));
+    lazy(() =>
+      import(`@caerusjs/dalton`)
+        .catch(() => import(`atoms/null`))
+        .then((module: any) => ({ default: module.Heading1 })),
+    );
 
   useEffect(() => {
     async function loadAtom() {
