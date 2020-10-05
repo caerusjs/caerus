@@ -459,14 +459,6 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@caerusjs/cli@^0.6.2":
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/@caerusjs/cli/-/cli-0.6.2.tgz#8610e54657e6f10b928453c2fbfac4439b728bfb"
-  integrity sha512-312KF2S9o6vPHwG/K7eV2vfvgJL1S7saNwpueJ5CrF2TSBbpd1crCu5TznC6e5nUdEbuxnPUpDTFIEIXeexSHA==
-  dependencies:
-    title-case "^3.0.2"
-    yargs "^15.3.1"
-
 "@graphql-codegen/cli@^1.12.2":
   version "1.17.10"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/cli/-/cli-1.17.10.tgz#efebf9b887fdb94dd26dbf3eb1950e832efcda0e"
@@ -4140,13 +4132,6 @@ through@^2.3.6:
   version "2.3.8"
   resolved "https://registry.yarnpkg.com/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
   integrity sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU=
-
-title-case@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/title-case/-/title-case-3.0.2.tgz#9f926a0a42071366f85470572f312c4b647773ab"
-  integrity sha512-1P5hyjEhJ9Ab0AT8Xbm0z1avwPSgRR6XtFSNCdfo6B7111TTTja+456UZ2ZPkbTbzqBwIpQxp/tazh5UvpJ+fA==
-  dependencies:
-    tslib "^1.10.0"
 
 tmp@^0.0.33:
   version "0.0.33"

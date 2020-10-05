@@ -1,5 +1,7 @@
 import React, { lazy, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import { titleize } from '@caerusjs/helpers';
+import ApplicationLayout from 'views/layouts/application.layout';
 
 interface RouteParams {
   atomId: string;
@@ -13,7 +15,7 @@ const ShowAtomView: React.FC = () => {
     lazy(() =>
       import(`@caerusjs/dalton`)
         .catch(() => import(`atoms/null`))
-        .then((module: any) => ({ default: module.Heading1 })),
+        .then((module: any) => ({ default: module[`${titleize(atomId)}`] })),
     );
 
   useEffect(() => {
@@ -27,9 +29,11 @@ const ShowAtomView: React.FC = () => {
   }, [atomId]);
 
   return (
-    <React.Suspense fallback='Loading atom...'>
-      <div className='container'>{atom}</div>
-    </React.Suspense>
+    <ApplicationLayout>
+      <React.Suspense fallback='Loading atom...'>
+        <div className='container'>{atom}</div>
+      </React.Suspense>
+    </ApplicationLayout>
   );
 };
 

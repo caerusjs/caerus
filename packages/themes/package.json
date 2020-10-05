@@ -1,0 +1,32 @@
+{
+  "name": "@caerusjs/themes",
+  "version": "0.0.1",
+  "description": "The Official Caerus Theme Library",
+  "main": "./dist/",
+  "repository": "https://github.com/caerusjs/themes",
+  "homepage": "https://github.com/caerusjs/themes",
+  "author": "Kris Quigley <kris@krisquigley.co.uk>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "caerus",
+    "atomic",
+    "reactjs",
+    "graphql",
+    "apollo-client"
+  ],
+  "scripts": {
+    "build": "yarn run copy-files",
+    "copy-files": "copyfiles -u 1 src/**/*.css dist/"
+  },
+  "files": [
+    "./dist/"
+  ],
+  "preferGlobal": true,
+  "devDependencies": {},
+  "dependencies": {
+    "copyfiles": "2.3.0"
+  }
+}

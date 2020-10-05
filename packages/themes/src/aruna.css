@@ -1,0 +1,21 @@
+/* Aruna  */
+:root {
+  --base-font-size: 14px;
+
+  --font-color: darkgrey;
+  --link-color: black;
+
+  --primary-color: green;
+  --secondary-color: blue;
+
+  /* Sizing for padding, margins, etc */
+  --octuple: 8rem;
+  --quintuple: 5rem;
+  --triple: 3rem;
+  --double: 2rem;
+  --whole: 1rem;
+  --half: 0.5rem;
+  --third: 0.3333333333rem;
+  --fifth: 0.2rem;
+  --eigth: 0.125rem;
+}
