@@ -13,3 +13,7 @@ export const Heading1 = ({ children, ...rest }: Heading1Props) => {
     </h1>
   );
 };
+
+export const props = {
+  children: 'Aruna Ratanagiri',
+};

@@ -1,4 +1,4 @@
 .root {
-  color: var(--primary-color);
-  font-size: var(--normal);
+  font-size: var(--largest);
+  font-weight: 300;
 }

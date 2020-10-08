@@ -1,6 +1,9 @@
 /* Aruna  */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
+
 :root {
-  --base-font-size: 13px;
+  --base-font-size: 16px; /* 13 px in the design */
+  --font-family: 'Source Sans Pro', sans-serif;
 
   --font-color: #878787;
   --link-color: black;
@@ -19,6 +22,10 @@
   --smallest: 0.7rem;
 }
 
+/* Add breakpoints for just the root fonts */
 html {
-  font-size: calc(16px + 1vw);
+  font-weight: 400;
+  color: var(--font-color);
+  font-size: var(--base-font-size);
+  font-family: var(--font-family);
 }
