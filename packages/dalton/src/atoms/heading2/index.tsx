@@ -3,7 +3,7 @@ import React from 'react';
 
 import styles from './styles.module.css';
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
+interface Props extends React.HTMLAttributes<HTMLHeadingElement> {
   children: React.ReactNode;
 }
 
