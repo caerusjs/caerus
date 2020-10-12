@@ -1,5 +1,5 @@
-import React from 'react';
 import { name } from 'faker';
+import React from 'react';
 
 import styles from './styles.module.css';
 
@@ -7,14 +7,14 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
 }
 
-export const Heading1 = ({ children, ...rest }: Props) => {
+export const Heading4 = ({ children, ...rest }: Props) => {
   return (
-    <h1 className={styles.root} {...rest}>
+    <h4 className={styles.root} {...rest}>
       {children}
-    </h1>
+    </h4>
   );
 };
 
-export const heading1Props = {
+export const heading4Props = {
   children: name.jobDescriptor(),
 };

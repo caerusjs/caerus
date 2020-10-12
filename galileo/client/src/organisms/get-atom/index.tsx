@@ -1,33 +1,32 @@
 import React, { lazy, useState } from 'react';
 
-import useGetAtom from 'organisms/get-atom/use-get-atom';
-
-import Error from 'molecules/error';
-import Loading from 'molecules/loading';
 import { titleize } from '@caerusjs/helpers';
 
 const GetAtom: React.FC<{ atomId: string }> = ({ atomId }) => {
-  const [props, setProps] = useState();
-  const { data, loading, error } = useGetAtom();
-
-  if (loading) return <Loading />;
-  if (error || !data?.getAtom) return <Error />;
+  const [props, setProps] = useState<{ children?: string }>();
 
   const Atom = lazy(async () => {
-    try {
-      const atom = (await import(`@caerusjs/dalton`)) as any;
+    const fallbackAtom = import(`atoms/null`);
 
-      // Check if there is an exported member for
-      if (atom[`${titleize(atomId)}`]) {
-        setProps(atom.props);
-        return { default: atom[`${titleize(atomId)}`] };
+    const atomName = titleize(atomId);
+    const propExport = `${atomId}Props`;
+
+    // Check if there is an exported member for the atom
+    try {
+      const atomToImport = (await import(`@caerusjs/dalton`)) as any;
+
+      if (atomToImport[atomName] && atomToImport[propExport]) {
+        setProps(atomToImport[propExport]);
+        return { default: atomToImport[atomName] };
       } else {
-        return import(`atoms/null`);
+        throw new Error('Atom or props not found');
       }
     } catch {
-      return import(`atoms/null`);
+      return fallbackAtom;
     }
   });
+
+  if (!atomId) return <>Choose an element</>;
 
   return (
     <React.Suspense fallback='Loading atom...'>
