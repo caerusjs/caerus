@@ -1,4 +1,4 @@
 .root {
   font-size: var(--large);
-  font-weight: 600;
+  font-weight: var(--heavy);
 }

@@ -2,14 +2,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap');
 
 :root {
+  /* Fonts */
   --base-font-size: 16px; /* 13 px in the design */
   --font-family: 'Source Sans Pro', sans-serif;
+  --light: 300;
+  --normal-weight: 400;
+  --heavy: 600;
 
+  /* Colours */
   --font-color: #878787;
-  --link-color: black;
-
-  --primary-color: green;
-  --secondary-color: blue;
+  --primary-color: #ad841f;
+  --secondary-color: white;
 
   /* Sizing for padding, margins, etc */
   --largest: 3.1rem;
@@ -24,7 +27,7 @@
 
 /* Add breakpoints for just the root fonts */
 html {
-  font-weight: 400;
+  font-weight: var(--normal-weight);
   color: var(--font-color);
   font-size: var(--base-font-size);
   font-family: var(--font-family);
