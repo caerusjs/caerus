@@ -1,5 +1,6 @@
 import React from 'react';
-import { name } from 'faker';
+import { lorem } from 'faker';
+import { titleize } from '@caerusjs/helpers';
 
 import styles from './styles.module.css';
 
@@ -16,5 +17,5 @@ export const Heading1 = ({ children, ...rest }: Props) => {
 };
 
 export const heading1Props = {
-  children: name.jobDescriptor(),
+  children: titleize(lorem.words(3)),
 };

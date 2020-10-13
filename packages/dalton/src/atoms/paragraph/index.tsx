@@ -16,5 +16,5 @@ export const Paragraph = ({ children, ...rest }: Props) => {
 };
 
 export const paragraphProps = {
-  children: lorem.paragraph(),
+  children: lorem.paragraph(15),
 };
