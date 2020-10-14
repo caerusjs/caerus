@@ -24,4 +24,3 @@
   "exclude": ["node_modules"],
   "include": ["src", "src/support/setupTests.ts", "src/support"]
 }
- 

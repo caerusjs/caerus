@@ -4,7 +4,7 @@ import { createViews } from './views';
 import { createResolverFiles } from './resolver';
 import { createEntityFile } from './entity';
 import { createOrganism } from './organism/create-organism';
-import { createFile } from '../../helpers/create-file';
+import { createFile } from '@caerusjs/helpers';
 import { createFormFields } from './molecule/create-form-fields';
 import { createDocument } from './organism/create-document';
 import { createHook } from './organism/create-hook';

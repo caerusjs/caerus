@@ -1,4 +1,4 @@
-import titleize from '../../../helpers/titleize';
+import { titleize } from '@caerusjs/helpers';
 
 export const createOrganism = (
   name: string,

@@ -1,5 +1,5 @@
-import titleize from '../../../helpers/titleize';
-import camelize from '../../../helpers/camelize';
+import { titleize } from '@caerusjs/helpers';
+import { camelize } from '@caerusjs/helpers';
 
 export const createResolver = (name: string) => {
   return `import {

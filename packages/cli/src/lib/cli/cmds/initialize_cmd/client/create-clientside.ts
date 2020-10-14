@@ -1,4 +1,4 @@
-import { createFile } from '../../../helpers/create-file';
+import { createFile } from '@caerusjs/helpers';
 
 import { createClientFolders } from './create-client-folders';
 import { createClientPackage } from './create-client-package';

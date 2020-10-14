@@ -1,4 +1,4 @@
-import { createFolder } from '../../../helpers/create-folder';
+import { createFolder } from '@caerusjs/helpers';
 
 export const folders = [
   '/server/src/config',

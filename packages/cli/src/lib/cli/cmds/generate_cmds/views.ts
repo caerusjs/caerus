@@ -1,6 +1,6 @@
 import { Argv } from 'yargs';
 
-import { createFile } from '../../helpers/create-file';
+import { createFile } from '@caerusjs/helpers';
 
 import { createRoutes } from './routes/create-routes';
 import { createView } from './views/create-view';
