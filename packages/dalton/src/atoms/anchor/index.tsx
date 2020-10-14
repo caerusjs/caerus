@@ -1,5 +1,5 @@
 import React from 'react';
-import { internet, lorem } from 'faker';
+import { lorem } from 'faker';
 
 import styles from './styles.module.css';
 
@@ -16,6 +16,5 @@ export const Anchor = ({ children, ...rest }: Props) => {
 };
 
 export const anchorProps = {
-  href: internet.url(),
   children: lorem.word(),
 };

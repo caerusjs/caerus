@@ -1,0 +1,6 @@
+.root {
+  font-size: var(--small);
+  border: var(--border-default);
+  padding: var(--smallest);
+  width: 100%;
+}

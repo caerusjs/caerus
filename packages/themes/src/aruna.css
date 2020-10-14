@@ -23,6 +23,10 @@
   --small: 0.9rem;
   --smaller: 0.8rem;
   --smallest: 0.7rem;
+
+  /* Borders */
+  --border-default: 1px solid #d1d1d1;
+  --border-primary: 1px solid #ad841f;
 }
 
 /* Add breakpoints for just the root fonts */
