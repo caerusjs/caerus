@@ -1,6 +1,6 @@
 {
   "name": "@caerusjs/cli",
-  "version": "0.6.2",
+  "version": "0.6.2+d041b058",
   "description": "Caerus, an opinionated framework and ecosystem for building web applications with the goal of rapid development and low maintenence.",
   "main": "./dist/lib/cli/cli.js",
   "repository": "https://github.com/caerusjs/caerus",
@@ -38,15 +38,6 @@
     "dist/"
   ],
   "preferGlobal": true,
-  "devDependencies": {
-    "@types/jest": "^25.2.3",
-    "@types/node": "^13.13.5",
-    "@types/yargs": "^15.0.4",
-    "jest": "^26.0.1",
-    "ts-jest": "^26.1.0",
-    "typescript": "^3.8.3",
-    "yalc-watch": "^0.0.6"
-  },
   "dependencies": {
     "@caerusjs/helpers": "file:.yalc/@caerusjs/helpers",
     "yargs": "^15.3.1"
@@ -55,5 +46,6 @@
     "watchFolder": "dist",
     "buildWatchCommand": "yarn build:watch",
     "extensions": "js"
-  }
+  },
+  "yalcSig": "d041b0584f3b487beb82eaf7293e30a8"
 }

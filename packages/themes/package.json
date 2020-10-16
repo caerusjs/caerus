@@ -12,21 +12,12 @@
   },
   "keywords": [
     "caerus",
-    "atomic",
-    "reactjs",
-    "graphql",
-    "apollo-client"
+    "atomic"
   ],
-  "scripts": {
-    "build": "yarn run copy-files",
-    "copy-files": "copyfiles -u 1 src/**/*.css dist/"
-  },
   "files": [
-    "./dist/"
+    "aruna.css"
   ],
   "preferGlobal": true,
   "devDependencies": {},
-  "dependencies": {
-    "copyfiles": "2.3.0"
-  }
+  "dependencies": {}
 }

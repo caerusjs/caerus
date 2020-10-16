@@ -6,11 +6,11 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "concurrently \"yarn uno watch\" \"yarn --cwd galileo dev\""
+    "dev": "concurrently \"yarn --cwd packages/helpers yalc-watch\" \"yarn --cwd packages/cli yalc-watch\" \"yarn --cwd packages/dalton yalc-watch\" \"yarn --cwd galileo dev\""
   },
   "devDependencies": {
     "concurrently": "^5.3.0",
     "lerna": "^3.22.1",
-    "unorepo": "^0.1.0"
+    "yalc": "^1.0.0-pre.45"
   }
 }

@@ -1,0 +1,21 @@
+{
+  "version": "v1",
+  "packages": {
+    "@caerusjs/cli": {
+      "signature": "d041b0584f3b487beb82eaf7293e30a8",
+      "file": true
+    },
+    "@caerusjs/helpers": {
+      "signature": "7a88b47976fcfdcf0650ff6bb8f0286d",
+      "file": true
+    },
+    "@caerusjs/dalton": {
+      "signature": "460e836da7977535deb9e8983b3a5b70",
+      "file": true
+    },
+    "@caerusjs/themes": {
+      "signature": "a1bb5986de1a487b0c5fa7fb6121de02",
+      "file": true
+    }
+  }
+}
