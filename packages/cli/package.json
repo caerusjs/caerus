@@ -45,7 +45,7 @@
     "jest": "^26.0.1",
     "ts-jest": "^26.1.0",
     "typescript": "^3.8.3",
-    "yalc-watch": "^0.0.6"
+    "@caerusjs/yalc-watch": "^0.0.6"
   },
   "dependencies": {
     "@caerusjs/helpers": "file:.yalc/@caerusjs/helpers",

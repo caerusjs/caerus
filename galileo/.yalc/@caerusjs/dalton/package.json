@@ -1,6 +1,6 @@
 {
   "name": "@caerusjs/dalton",
-  "version": "0.0.1+460e836d",
+  "version": "0.0.1+f294883f",
   "description": "The Caerus Atomic Standard Library",
   "main": "./dist/",
   "repository": "https://github.com/caerusjs/dalton",
@@ -34,5 +34,5 @@
     "buildWatchCommand": "yarn build:watch",
     "extensions": "js,css"
   },
-  "yalcSig": "460e836da7977535deb9e8983b3a5b70"
+  "yalcSig": "f294883fa6cc2b9a2a7523953190781e"
 }

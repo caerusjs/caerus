@@ -1,6 +1,6 @@
 {
   "name": "@caerusjs/cli",
-  "version": "0.6.2+d041b058",
+  "version": "0.6.2+12ef95a0",
   "description": "Caerus, an opinionated framework and ecosystem for building web applications with the goal of rapid development and low maintenence.",
   "main": "./dist/lib/cli/cli.js",
   "repository": "https://github.com/caerusjs/caerus",
@@ -47,5 +47,5 @@
     "buildWatchCommand": "yarn build:watch",
     "extensions": "js"
   },
-  "yalcSig": "d041b0584f3b487beb82eaf7293e30a8"
+  "yalcSig": "12ef95a08fd388358d37862c36353c86"
 }

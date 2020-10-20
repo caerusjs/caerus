@@ -268,6 +268,20 @@
   dependencies:
     title-case "^3.0.2"
 
+"@caerusjs/yalc-watch@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@caerusjs/yalc-watch/-/yalc-watch-0.0.6.tgz#ff832078bb9babf18a1a5ce80e16462725e03ee4"
+  integrity sha512-io4Id+V2Rak2OHGZvPEkectaIZvsB5gL9PzQh00H7uip+1DQPvmRZ3f+kyWP9bhxFzzvSl9FFI7SoLatW8MDdg==
+  dependencies:
+    "@types/concurrently" "^4.1.0"
+    "@types/node" "^13.1.5"
+    "@types/nodemon" "^1.19.0"
+    chalk "^3.0.0"
+    commander "^4.1.0"
+    concurrently "^5.0.2"
+    nodemon "^2.0.2"
+    sync-directory "^2.1.0"
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
@@ -8115,20 +8129,6 @@ y18n@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/y18n/-/y18n-4.0.0.tgz#95ef94f85ecc81d007c264e190a120f0a3c8566b"
   integrity sha512-r9S/ZyXu/Xu9q1tYlpsLIsa3EeLXXk0VwlxqTcFRfg9EhMW+17kbt9G0NrgCmhGb5vT2hyhJZLfDGx+7+5Uj/w==
-
-yalc-watch@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/yalc-watch/-/yalc-watch-0.0.6.tgz#c0582e5467caf0a15fd24edff781955d98b2ae2a"
-  integrity sha512-dD24HZHSCXLj5KFGmu0R72+Khe1VoCC+96lVe4agLbKKp6yXEQzL/11EPluBJN0uORhkyXrqcLNSsyZjf0H14A==
-  dependencies:
-    "@types/concurrently" "^4.1.0"
-    "@types/node" "^13.1.5"
-    "@types/nodemon" "^1.19.0"
-    chalk "^3.0.0"
-    commander "^4.1.0"
-    concurrently "^5.0.2"
-    nodemon "^2.0.2"
-    sync-directory "^2.1.0"
 
 yalc@^1.0.0-pre.45:
   version "1.0.0-pre.45"

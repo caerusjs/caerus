@@ -27,7 +27,7 @@
   ],
   "preferGlobal": true,
   "devDependencies": {
-    "yalc-watch": "^0.0.6"
+    "@caerusjs/yalc-watch": "^0.0.6"
   },
   "dependencies": {
     "title-case": "^3.0.2"

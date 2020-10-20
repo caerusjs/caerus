@@ -1,6 +1,6 @@
 {
   "name": "@caerusjs/helpers",
-  "version": "0.0.1+7a88b479",
+  "version": "0.0.1+27d96453",
   "description": "The Caerus Helper Library",
   "main": "./dist/",
   "repository": "https://github.com/caerusjs/helpers",
@@ -34,5 +34,5 @@
     "buildWatchCommand": "yarn build:watch",
     "extensions": "js"
   },
-  "yalcSig": "7a88b47976fcfdcf0650ff6bb8f0286d"
+  "yalcSig": "27d96453d6c92fd1a0fb62fdb837ea6e"
 }
