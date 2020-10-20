@@ -1,5 +1,5 @@
 .root {
-  font-size: var(--largest);
+  font-size: var(--small);
   color: var(--secondary-color);
   border: var(--border-primary);
   padding: var(--smallest);

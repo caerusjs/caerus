@@ -1,6 +1,6 @@
 {
   "name": "@caerusjs/dalton",
-  "version": "0.0.1+f294883f",
+  "version": "0.0.1+3f5d8586",
   "description": "The Caerus Atomic Standard Library",
   "main": "./dist/",
   "repository": "https://github.com/caerusjs/dalton",
@@ -19,8 +19,8 @@
   ],
   "scripts": {
     "build": "yarn tsc --build --verbose",
-    "postbuild:watch": "yarn run copy-files",
-    "build:watch": "yarn tsc --build --verbose --watch",
+    "postbuild": "yarn run copy-files",
+    "watch": "npm-watch",
     "test": "./bin/test -c ./src/tests/support/jest.config.js --detectOpenHandles --runInBand",
     "copy-files": "copyfiles -u 1 src/**/*.css dist/"
   },
@@ -31,8 +31,16 @@
   "dependencies": {},
   "yalcWatch": {
     "watchFolder": "dist",
-    "buildWatchCommand": "yarn build:watch",
+    "buildWatchCommand": "yarn watch",
     "extensions": "js,css"
   },
-  "yalcSig": "f294883fa6cc2b9a2a7523953190781e"
+  "watch": {
+    "build": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": "ts,css"
+    }
+  },
+  "yalcSig": "3f5d858653b65c86e20aa4e110d21e1d"
 }
