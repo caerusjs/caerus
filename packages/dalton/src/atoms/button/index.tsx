@@ -3,13 +3,13 @@ import { lorem } from 'faker';
 
 import styles from './styles.module.css';
 
-interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+export interface Button extends React.HTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
 }
 
-export const Button = ({ children, ...rest }: ButtonProps) => {
+export const Button = ({ children, ...props }: Button) => {
   return (
-    <button className={styles.root} {...rest}>
+    <button className={styles.root} {...props}>
       {children}
     </button>
   );

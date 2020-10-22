@@ -4,13 +4,13 @@ import React from 'react';
 
 import styles from './styles.module.css';
 
-interface Heading2Props extends React.HTMLAttributes<HTMLHeadingElement> {
+export interface Heading2 extends React.HTMLAttributes<HTMLHeadingElement> {
   children: React.ReactNode;
 }
 
-export const Heading2 = ({ children, ...rest }: Heading2Props) => {
+export const Heading2 = ({ children, ...props }: Heading2) => {
   return (
-    <h2 className={styles.root} {...rest}>
+    <h2 className={styles.root} {...props}>
       {children}
     </h2>
   );

@@ -3,13 +3,13 @@ import { internet, lorem } from 'faker';
 
 import styles from './styles.module.css';
 
-export interface AnchorProps extends React.HTMLAttributes<HTMLAnchorElement> {
+export interface Anchor extends React.HTMLAttributes<HTMLAnchorElement> {
   children?: React.ReactNode;
 }
 
-export const Anchor = ({ children, ...rest }: AnchorProps) => {
+export const Anchor = ({ children, ...props }: Anchor) => {
   return (
-    <a className={styles.root} {...rest}>
+    <a className={styles.root} {...props}>
       {children}
     </a>
   );

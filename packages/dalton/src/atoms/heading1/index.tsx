@@ -4,13 +4,13 @@ import { titleize } from '@caerusjs/helpers';
 
 import styles from './styles.module.css';
 
-interface Heading1Props extends React.HTMLAttributes<HTMLHeadingElement> {
+export interface Heading1 extends React.HTMLAttributes<HTMLHeadingElement> {
   children: React.ReactNode;
 }
 
-export const Heading1 = ({ children, ...rest }: Heading1Props) => {
+export const Heading1 = ({ children, ...props }: Heading1) => {
   return (
-    <h1 className={styles.root} {...rest}>
+    <h1 className={styles.root} {...props}>
       {children}
     </h1>
   );

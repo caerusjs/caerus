@@ -1,8 +1,11 @@
-.root {
-  color: var(--primary-color);
-  text-decoration: none;
-  cursor: pointer;
+.root ul {
+  list-style-type: none;
+  padding: 0;
+  display: inline-flex;
 }
-.root:hover {
-  text-decoration: underline;
+
+.root * {
+  color: var(--dark-font-color);
+  margin-right: var(--smallest);
+  text-transform: capitalize;
 }
