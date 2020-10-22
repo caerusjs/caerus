@@ -3,11 +3,11 @@ import React from 'react';
 
 import styles from './styles.module.css';
 
-interface Props extends React.HTMLAttributes<HTMLParagraphElement> {
+interface ParagraphProps extends React.HTMLAttributes<HTMLParagraphElement> {
   children: React.ReactNode;
 }
 
-export const Paragraph = ({ children, ...rest }: Props) => {
+export const Paragraph = ({ children, ...rest }: ParagraphProps) => {
   return (
     <p className={styles.root} {...rest}>
       {children}

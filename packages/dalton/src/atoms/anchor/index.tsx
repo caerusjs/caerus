@@ -1,13 +1,13 @@
 import React from 'react';
-import { lorem } from 'faker';
+import { internet, lorem } from 'faker';
 
 import styles from './styles.module.css';
 
-interface Props extends React.HTMLAttributes<HTMLAnchorElement> {
-  children: React.ReactNode;
+export interface AnchorProps extends React.HTMLAttributes<HTMLAnchorElement> {
+  children?: React.ReactNode;
 }
-// hello
-export const Anchor = ({ children, ...rest }: Props) => {
+
+export const Anchor = ({ children, ...rest }: AnchorProps) => {
   return (
     <a className={styles.root} {...rest}>
       {children}
@@ -16,5 +16,6 @@ export const Anchor = ({ children, ...rest }: Props) => {
 };
 
 export const anchorProps = {
+  href: internet.url(),
   children: lorem.word(),
 };

@@ -2,7 +2,7 @@ import React, { lazy, useState } from 'react';
 
 import { titleize } from '@caerusjs/helpers';
 
-const GetAtom: React.FC<{ atomId: string }> = ({ atomId }) => {
+export const GetAtom: React.FC<{ atomId: string }> = ({ atomId }) => {
   const [props, setProps] = useState<{ children?: string }>();
 
   const Atom = lazy(async () => {
@@ -34,5 +34,3 @@ const GetAtom: React.FC<{ atomId: string }> = ({ atomId }) => {
     </React.Suspense>
   );
 };
-
-export default GetAtom;

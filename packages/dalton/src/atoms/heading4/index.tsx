@@ -4,11 +4,11 @@ import React from 'react';
 
 import styles from './styles.module.css';
 
-interface Props extends React.HTMLAttributes<HTMLHeadingElement> {
+interface Heading4Props extends React.HTMLAttributes<HTMLHeadingElement> {
   children: React.ReactNode;
 }
 
-export const Heading4 = ({ children, ...rest }: Props) => {
+export const Heading4 = ({ children, ...rest }: Heading4Props) => {
   return (
     <h4 className={styles.root} {...rest}>
       {children}

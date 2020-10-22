@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useParams } from 'react-router';
 
-import GetAtom from 'organisms/get-atom';
+import { GetAtom } from 'organisms/get-atom';
 
 interface RouteParams {
   atomId: string;

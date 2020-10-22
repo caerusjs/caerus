@@ -1,0 +1,17 @@
+import React from 'react';
+
+import { useParams } from 'react-router';
+
+import { GetMolecule } from 'organisms/get-molecule';
+
+interface RouteParams {
+  moleculeId: string;
+}
+
+const ShowMoleculeView: React.FC = () => {
+  const { moleculeId } = useParams<RouteParams>();
+
+  return <GetMolecule moleculeId={moleculeId} />;
+};
+
+export default ShowMoleculeView;

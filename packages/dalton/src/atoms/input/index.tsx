@@ -3,11 +3,11 @@ import { lorem } from 'faker';
 
 import styles from './styles.module.css';
 
-interface Props extends React.HTMLAttributes<HTMLInputElement> {
+interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   children: React.ReactNode;
 }
 
-export const Input = ({ children, ...rest }: Props) => {
+export const Input = ({ children, ...rest }: InputProps) => {
   return <input className={styles.root} {...rest} />;
 };
 
