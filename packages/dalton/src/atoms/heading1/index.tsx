@@ -1,6 +1,6 @@
 import React from 'react';
 import { lorem } from 'faker';
-import { titleize } from '@caerusjs/helpers';
+import { toTitleCase } from '@caerusjs/helpers';
 
 import styles from './styles.module.css';
 
@@ -17,5 +17,5 @@ export const Heading1 = ({ children, ...props }: Heading1) => {
 };
 
 export const heading1Props = {
-  children: titleize(lorem.words(3)),
+  children: toTitleCase(lorem.words(3)),
 };

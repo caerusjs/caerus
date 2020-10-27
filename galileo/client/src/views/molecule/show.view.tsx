@@ -10,6 +10,7 @@ interface RouteParams {
 
 const ShowMoleculeView: React.FC = () => {
   const { moleculeId } = useParams<RouteParams>();
+  console.log(moleculeId, 'id');
 
   return <GetMolecule moleculeId={moleculeId} />;
 };

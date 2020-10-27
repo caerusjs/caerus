@@ -1,5 +1,5 @@
-import { titleize } from '@caerusjs/helpers';
-import { camelize } from '@caerusjs/helpers';
+import { toTitleCase } from '@caerusjs/helpers';
+import { toCamelCase } from '@caerusjs/helpers';
 
 export const createResolver = (name: string) => {
   return `import {
@@ -11,29 +11,29 @@ export const createResolver = (name: string) => {
 } from 'type-graphql';
 import { getRepository } from 'typeorm';
 
-import { ${titleize(name)} } from 'entities/${name}.entity';
-import { Get${titleize(name)}Args } from 'resolvers/${name}/${name}.args';
-import { Add${titleize(name)}Input, Update${titleize(
+import { ${toTitleCase(name)} } from 'entities/${name}.entity';
+import { Get${toTitleCase(name)}Args } from 'resolvers/${name}/${name}.args';
+import { Add${toTitleCase(name)}Input, Update${toTitleCase(
     name,
-  )}Input, Remove${titleize(
+  )}Input, Remove${toTitleCase(
     name,
   )}Input } from 'resolvers/${name}/${name}.input';
 
-@Resolver(${titleize(name)})
-export class ${titleize(name)}Resolver {
-  @Query(returns => ${titleize(name)})
-  async get${titleize(name)}(@Args() { id }: Get${titleize(
+@Resolver(${toTitleCase(name)})
+export class ${toTitleCase(name)}Resolver {
+  @Query(returns => ${toTitleCase(name)})
+  async get${toTitleCase(name)}(@Args() { id }: Get${toTitleCase(
     name,
-  )}Args): Promise<${titleize(name)} | undefined> {
-    return getRepository(${titleize(name)})
+  )}Args): Promise<${toTitleCase(name)} | undefined> {
+    return getRepository(${toTitleCase(name)})
       .createQueryBuilder('${name}')
       .where('${name}.id = :id', { id: id })
       .getOne();
   };
 
-  @Query(returns => [${titleize(name)}])
-  async get${titleize(name)}s(): Promise<${titleize(name)}[]> {
-    return getRepository(${titleize(name)})
+  @Query(returns => [${toTitleCase(name)}])
+  async get${toTitleCase(name)}s(): Promise<${toTitleCase(name)}[]> {
+    return getRepository(${toTitleCase(name)})
       .createQueryBuilder('${name}')
       .orderBy({
         '${name}.createdAt': 'DESC',
@@ -41,33 +41,35 @@ export class ${titleize(name)}Resolver {
       .getMany();
   };
   
-  @Mutation(returns => ${titleize(name)})
-  async add${titleize(name)}(@Arg('${camelize(name)}') ${camelize(
+  @Mutation(returns => ${toTitleCase(name)})
+  async add${toTitleCase(name)}(@Arg('${toCamelCase(name)}') ${toCamelCase(
     name,
-  )}: Add${titleize(name)}Input): Promise<${titleize(name)} | undefined> {
-    return getRepository(${titleize(name)})
+  )}: Add${toTitleCase(name)}Input): Promise<${toTitleCase(name)} | undefined> {
+    return getRepository(${toTitleCase(name)})
       .save(${name});
   };
   
-  @Mutation(returns => ${titleize(name)})
-  async update${titleize(name)}(@Arg('${camelize(name)}') ${camelize(
+  @Mutation(returns => ${toTitleCase(name)})
+  async update${toTitleCase(name)}(@Arg('${toCamelCase(name)}') ${toCamelCase(
     name,
-  )}: Update${titleize(name)}Input): Promise<${titleize(name)} | undefined> {
-    return getRepository(${titleize(name)})
+  )}: Update${toTitleCase(name)}Input): Promise<${toTitleCase(
+    name,
+  )} | undefined> {
+    return getRepository(${toTitleCase(name)})
       .save(${name});
   }
 
 
-  @Mutation(returns => ${titleize(name)})
-  async remove${titleize(name)}(@Arg('${camelize(
+  @Mutation(returns => ${toTitleCase(name)})
+  async remove${toTitleCase(name)}(@Arg('${toCamelCase(
     name,
-  )}') { id }: Remove${titleize(name)}Input): Promise<Partial<${titleize(
+  )}') { id }: Remove${toTitleCase(name)}Input): Promise<Partial<${toTitleCase(
     name,
   )}>> {
-    await getRepository(${titleize(name)})
+    await getRepository(${toTitleCase(name)})
       .createQueryBuilder()
       .delete()
-      .from(${titleize(name)})
+      .from(${toTitleCase(name)})
       .where('id = :id', { id: id })
       .execute();
 

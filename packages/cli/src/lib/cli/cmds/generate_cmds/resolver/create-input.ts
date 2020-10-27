@@ -1,4 +1,4 @@
-import { titleize } from '@caerusjs/helpers';
+import { toTitleCase } from '@caerusjs/helpers';
 
 export const createInput = (name: string) => {
   return `import {
@@ -6,14 +6,16 @@ export const createInput = (name: string) => {
   Field,
   ID
 } from 'type-graphql';
-import { ${titleize(name)} } from 'entities/${name}.entity';
+import { ${toTitleCase(name)} } from 'entities/${name}.entity';
 
 @InputType()
-export class Add${titleize(name)}Input implements Partial<${titleize(name)}> {
+export class Add${toTitleCase(name)}Input implements Partial<${toTitleCase(
+    name,
+  )}> {
 };
 
 @InputType()
-export class Update${titleize(name)}Input implements Partial<${titleize(
+export class Update${toTitleCase(name)}Input implements Partial<${toTitleCase(
     name,
   )}> {
   @Field(type => ID)
@@ -21,7 +23,7 @@ export class Update${titleize(name)}Input implements Partial<${titleize(
 };
 
 @InputType()
-export class Remove${titleize(name)}Input implements Partial<${titleize(
+export class Remove${toTitleCase(name)}Input implements Partial<${toTitleCase(
     name,
   )}> {
   @Field(type => ID)

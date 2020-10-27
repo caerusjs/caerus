@@ -1,14 +1,16 @@
 import React, { lazy } from 'react';
-import { Route, RouteComponentProps, Switch } from 'react-router-dom';
+import { Route, RouteComponentProps } from 'react-router-dom';
+import ApplicationLayout from 'views/layouts/application.layout';
 
 const IndexMoleculeView = lazy(() => import('views/molecule/index.view'));
+const ShowMoleculeView = lazy(() => import('views/molecule/show.view'));
 
 const MoleculeRoutes: React.FC<RouteComponentProps> = () => {
   return (
-    <Switch>
-      <Route path='/molecules/:moleculeId' component={IndexMoleculeView} />
+    <ApplicationLayout>
       <Route path='/' component={IndexMoleculeView} />
-    </Switch>
+      <Route path='/molecules/:moleculeId' component={ShowMoleculeView} />
+    </ApplicationLayout>
   );
 };
 

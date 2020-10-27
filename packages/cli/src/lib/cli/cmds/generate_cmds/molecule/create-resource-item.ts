@@ -1,4 +1,4 @@
-import { titleize } from '@caerusjs/helpers';
+import { toTitleCase } from '@caerusjs/helpers';
 
 export const createResourceItem = (name: string) => {
   return `import React from 'react';
@@ -8,24 +8,24 @@ import Button from 'atoms/button';
 
 import { Link } from 'react-router-dom';
 
-import { Get${titleize(name)}sQuery } from 'types/graphql';
+import { Get${toTitleCase(name)}sQuery } from 'types/graphql';
 
-interface ${titleize(name)}ItemProps {
-  ${name}: Get${titleize(name)}sQuery['get${titleize(name)}s'][0];
+interface ${toTitleCase(name)}ItemProps {
+  ${name}: Get${toTitleCase(name)}sQuery['get${toTitleCase(name)}s'][0];
   handleRemove: () => void;
 }
 
-const ${titleize(name)}Item: React.FC<${titleize(
+const ${toTitleCase(name)}Item: React.FC<${toTitleCase(
     name,
   )}ItemProps> = ({ handleRemove, ${name} }) => {
   return (
     <>
       <Paragraph>{${name}.id}</Paragraph>
       <Paragraph>
-        <Link to={\`/${name}s/\${${name}.id}\`}>View ${titleize(name)}</Link>
+        <Link to={\`/${name}s/\${${name}.id}\`}>View ${toTitleCase(name)}</Link>
       </Paragraph>
       <Paragraph>
-        <Link to={\`/${name}s/\${${name}.id}/edit\`}>Edit ${titleize(
+        <Link to={\`/${name}s/\${${name}.id}/edit\`}>Edit ${toTitleCase(
     name,
   )}</Link>
       </Paragraph>
@@ -34,7 +34,7 @@ const ${titleize(name)}Item: React.FC<${titleize(
   );
 };
 
-export default ${titleize(name)}Item;
+export default ${toTitleCase(name)}Item;
 
 `;
 };

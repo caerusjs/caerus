@@ -1,14 +1,15 @@
 import React, { lazy } from 'react';
-import { Route, RouteComponentProps, Switch } from 'react-router-dom';
+import { Route, RouteComponentProps } from 'react-router-dom';
 
 const IndexAtomView = lazy(() => import('views/atom/index.view'));
+const ShowAtomView = lazy(() => import('views/atom/show.view'));
 
 const AtomRoutes: React.FC<RouteComponentProps> = () => {
   return (
-    <Switch>
-      <Route path='/atoms/:atomId' component={IndexAtomView} />
+    <>
       <Route path='/' component={IndexAtomView} />
-    </Switch>
+      <Route path='/atoms/:atomId' component={ShowAtomView} />
+    </>
   );
 };
 

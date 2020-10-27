@@ -1,4 +1,4 @@
-import { titleize } from '@caerusjs/helpers';
+import { toTitleCase } from '@caerusjs/helpers';
 
 export const createDocument = (
   name: string,
@@ -6,44 +6,44 @@ export const createDocument = (
 ) => {
   switch (action) {
     case 'GetAll':
-      return `query get${titleize(name)}s {
-  get${titleize(name)}s {
+      return `query get${toTitleCase(name)}s {
+  get${toTitleCase(name)}s {
     id
   }
 }`;
 
     case 'Get':
-      return `query get${titleize(name)}($id: ID!) {
-  get${titleize(name)}(id: $id) {
+      return `query get${toTitleCase(name)}($id: ID!) {
+  get${toTitleCase(name)}(id: $id) {
     id
   }
 }`;
 
     case 'Add':
-      return `mutation Add${titleize(name)}($${name}: Add${titleize(
+      return `mutation Add${toTitleCase(name)}($${name}: Add${toTitleCase(
         name,
       )}Input!) {
-  add${titleize(name)}(${name}: $${name}) {
+  add${toTitleCase(name)}(${name}: $${name}) {
     id
   }
 }
 `;
 
     case 'Update':
-      return `mutation Update${titleize(name)}($${name}: Update${titleize(
+      return `mutation Update${toTitleCase(name)}($${name}: Update${toTitleCase(
         name,
       )}Input!) {
-  update${titleize(name)}(${name}: $${name}) {
+  update${toTitleCase(name)}(${name}: $${name}) {
     id
   }
 }
 `;
 
     case 'Remove':
-      return `mutation Remove${titleize(name)}($${name}: Remove${titleize(
+      return `mutation Remove${toTitleCase(name)}($${name}: Remove${toTitleCase(
         name,
       )}Input!) {
-  remove${titleize(name)}(${name}: $${name}) {
+  remove${toTitleCase(name)}(${name}: $${name}) {
     id
   }
 }

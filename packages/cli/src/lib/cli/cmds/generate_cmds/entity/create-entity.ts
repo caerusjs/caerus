@@ -1,4 +1,4 @@
-import { titleize } from '@caerusjs/helpers';
+import { toTitleCase } from '@caerusjs/helpers';
 
 export const createEntity = (name: string) => {
   return `import { 
@@ -15,7 +15,7 @@ import {
 
 @ObjectType()
 @Entity()
-export class ${titleize(name)} {
+export class ${toTitleCase(name)} {
   @Field(type => ID)
   @PrimaryGeneratedColumn('uuid')
   readonly id: string;

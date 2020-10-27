@@ -1,17 +1,18 @@
 import React, { lazy, useState } from 'react';
 
-import { titleize } from '@caerusjs/helpers';
+import { toTitleCase, toCamelCase } from '@caerusjs/helpers';
 
 export const GetMolecule: React.FC<{ moleculeId: string }> = ({
   moleculeId,
 }) => {
   const [props, setProps] = useState<{ children?: string }>();
+  const propExport = `${toCamelCase(moleculeId)}Props`;
+  console.log(propExport, 'prop');
 
   const Molecule = lazy(async () => {
     const fallbackMolecule = import(`molecules/null`);
 
-    const moleculeName = titleize(moleculeId);
-    const propExport = `${moleculeId}Props`;
+    const moleculeName = toTitleCase(moleculeId);
 
     // Check if there is an exported member for the atom
     try {

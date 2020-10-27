@@ -1,34 +1,34 @@
-import { titleize } from '@caerusjs/helpers';
+import { toTitleCase } from '@caerusjs/helpers';
 
 export const createCache = (name: string, action: 'AddRemove') => {
   switch (action) {
     case 'AddRemove':
-      return `import { Get${titleize(name)}sQuery, Get${titleize(
+      return `import { Get${toTitleCase(name)}sQuery, Get${toTitleCase(
         name,
       )}sDocument } from 'types/graphql';
 import { DataProxy } from '@apollo/client/cache';
 
-interface IGet${titleize(name)}sCache {
+interface IGet${toTitleCase(name)}sCache {
   cache: DataProxy;
 }
 
-export const get${titleize(name)}sCache = ({ cache }: IGet${titleize(
+export const get${toTitleCase(name)}sCache = ({ cache }: IGet${toTitleCase(
         name,
       )}sCache) =>
-  cache.readQuery<Get${titleize(name)}sQuery>({
-    query: Get${titleize(name)}sDocument,
+  cache.readQuery<Get${toTitleCase(name)}sQuery>({
+    query: Get${toTitleCase(name)}sDocument,
   });
 
-interface Write${titleize(name)}sCache {
+interface Write${toTitleCase(name)}sCache {
   cache: DataProxy;
-  data: Get${titleize(name)}sQuery;
+  data: Get${toTitleCase(name)}sQuery;
 }
 
-export const write${titleize(name)}sCache = ({ cache, data }: Write${titleize(
+export const write${toTitleCase(
         name,
-      )}sCache) =>
-  cache.writeQuery<Get${titleize(name)}sQuery>({
-    query: Get${titleize(name)}sDocument,
+      )}sCache = ({ cache, data }: Write${toTitleCase(name)}sCache) =>
+  cache.writeQuery<Get${toTitleCase(name)}sQuery>({
+    query: Get${toTitleCase(name)}sDocument,
     data: data,
   });
 `;

@@ -1,4 +1,4 @@
-import { titleize } from '@caerusjs/helpers';
+import { toTitleCase } from '@caerusjs/helpers';
 
 export const createView = (
   name: string,
@@ -8,42 +8,42 @@ export const createView = (
     case 'New':
       return `import React from 'react'
 
-import Add${titleize(name)} from 'organisms/add-${name}'
+import Add${toTitleCase(name)} from 'organisms/add-${name}'
 import ApplicationLayout from 'views/layouts/application.layout'
 
-const New${titleize(name)}View: React.FC = () => {
+const New${toTitleCase(name)}View: React.FC = () => {
 
   return (
     <ApplicationLayout>
-      <Add${titleize(name)} />
+      <Add${toTitleCase(name)} />
     </ApplicationLayout>
   )
 }
 
-export default New${titleize(name)}View`;
+export default New${toTitleCase(name)}View`;
 
     case 'Edit':
       return `import React from 'react';
 import { useParams } from 'react-router-dom';
 
-import Update${titleize(name)} from 'organisms/update-${name}';
+import Update${toTitleCase(name)} from 'organisms/update-${name}';
 import ApplicationLayout from 'views/layouts/application.layout';
 
 interface RouteParams {
   ${name}Id: string;
 }
 
-const Edit${titleize(name)}View: React.FC = () => {
+const Edit${toTitleCase(name)}View: React.FC = () => {
   const { ${name}Id } = useParams<RouteParams>();
 
   return (
     <ApplicationLayout>
-      <Update${titleize(name)} id={${name}Id} />
+      <Update${toTitleCase(name)} id={${name}Id} />
     </ApplicationLayout>
   );
 };
 
-export default Edit${titleize(name)}View;
+export default Edit${toTitleCase(name)}View;
       
 `;
 
@@ -52,22 +52,22 @@ export default Edit${titleize(name)}View;
 
 import Anchor from 'atoms/anchor';
 import { Link } from 'react-router-dom';
-import Get${titleize(name)}s from 'organisms/get-${name}s';
+import Get${toTitleCase(name)}s from 'organisms/get-${name}s';
 
 import ApplicationLayout from 'views/layouts/application.layout';
 
-const Index${titleize(name)}View: React.FC = () => {
+const Index${toTitleCase(name)}View: React.FC = () => {
   return (
     <ApplicationLayout>
       <Link to={'/${name}s/new'}>
-        <Anchor>Add ${titleize(name)}</Anchor>
+        <Anchor>Add ${toTitleCase(name)}</Anchor>
       </Link>
-      <Get${titleize(name)}s />
+      <Get${toTitleCase(name)}s />
     </ApplicationLayout>
   );
 };
 
-export default Index${titleize(name)}View;
+export default Index${toTitleCase(name)}View;
       
 `;
 
@@ -75,24 +75,24 @@ export default Index${titleize(name)}View;
       return `import React from 'react';
 import { useParams } from 'react-router-dom';
 
-import Get${titleize(name)} from 'organisms/get-${name}';
+import Get${toTitleCase(name)} from 'organisms/get-${name}';
 import ApplicationLayout from 'views/layouts/application.layout';
 
 interface RouteParams {
   ${name}Id: string;
 }
 
-const Show${titleize(name)}View: React.FC = () => {
+const Show${toTitleCase(name)}View: React.FC = () => {
   const { ${name}Id } = useParams<RouteParams>();
 
   return (
     <ApplicationLayout>
-      <Get${titleize(name)} id={${name}Id} />
+      <Get${toTitleCase(name)} id={${name}Id} />
     </ApplicationLayout>
   );
 };
 
-export default Show${titleize(name)}View;
+export default Show${toTitleCase(name)}View;
 
 `;
   }

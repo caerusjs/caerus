@@ -1,6 +1,6 @@
 import React, { lazy, useState } from 'react';
 
-import { titleize } from '@caerusjs/helpers';
+import { toTitleCase } from '@caerusjs/helpers';
 
 export const GetAtom: React.FC<{ atomId: string }> = ({ atomId }) => {
   const [props, setProps] = useState<{ children?: string }>();
@@ -8,7 +8,7 @@ export const GetAtom: React.FC<{ atomId: string }> = ({ atomId }) => {
   const Atom = lazy(async () => {
     const fallbackAtom = import(`atoms/null`);
 
-    const atomName = titleize(atomId);
+    const atomName = toTitleCase(atomId);
     const propExport = `${atomId}Props`;
 
     // Check if there is an exported member for the atom

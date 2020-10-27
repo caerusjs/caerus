@@ -1,4 +1,4 @@
-import { titleize } from '@caerusjs/helpers';
+import { toTitleCase } from '@caerusjs/helpers';
 
 export const createTest = (name: string) => {
   return `import dotenv from 'dotenv';
@@ -7,16 +7,16 @@ import { ApolloServerBase } from 'apollo-server-core';
 import { createTestClient, ApolloServerTestClient } from 'apollo-server-testing';
 
 import { 
-  Get${titleize(name)}Document, 
-  Get${titleize(name)}Query, 
-  Get${titleize(name)}sDocument, 
-  Get${titleize(name)}sQuery, 
-  Add${titleize(name)}Document, 
-  Add${titleize(name)}Mutation, 
-  Update${titleize(name)}Document, 
-  Update${titleize(name)}Mutation, 
-  Remove${titleize(name)}Document, 
-  Remove${titleize(name)}Mutation 
+  Get${toTitleCase(name)}Document, 
+  Get${toTitleCase(name)}Query, 
+  Get${toTitleCase(name)}sDocument, 
+  Get${toTitleCase(name)}sQuery, 
+  Add${toTitleCase(name)}Document, 
+  Add${toTitleCase(name)}Mutation, 
+  Update${toTitleCase(name)}Document, 
+  Update${toTitleCase(name)}Mutation, 
+  Remove${toTitleCase(name)}Document, 
+  Remove${toTitleCase(name)}Mutation 
 } from "types/graphql";
 
 import { serverConfig } from 'config/apollo';
@@ -25,52 +25,52 @@ import {
   disconnectDatabase 
 } from 'support/database';
 
-import { ${titleize(name)} } from 'entities/${name}.entity';
+import { ${toTitleCase(name)} } from 'entities/${name}.entity';
 import { getRepository } from 'typeorm';
 
 let mutate: ApolloServerTestClient['mutate'];
 let query: ApolloServerTestClient['query'];
 
-test('get${titleize(name)}', async () => {
+test('get${toTitleCase(name)}', async () => {
   // Arrange
-  const ${name} = await getRepository(${titleize(name)}).save();
+  const ${name} = await getRepository(${toTitleCase(name)}).save();
 
   // Act
   const res = await query({
-    query: Get${titleize(name)}Document, 
+    query: Get${toTitleCase(name)}Document, 
     variables: { 
       id: ${name}.id
     } 
   });
-  const get${titleize(name)}: Get${titleize(name)}Query['get${titleize(
+  const get${toTitleCase(name)}: Get${toTitleCase(name)}Query['get${toTitleCase(
     name,
-  )}'] = res.data?.get${titleize(name)};
+  )}'] = res.data?.get${toTitleCase(name)};
 
   // Assert
-  expect(get${titleize(name)}).toHaveProperty('id', ${name}.id);
+  expect(get${toTitleCase(name)}).toHaveProperty('id', ${name}.id);
 })
 
-test('get${titleize(name)}s', async () => {
+test('get${toTitleCase(name)}s', async () => {
   // Arrange
-  await getRepository(${titleize(name)}).save();
-  await getRepository(${titleize(name)}).save();
+  await getRepository(${toTitleCase(name)}).save();
+  await getRepository(${toTitleCase(name)}).save();
 
   // Act
   const res = await query({
-    query: Get${titleize(name)}sDocument
+    query: Get${toTitleCase(name)}sDocument
   });
-  const get${titleize(name)}s: Get${titleize(name)}sQuery['get${titleize(
+  const get${toTitleCase(name)}s: Get${toTitleCase(
     name,
-  )}s'] = res.data?.get${titleize(name)}s;
+  )}sQuery['get${toTitleCase(name)}s'] = res.data?.get${toTitleCase(name)}s;
 
   // Assert
-  expect(get${titleize(name)}s).toHaveLength(2);
+  expect(get${toTitleCase(name)}s).toHaveLength(2);
 })
 
-test('add${titleize(name)}', async () => {
+test('add${toTitleCase(name)}', async () => {
   // Act
   const res = await mutate({ 
-    mutation: Add${titleize(name)}Document, 
+    mutation: Add${toTitleCase(name)}Document, 
     variables: {
       ${name}: {
         
@@ -78,21 +78,21 @@ test('add${titleize(name)}', async () => {
     } 
   });
 
-  const add${titleize(name)}: Add${titleize(name)}Mutation['add${titleize(
+  const add${toTitleCase(name)}: Add${toTitleCase(
     name,
-  )}'] = res.data?.add${titleize(name)};
+  )}Mutation['add${toTitleCase(name)}'] = res.data?.add${toTitleCase(name)};
 
   // Assert
-  expect(add${titleize(name)}).toHaveProperty('prop', 'value');
+  expect(add${toTitleCase(name)}).toHaveProperty('prop', 'value');
 })
 
-test('update${titleize(name)}', async () => {
+test('update${toTitleCase(name)}', async () => {
   // Arrange
-  const ${name} = await getRepository(${titleize(name)}).save();
+  const ${name} = await getRepository(${toTitleCase(name)}).save();
 
   // Act
   const res = await mutate({ 
-    mutation: Update${titleize(name)}Document, 
+    mutation: Update${toTitleCase(name)}Document, 
     variables: { 
       ${name}: {
         id: ${name}.id
@@ -100,21 +100,23 @@ test('update${titleize(name)}', async () => {
     } 
   });
 
-  const update${titleize(name)}: Update${titleize(
+  const update${toTitleCase(name)}: Update${toTitleCase(
     name,
-  )}Mutation['update${titleize(name)}'] = res.data?.update${titleize(name)};
+  )}Mutation['update${toTitleCase(name)}'] = res.data?.update${toTitleCase(
+    name,
+  )};
 
   // Assert
-  expect(update${titleize(name)}).toHaveProperty('prop', 'value');
+  expect(update${toTitleCase(name)}).toHaveProperty('prop', 'value');
 })
 
-test('remove${titleize(name)}', async () => {
+test('remove${toTitleCase(name)}', async () => {
   // Arrange
-  const ${name} = await getRepository(${titleize(name)}).save();
+  const ${name} = await getRepository(${toTitleCase(name)}).save();
 
   // Act
   const res = await mutate({ 
-    mutation: Remove${titleize(name)}Document, 
+    mutation: Remove${toTitleCase(name)}Document, 
     variables: { 
       ${name}: {
         id: ${name}.id
@@ -122,12 +124,14 @@ test('remove${titleize(name)}', async () => {
     } 
   });
 
-  const remove${titleize(name)}: Remove${titleize(
+  const remove${toTitleCase(name)}: Remove${toTitleCase(
     name,
-  )}Mutation['remove${titleize(name)}'] = res.data?.remove${titleize(name)};
+  )}Mutation['remove${toTitleCase(name)}'] = res.data?.remove${toTitleCase(
+    name,
+  )};
 
   // Assert
-  expect(remove${titleize(name)}).toHaveProperty('id', ${name}.id);
+  expect(remove${toTitleCase(name)}).toHaveProperty('id', ${name}.id);
 })
 
 beforeEach(async () => {

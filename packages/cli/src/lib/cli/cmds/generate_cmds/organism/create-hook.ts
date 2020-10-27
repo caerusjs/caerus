@@ -1,4 +1,4 @@
-import { titleize } from '@caerusjs/helpers';
+import { toTitleCase } from '@caerusjs/helpers';
 
 export const createHook = (
   name: string,
@@ -9,71 +9,73 @@ export const createHook = (
       return `import { useQuery } from '@apollo/client';
 
 import { 
-  Get${titleize(name)}sQuery, 
-  Get${titleize(name)}sDocument
+  Get${toTitleCase(name)}sQuery, 
+  Get${toTitleCase(name)}sDocument
 } from 'types/graphql';
 
-const useGet${titleize(name)}s = () => {
-  return useQuery<Get${titleize(name)}sQuery>(
-    Get${titleize(name)}sDocument
+const useGet${toTitleCase(name)}s = () => {
+  return useQuery<Get${toTitleCase(name)}sQuery>(
+    Get${toTitleCase(name)}sDocument
   );
 };
 
-export default useGet${titleize(name)}s;
+export default useGet${toTitleCase(name)}s;
 `;
 
     case 'Get':
       return `import { useQuery } from '@apollo/client';
 import {
-  Get${titleize(name)}Query,
-  Get${titleize(name)}QueryVariables,
-  Get${titleize(name)}Document,
+  Get${toTitleCase(name)}Query,
+  Get${toTitleCase(name)}QueryVariables,
+  Get${toTitleCase(name)}Document,
 } from 'types/graphql';
 
-const useGet${titleize(name)} = (id: string) => {
-  return useQuery<Get${titleize(name)}Query, Get${titleize(
+const useGet${toTitleCase(name)} = (id: string) => {
+  return useQuery<Get${toTitleCase(name)}Query, Get${toTitleCase(
         name,
-      )}QueryVariables>(Get${titleize(name)}Document, {
+      )}QueryVariables>(Get${toTitleCase(name)}Document, {
     variables: {
       id: id,
     },
   });
 };
 
-export default useGet${titleize(name)};
+export default useGet${toTitleCase(name)};
 `;
 
     case 'Add':
       return `import { useMutation } from '@apollo/client';
 
-import { get${titleize(name)}sCache, write${titleize(
+import { get${toTitleCase(name)}sCache, write${toTitleCase(
         name,
       )}sCache } from 'cache/${name}s.cache';
 
 import {
-  Add${titleize(name)}Document,
-  Add${titleize(name)}Mutation,
-  Add${titleize(name)}MutationVariables,
+  Add${toTitleCase(name)}Document,
+  Add${toTitleCase(name)}Mutation,
+  Add${toTitleCase(name)}MutationVariables,
 } from 'types/graphql';
 
-const useAdd${titleize(name)} = () => {
-  return useMutation<Add${titleize(name)}Mutation, Add${titleize(
+const useAdd${toTitleCase(name)} = () => {
+  return useMutation<Add${toTitleCase(name)}Mutation, Add${toTitleCase(
         name,
       )}MutationVariables>(
-    Add${titleize(name)}Document,
+    Add${toTitleCase(name)}Document,
     {
       update(cache, { data }) {
-        const dataCache = get${titleize(name)}sCache({ cache });
+        const dataCache = get${toTitleCase(name)}sCache({ cache });
 
-        if (dataCache?.get${titleize(name)}s && data?.add${titleize(name)}) {
-          const updatedData = [data.add${titleize(
+        if (dataCache?.get${toTitleCase(name)}s && data?.add${toTitleCase(
+        name,
+      )}) {
+          const updatedData = [data.add${toTitleCase(
             name,
-          )}].concat(dataCache.get${titleize(name)}s);
+          )}].concat(dataCache.get${toTitleCase(name)}s);
 
-          write${titleize(name)}sCache({
+          write${toTitleCase(name)}sCache({
             cache,
             data: {
-              get${titleize(name)}s: updatedData,
+              get${toTitleCase(name)}s: updatedData,
             },
           });
         }
@@ -82,57 +84,59 @@ const useAdd${titleize(name)} = () => {
   );
 };
 
-export default useAdd${titleize(name)};
+export default useAdd${toTitleCase(name)};
       `;
 
     case 'Update':
       return `import { useMutation } from '@apollo/client';
 
 import {
-  Update${titleize(name)}Document,
-  Update${titleize(name)}Mutation,
-  Update${titleize(name)}MutationVariables,
+  Update${toTitleCase(name)}Document,
+  Update${toTitleCase(name)}Mutation,
+  Update${toTitleCase(name)}MutationVariables,
 } from 'types/graphql';
 
-const useUpdate${titleize(name)} = () => {
-  return useMutation<Update${titleize(name)}Mutation, Update${titleize(
+const useUpdate${toTitleCase(name)} = () => {
+  return useMutation<Update${toTitleCase(name)}Mutation, Update${toTitleCase(
         name,
       )}MutationVariables>(
-    Update${titleize(name)}Document,
+    Update${toTitleCase(name)}Document,
   );
 };
 
-export default useUpdate${titleize(name)};
+export default useUpdate${toTitleCase(name)};
       
 `;
 
     case 'Remove':
       return `import { useMutation } from '@apollo/client';
 
-import { get${titleize(name)}sCache, write${titleize(
+import { get${toTitleCase(name)}sCache, write${toTitleCase(
         name,
       )}sCache } from 'cache/${name}s.cache';
 
 import {
-  Remove${titleize(name)}MutationVariables,
-  Remove${titleize(name)}Mutation,
-  Remove${titleize(name)}Document
+  Remove${toTitleCase(name)}MutationVariables,
+  Remove${toTitleCase(name)}Mutation,
+  Remove${toTitleCase(name)}Document
 } from 'types/graphql';
 
-const useRemove${titleize(name)} = () => {
-  return useMutation<Remove${titleize(name)}Mutation, Remove${titleize(
+const useRemove${toTitleCase(name)} = () => {
+  return useMutation<Remove${toTitleCase(name)}Mutation, Remove${toTitleCase(
         name,
       )}MutationVariables>(
-    Remove${titleize(name)}Document, {
+    Remove${toTitleCase(name)}Document, {
       update(cache, { data }) {
-        const dataCache = get${titleize(name)}sCache({ cache });
+        const dataCache = get${toTitleCase(name)}sCache({ cache });
 
-        if (dataCache?.get${titleize(name)}s && data?.remove${titleize(name)}) {
-          const ${name}s = dataCache.get${titleize(
+        if (dataCache?.get${toTitleCase(name)}s && data?.remove${toTitleCase(
         name,
-      )}s.filter(${name} => ${name}.id !== data.remove${titleize(name)}.id)
+      )}) {
+          const ${name}s = dataCache.get${toTitleCase(
+        name,
+      )}s.filter(${name} => ${name}.id !== data.remove${toTitleCase(name)}.id)
 
-          write${titleize(name)}sCache({ cache, data: { get${titleize(
+          write${toTitleCase(name)}sCache({ cache, data: { get${toTitleCase(
         name,
       )}s: ${name}s }})
         };
@@ -141,7 +145,7 @@ const useRemove${titleize(name)} = () => {
   );
 };
 
-export default useRemove${titleize(name)};
+export default useRemove${toTitleCase(name)};
 `;
   }
 };

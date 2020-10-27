@@ -1,6 +1,6 @@
 {
   "name": "@caerusjs/dalton",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The Caerus Atomic Standard Library",
   "main": "./dist/",
   "repository": "https://github.com/caerusjs/dalton",
@@ -25,7 +25,9 @@
     "copy-files": "copyfiles -u 1 src/**/*.css dist/"
   },
   "files": [
-    "./dist/"
+    "./dist/",
+    "./dist/atoms",
+    "./dist/molecules"
   ],
   "preferGlobal": true,
   "devDependencies": {

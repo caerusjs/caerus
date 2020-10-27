@@ -1,4 +1,4 @@
-import { titleize } from '@caerusjs/helpers';
+import { toTitleCase } from '@caerusjs/helpers';
 
 export const createArgs = (name: string) => {
   return `import {
@@ -8,7 +8,7 @@ export const createArgs = (name: string) => {
 } from 'type-graphql';
 
 @ArgsType()
-export class Get${titleize(name)}Args {
+export class Get${toTitleCase(name)}Args {
   @Field(type => ID)
   id: string;
 };

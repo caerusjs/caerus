@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { createFolder } from './create-folder';
+import { createFolder } from './createFolder';
 
 export const createFile = (
   path: string,

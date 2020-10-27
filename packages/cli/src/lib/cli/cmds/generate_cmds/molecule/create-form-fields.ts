@@ -1,4 +1,4 @@
-import { titleize } from '@caerusjs/helpers';
+import { toTitleCase } from '@caerusjs/helpers';
 
 export const createFormFields = (name: string) => {
   return `import React from 'react';
@@ -9,7 +9,7 @@ import { FormFields } from 'types/caerus';
 export const ${name}FormSchema = object().shape({
 });
 
-const ${titleize(
+const ${toTitleCase(
     name,
   )}FormFields: React.FC<FormFields> = ({ touched, errors, handleChange, values }) => {
   return (
@@ -20,6 +20,6 @@ const ${titleize(
 };
 
 
-export default ${titleize(name)}FormFields;
+export default ${toTitleCase(name)}FormFields;
 `;
 };

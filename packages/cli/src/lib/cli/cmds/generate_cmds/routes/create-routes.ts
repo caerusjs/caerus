@@ -1,30 +1,36 @@
-import { titleize } from '@caerusjs/helpers';
+import { toTitleCase } from '@caerusjs/helpers';
 
 export const createRoutes = (name: string) => {
   return `import React, { lazy } from 'react';
 import { Route, RouteComponentProps, Switch } from 'react-router-dom';
 
-const Show${titleize(name)}View = lazy(() => import('views/${name}/show.view'));
-const Index${titleize(
+const Show${toTitleCase(
+    name,
+  )}View = lazy(() => import('views/${name}/show.view'));
+const Index${toTitleCase(
     name,
   )}View = lazy(() => import('views/${name}/index.view'));
-const New${titleize(name)}View = lazy(() => import('views/${name}/new.view'));
-const Edit${titleize(name)}View = lazy(() => import('views/${name}/edit.view'));
+const New${toTitleCase(
+    name,
+  )}View = lazy(() => import('views/${name}/new.view'));
+const Edit${toTitleCase(
+    name,
+  )}View = lazy(() => import('views/${name}/edit.view'));
 
-const ${titleize(name)}Routes: React.FC<RouteComponentProps> = () => {
+const ${toTitleCase(name)}Routes: React.FC<RouteComponentProps> = () => {
   return (
     <Switch>
-      <Route path='/${name}s/:${name}Id/edit' component={Edit${titleize(
+      <Route path='/${name}s/:${name}Id/edit' component={Edit${toTitleCase(
     name,
   )}View} />
-      <Route path='/${name}s/new' component={New${titleize(name)}View} />
-      <Route path='/${name}s/:${name}Id' component={Show${titleize(
+      <Route path='/${name}s/new' component={New${toTitleCase(name)}View} />
+      <Route path='/${name}s/:${name}Id' component={Show${toTitleCase(
     name,
   )}View} />
-      <Route path='/${name}s/' component={Index${titleize(name)}View} />
+      <Route path='/${name}s/' component={Index${toTitleCase(name)}View} />
     </Switch>
   );
 };
 
-export default ${titleize(name)}Routes`;
+export default ${toTitleCase(name)}Routes`;
 };

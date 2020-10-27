@@ -2,7 +2,7 @@
   "version": "v1",
   "packages": {
     "@caerusjs/cli": {
-      "signature": "12ef95a08fd388358d37862c36353c86",
+      "signature": "75b9534de7c662993db51193fb4d6892",
       "file": true
     },
     "@caerusjs/helpers": {
@@ -10,7 +10,7 @@
       "file": true
     },
     "@caerusjs/dalton": {
-      "signature": "3f5d858653b65c86e20aa4e110d21e1d",
+      "signature": "20088d3cba9abb70c47d20ef0a445db2",
       "file": true
     },
     "@caerusjs/themes": {
