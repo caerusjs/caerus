@@ -6,3 +6,4 @@ export * from './heading4';
 export * from './paragraph';
 export * from './input';
 export * from './button';
+export * from './arrow';

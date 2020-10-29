@@ -22,7 +22,7 @@
     "postbuild": "yarn run copy-files",
     "watch": "npm-watch",
     "test": "./bin/test -c ./src/tests/support/jest.config.js --detectOpenHandles --runInBand",
-    "copy-files": "copyfiles -u 1 src/**/*.css dist/"
+    "copy-files": "copyfiles -u 1 src/**/*.css src/**/*.svg dist/"
   },
   "files": [
     "./dist/",
