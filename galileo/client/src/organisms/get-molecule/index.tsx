@@ -13,6 +13,7 @@ export const GetMolecule: React.FC<{ moleculeId: string }> = ({
     const fallbackMolecule = import(`molecules/null`);
 
     const moleculeName = toTitleCase(moleculeId);
+    console.log(moleculeName, 'moleculeName');
 
     // Check if there is an exported member for the atom
     try {

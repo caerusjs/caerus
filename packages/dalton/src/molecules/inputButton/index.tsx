@@ -18,7 +18,6 @@ export const InputButton = ({ inputProps, buttonProps }: InputButton) => {
   );
 };
 
-// FIX: Component viewer needs to only lowercase first word
 export const inputButtonProps = {
   inputProps: { placeholder: lorem.word() },
   buttonProps: { children: lorem.word() },
