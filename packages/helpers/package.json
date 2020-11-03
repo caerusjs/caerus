@@ -26,15 +26,8 @@
     "./dist/"
   ],
   "preferGlobal": true,
-  "devDependencies": {
-    "@caerusjs/yalc-watch": "^0.0.6"
-  },
+  "devDependencies": {},
   "dependencies": {
     "title-case": "^3.0.2"
-  },
-  "yalcWatch": {
-    "watchFolder": "dist",
-    "buildWatchCommand": "yarn build:watch",
-    "extensions": "js"
   }
 }

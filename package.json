@@ -3,14 +3,16 @@
   "name": "@caerusjs/monorepo",
   "version": "0.7.0",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "galileo"
   ],
   "scripts": {
-    "dev": "concurrently \"yarn --cwd packages/helpers yalc-watch\" \"yarn --cwd packages/cli yalc-watch\" \"yarn --cwd packages/dalton yalc-watch\" \"yarn --cwd galileo dev\""
+    "bootstrap": "yarn install && ./utilities/yarnLink.sh && yarn lerna run build && yarn --cwd galileo install",
+    "dev": "yarn uno watch && yarn --cwd galileo dev"
   },
   "devDependencies": {
     "concurrently": "^5.3.0",
     "lerna": "^3.22.1",
-    "yalc": "^1.0.0-pre.45"
+    "unorepo": "^0.1.0"
   }
 }

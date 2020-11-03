@@ -36,13 +36,7 @@
     "graphql": "^15.3.0",
     "graphql-tag": "^2.10.3",
     "jscpd": "^3.3.19",
-    "source-map-explorer": "^2.4.1",
-    "yalc": "^1.0.0-pre.45"
+    "source-map-explorer": "^2.4.1"
   },
-  "dependencies": {
-    "@caerusjs/cli": "file:.yalc/@caerusjs/cli",
-    "@caerusjs/dalton": "file:.yalc/@caerusjs/dalton",
-    "@caerusjs/helpers": "file:.yalc/@caerusjs/helpers",
-    "@caerusjs/themes": "file:.yalc/@caerusjs/themes"
-  }
+  "dependencies": {}
 }

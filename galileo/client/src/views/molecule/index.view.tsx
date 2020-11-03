@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import * as Molecules from '@caerusjs/dalton/dist/molecules';
-import { toKebabCase } from '@caerusjs/helpers/dist';
+import { toKebabCase } from '@caerusjs/helpers';
 
 import ApplicationLayout from 'views/layouts/application.layout';
 
