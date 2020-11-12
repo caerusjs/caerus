@@ -1,3 +1,4 @@
-export * from './navigation';
-export * from './inputButton';
-export * from './titleDescriptionLinkArrow';
+export * from './Navigation';
+export * from './InputButton';
+export * from './TitleDescriptionLinkArrow';
+export * from './AnchorWithArrow';

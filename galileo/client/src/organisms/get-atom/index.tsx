@@ -1,6 +1,5 @@
+import capitalize from 'capitalize';
 import React, { lazy, useState } from 'react';
-
-import { toTitleCase } from '@caerusjs/helpers';
 
 export const GetAtom: React.FC<{ atomId: string }> = ({ atomId }) => {
   const [props, setProps] = useState<{ children?: string }>();
@@ -8,7 +7,7 @@ export const GetAtom: React.FC<{ atomId: string }> = ({ atomId }) => {
   const Atom = lazy(async () => {
     const fallbackAtom = import(`atoms/null`);
 
-    const atomName = toTitleCase(atomId);
+    const atomName = capitalize.words(atomId).replace(/-/g, '');
     const propExport = `${atomId}Props`;
 
     // Check if there is an exported member for the atom

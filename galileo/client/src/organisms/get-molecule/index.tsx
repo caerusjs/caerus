@@ -1,6 +1,7 @@
 import React, { lazy, useState } from 'react';
 
-import { toTitleCase, toCamelCase } from '@caerusjs/helpers';
+import { toCamelCase } from '@caerusjs/helpers';
+import capitalize from 'capitalize';
 
 export const GetMolecule: React.FC<{ moleculeId: string }> = ({
   moleculeId,
@@ -12,7 +13,7 @@ export const GetMolecule: React.FC<{ moleculeId: string }> = ({
   const Molecule = lazy(async () => {
     const fallbackMolecule = import(`molecules/null`);
 
-    const moleculeName = toTitleCase(moleculeId);
+    const moleculeName = capitalize.words(moleculeId).replace(/-/g, '');
     console.log(moleculeName, 'moleculeName');
 
     // Check if there is an exported member for the atom

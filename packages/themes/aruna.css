@@ -1,3 +1,10 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* Aruna  */
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap');
 
@@ -36,4 +43,5 @@ html {
   color: var(--font-color);
   font-size: var(--base-font-size);
   font-family: var(--font-family);
+  line-height: var(--even-larger);
 }

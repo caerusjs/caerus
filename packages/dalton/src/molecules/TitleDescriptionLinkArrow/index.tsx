@@ -2,7 +2,8 @@ import React from 'react';
 import { internet, lorem } from 'faker';
 
 import styles from './styles.module.css';
-import { Anchor, Paragraph, Heading2, Arrow } from '../../atoms';
+import { Anchor, Paragraph, Heading2 } from '../../atoms';
+import { AnchorWithArrow } from '../AnchorWithArrow';
 import { toTitleCase } from '@caerusjs/helpers/dist';
 
 export interface TitleDescriptionLinkArrow
@@ -10,26 +11,18 @@ export interface TitleDescriptionLinkArrow
   heading2Props: Heading2;
   paragraphProps: Paragraph;
   anchorProps: Anchor;
-  arrowProps: Arrow;
 }
 
 export const TitleDescriptionLinkArrow = ({
   heading2Props,
   paragraphProps,
   anchorProps,
-  arrowProps,
 }: TitleDescriptionLinkArrow) => {
-  anchorProps.children = (
-    <>
-      {anchorProps?.children} <Arrow {...arrowProps} />
-    </>
-  );
-
   return (
     <div className={styles.root}>
       <Heading2 {...heading2Props} />
       <Paragraph {...paragraphProps} />
-      <Anchor {...anchorProps} />
+      <AnchorWithArrow {...anchorProps} />
     </div>
   );
 };
