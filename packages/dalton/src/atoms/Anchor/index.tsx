@@ -3,7 +3,11 @@ import { internet, lorem } from 'faker';
 
 import styles from './styles.module.css';
 
-export interface Anchor extends React.HTMLAttributes<HTMLAnchorElement> {
+export interface Anchor
+  extends React.DetailedHTMLProps<
+    React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    HTMLAnchorElement
+  > {
   children?: React.ReactNode;
 }
 

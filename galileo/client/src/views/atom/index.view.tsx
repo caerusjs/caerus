@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import * as Atoms from '@caerusjs/dalton/dist/atoms';
 import { toKebabCase } from '@caerusjs/helpers';
-
-import ApplicationLayout from 'views/layouts/application.layout';
+import { Heading2 } from '@caerusjs/dalton';
 
 const IndexAtomView: React.FC = () => {
   const atoms = Object.keys(Atoms).filter((atom) => !atom.includes('Props'));
@@ -17,9 +16,10 @@ const IndexAtomView: React.FC = () => {
   });
 
   return (
-    <ApplicationLayout>
+    <>
+      <Heading2>Atoms</Heading2>
       <ul>{atomList}</ul>
-    </ApplicationLayout>
+    </>
   );
 };
 

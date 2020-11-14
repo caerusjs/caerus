@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 
 import * as Molecules from '@caerusjs/dalton/dist/molecules';
 import { toKebabCase } from '@caerusjs/helpers';
-
-import ApplicationLayout from 'views/layouts/application.layout';
+import { Heading2 } from '@caerusjs/dalton';
 
 const IndexMoleculeView: React.FC = () => {
   const molecules = Object.keys(Molecules).filter(
@@ -20,9 +19,10 @@ const IndexMoleculeView: React.FC = () => {
   });
 
   return (
-    <ApplicationLayout>
+    <>
+      <Heading2>Molecules</Heading2>
       <ul>{moleculeList}</ul>
-    </ApplicationLayout>
+    </>
   );
 };
 

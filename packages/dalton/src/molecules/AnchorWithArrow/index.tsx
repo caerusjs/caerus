@@ -3,7 +3,8 @@ import React from 'react';
 import { Anchor, Arrow } from '../../atoms';
 import styles from './styles.module.css';
 
-export interface AnchorWithArrow extends React.HTMLAttributes<HTMLElement> {
+export interface AnchorWithArrow {
+  children?: React.ReactNode;
   anchorProps?: Anchor;
 }
 

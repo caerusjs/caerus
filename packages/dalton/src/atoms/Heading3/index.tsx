@@ -4,7 +4,11 @@ import React from 'react';
 
 import styles from './styles.module.css';
 
-export interface Heading3 extends React.HTMLAttributes<HTMLHeadingElement> {
+export interface Heading3
+  extends React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLHeadingElement>,
+    HTMLHeadingElement
+  > {
   children: React.ReactNode;
 }
 

@@ -4,7 +4,7 @@ import { internet, lorem } from 'faker';
 import styles from './styles.module.css';
 import { Anchor } from '../../atoms';
 
-interface Navigation extends React.HTMLAttributes<HTMLElement> {
+export interface Navigation {
   anchors: Anchor[];
 }
 

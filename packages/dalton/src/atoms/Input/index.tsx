@@ -3,7 +3,11 @@ import { lorem } from 'faker';
 
 import styles from './styles.module.css';
 
-export interface Input extends React.HTMLAttributes<HTMLInputElement> {}
+export interface Input
+  extends React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+  > {}
 
 export const Input = ({ ...props }: Input) => {
   return <input className={styles.root} {...props} />;

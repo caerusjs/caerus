@@ -3,7 +3,11 @@ import { lorem } from 'faker';
 
 import styles from './styles.module.css';
 
-export interface Button extends React.HTMLAttributes<HTMLButtonElement> {
+export interface Button
+  extends React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
   children: React.ReactNode;
 }
 

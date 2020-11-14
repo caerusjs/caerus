@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useParams } from 'react-router';
 
-import { GetMolecule } from 'organisms/get-molecule';
+import { GetMolecule } from 'hooks/get-molecule';
 
 interface RouteParams {
   moleculeId: string;

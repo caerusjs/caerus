@@ -4,7 +4,7 @@ import { lorem } from 'faker';
 import styles from './styles.module.css';
 import { Input, Button } from '../../atoms';
 
-export interface InputButton extends React.HTMLAttributes<HTMLElement> {
+export interface InputButton {
   inputProps: Input;
   buttonProps: Button;
 }

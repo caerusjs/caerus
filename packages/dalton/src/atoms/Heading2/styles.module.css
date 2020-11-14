@@ -1,4 +1,4 @@
 .root {
   font-size: var(--even-larger);
-  padding-bottom: var(--even-larger);
+  font-weight: var(--normal-weight);
 }

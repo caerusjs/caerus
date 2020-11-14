@@ -4,7 +4,11 @@ import { toTitleCase } from '@caerusjs/helpers';
 
 import styles from './styles.module.css';
 
-export interface Heading1 extends React.HTMLAttributes<HTMLHeadingElement> {
+export interface Heading1
+  extends React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLHeadingElement>,
+    HTMLHeadingElement
+  > {
   children: React.ReactNode;
 }
 

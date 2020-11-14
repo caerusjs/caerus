@@ -11,7 +11,7 @@ export const GetMolecule: React.FC<{ moleculeId: string }> = ({
   console.log(propExport, 'prop');
 
   const Molecule = lazy(async () => {
-    const fallbackMolecule = import(`molecules/null`);
+    const fallbackMolecule = import(`atoms/null`);
 
     const moleculeName = capitalize.words(moleculeId).replace(/-/g, '');
     console.log(moleculeName, 'moleculeName');
