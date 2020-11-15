@@ -4,8 +4,6 @@
   justify-content: space-between;
   padding-top: var(--even-larger);
   padding-bottom: var(--even-larger);
-  padding-left: calc(3 * var(--even-larger));
-  padding-right: calc(3 * var(--even-larger));
 }
 
 .root > a {
