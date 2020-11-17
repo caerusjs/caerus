@@ -1,5 +1,6 @@
 import React from 'react';
 import { internet, lorem } from 'faker';
+import Link from 'next/link';
 
 import styles from './styles.module.css';
 import { Anchor, UnorderedList } from '../../atoms';
@@ -9,9 +10,11 @@ export interface Navigation {
 }
 
 const buildChildren = (anchors: Navigation['anchors']) => {
-  return anchors.map(({ id, ...props }) => (
+  return anchors.map(({ id, href, ...props }) => (
     <li key={id}>
-      <Anchor {...props} />
+      <Link href={href!}>
+        <Anchor {...props} />
+      </Link>
     </li>
   ));
 };

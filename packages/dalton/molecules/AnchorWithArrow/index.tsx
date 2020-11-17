@@ -13,9 +13,11 @@ export const AnchorWithArrow = ({
   ...anchorProps
 }: AnchorWithArrow) => {
   return (
-    <Anchor {...anchorProps}>
-      {children} <Arrow className={styles.arrow} />
-    </Anchor>
+    <div className={styles.root}>
+      <Anchor {...anchorProps}>
+        {children} <Arrow />
+      </Anchor>
+    </div>
   );
 };
 

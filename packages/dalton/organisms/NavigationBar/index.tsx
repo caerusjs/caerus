@@ -1,6 +1,7 @@
 import { toTitleCase } from '@caerusjs/helpers/dist';
 import { internet, lorem } from 'faker';
 import React from 'react';
+import Link from 'next/link';
 
 import { Anchor, Heading1, Heading2 } from '../../atoms';
 import { Navigation } from '../../molecules';
@@ -22,10 +23,12 @@ export const NavigationBar = ({
 }: NavigationBar) => {
   return (
     <div className={styles.root}>
-      <Anchor href={href}>
-        <Heading1>{heading1}</Heading1>
-        {heading2 && <Heading2>{heading2}</Heading2>}
-      </Anchor>
+      <Link href={href}>
+        <Anchor>
+          <Heading1>{heading1}</Heading1>
+          {heading2 && <Heading2>{heading2}</Heading2>}
+        </Anchor>
+      </Link>
       <Navigation {...navigationProps} />
     </div>
   );

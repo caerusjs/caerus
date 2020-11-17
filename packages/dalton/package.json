@@ -2,7 +2,7 @@
   "name": "@caerusjs/dalton",
   "version": "0.0.2",
   "description": "The Caerus Atomic Standard Library",
-  "main": "./dist/",
+  "main": "index.ts",
   "repository": "https://github.com/caerusjs/dalton",
   "homepage": "https://github.com/caerusjs/dalton",
   "author": "Kris Quigley <kris@krisquigley.co.uk>",
@@ -24,11 +24,6 @@
     "test": "./bin/test -c ./src/tests/support/jest.config.js --detectOpenHandles --runInBand",
     "copy-files": "copyfiles -u 1 src/**/*.css src/**/*.svg dist/"
   },
-  "files": [
-    "./dist/",
-    "./dist/atoms",
-    "./dist/molecules"
-  ],
   "preferGlobal": true,
   "devDependencies": {
     "@types/faker": "^5.1.2",
@@ -40,6 +35,7 @@
     "copyfiles": "^2.4.0",
     "faker": "^5.1.0",
     "jest": "^26.0.1",
+    "next": "^10.0.1",
     "npm-watch": "^0.7.0",
     "react": "^16.13.1",
     "react-router-dom": "^5.1.2",
@@ -49,8 +45,7 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "@types/react-router": "^5.1.3",
-    "react-router": "^5.1.2"
+    "next": "10.0.1"
   },
   "watch": {
     "build": {
