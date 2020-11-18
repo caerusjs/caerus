@@ -1,1 +1,0 @@
-web: yarn --cwd galileo-next start
