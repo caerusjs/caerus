@@ -8,13 +8,11 @@ export const GetOrganism: React.FC<{ organismId: string }> = ({
 }) => {
   const [props, setProps] = useState<{ children?: string }>();
   const propExport = `${toCamelCase(organismId)}Props`;
-  console.log(propExport, 'prop');
 
   const Organism = lazy(async () => {
     const fallbackOrganism = import(`../../atoms/null`);
 
     const organismName = capitalize.words(organismId).replace(/-/g, '');
-    console.log(organismName, 'organismName');
 
     // Check if there is an exported member for the atom
     try {

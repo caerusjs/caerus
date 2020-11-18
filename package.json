@@ -7,7 +7,7 @@
     "packages/*"
   ],
   "scripts": {
-    "heroku-postbuild": "./utilities/yarnLink.sh && yarn workspace galileo-next install && yarn workspace galileo-next build",
+    "heroku-postbuild": "./utilities/yarnLink.sh && yarn workspace @caerusjs/helpers build && yarn workspace galileo-next build",
     "bootstrap": "yarn install && ./utilities/yarnLink.sh && yarn lerna run build && yarn --cwd galileo install",
     "dev": "yarn concurrently \"yarn --cwd galileo-next dev\" \"yarn uno watch\""
   },
