@@ -1,0 +1,1 @@
+galileo: yarn --cwd galileo-next build && yarn --cwd galileo-next start
