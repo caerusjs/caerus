@@ -1,0 +1,1 @@
+web: yarn workspace galileo-next start
