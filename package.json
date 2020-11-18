@@ -7,6 +7,8 @@
     "galileo"
   ],
   "scripts": {
+    "prestart": "./utilities/yarnLink.sh && yarn --cwd galileo-next install",
+    "start": "yarn --cwd galileo-next start",
     "bootstrap": "yarn install && ./utilities/yarnLink.sh && yarn lerna run build && yarn --cwd galileo install",
     "dev": "yarn concurrently \"yarn --cwd galileo-next dev\" \"yarn uno watch\""
   },
