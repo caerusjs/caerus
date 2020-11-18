@@ -1,5 +1,5 @@
-import Head from 'next/head';
+import { Paragraph } from '@caerusjs/dalton';
 
 export default function Home() {
-  return <p>Hello</p>;
+  return <Paragraph>Please select a component from the list.</Paragraph>;
 }

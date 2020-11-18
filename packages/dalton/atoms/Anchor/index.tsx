@@ -11,7 +11,7 @@ export interface Anchor
   children?: React.ReactNode;
 }
 
-export const Anchor = ({ children, ...props }: Anchor) => {
+export const Anchor = ({ children, ...props }: any) => {
   return (
     <a className={styles.root} {...props}>
       {children}

@@ -3,8 +3,8 @@
   "name": "@caerusjs/monorepo",
   "version": "0.7.0",
   "workspaces": [
-    "packages/*",
-    "galileo-next"
+    "galileo-next",
+    "packages/*"
   ],
   "scripts": {
     "heroku-postbuild": "yarn workspace galileo-next build",
