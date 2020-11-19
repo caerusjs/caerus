@@ -8,8 +8,8 @@
   ],
   "scripts": {
     "heroku-postbuild": "yarn workspace @caerusjs/helpers build && yarn workspace galileo-next build",
-    "bootstrap": "yarn install && ./utilities/yarnLink.sh && yarn lerna run build && yarn --cwd galileo install",
-    "dev": "yarn concurrently \"yarn --cwd galileo-next dev\" \"yarn uno watch\""
+    "bootstrap": "yarn install && yarn lerna run build",
+    "dev": "yarn concurrently \"yarn workspace galileo-next dev\" \"yarn uno watch\""
   },
   "devDependencies": {
     "concurrently": "^5.3.0",
