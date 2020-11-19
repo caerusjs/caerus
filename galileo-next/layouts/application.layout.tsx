@@ -2,6 +2,7 @@
 import '@caerusjs/themes/aruna.css';
 import '@caerusjs/themes/simple-grid.css';
 import { Anchor, NavigationBar, Heading2 } from '@caerusjs/dalton';
+import Head from 'next/head';
 
 import * as Atoms from '@caerusjs/dalton/atoms';
 import * as Molecules from '@caerusjs/dalton/molecules';
@@ -53,6 +54,10 @@ const ApplicationLayout: React.FC = ({ children }) => {
 
   return (
     <div className='container'>
+      <Head>
+        <title>Galileo: Component Viewer</title>
+        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+      </Head>
       <NavigationBar
         heading1='Galileo'
         heading2='Component Viewer'

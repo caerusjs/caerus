@@ -1,35 +1,31 @@
 import capitalize from 'capitalize';
-import React, { lazy, useState } from 'react';
+import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
+import NullAtom from '../../atoms/null';
 
 export const GetAtom: React.FC<{ atomId: string }> = ({ atomId }) => {
   const [props, setProps] = useState<{ children?: string }>();
+  const atomName = capitalize.words(atomId).replace(/-/g, '');
+  const propExport = `${atomId}Props`;
 
-  const Atom = lazy(async () => {
-    const fallbackAtom = import(`../../atoms/null`);
-
-    const atomName = capitalize.words(atomId).replace(/-/g, '');
-    const propExport = `${atomId}Props`;
-
-    // Check if there is an exported member for the atom
-    try {
-      const atomToImport = (await import(`@caerusjs/dalton`)) as any;
-
-      if (atomToImport[atomName] && atomToImport[propExport]) {
-        setProps(atomToImport[propExport]);
-        return { default: atomToImport[atomName] };
-      } else {
-        throw new Error('Atom or props not found');
-      }
-    } catch {
-      return fallbackAtom;
-    }
-  });
+  const Atom = dynamic(
+    () =>
+      import('@caerusjs/dalton').then((atomToImport: any) => {
+        try {
+          if (atomToImport[atomName] && atomToImport[propExport]) {
+            setProps(atomToImport[propExport]);
+            return atomToImport[atomName];
+          } else {
+            throw new Error('Atom or props not found');
+          }
+        } catch {
+          return NullAtom;
+        }
+      }),
+    { loading: () => <p>...</p> },
+  );
 
   if (!atomId) return <>Choose an element</>;
 
-  return (
-    <React.Suspense fallback='Loading atom...'>
-      {Atom ? <Atom {...props} /> : null}
-    </React.Suspense>
-  );
+  return <Atom {...props} />;
 };

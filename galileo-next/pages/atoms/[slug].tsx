@@ -1,15 +1,28 @@
-import { useRouter } from 'next/router';
-import { GetAtom } from '../../hooks/get-atom';
+import capitalize from 'capitalize';
+import { GetServerSideProps } from 'next';
+import { componentList } from '../../atoms/list';
+// import NullAtom from '../../atoms/null';
 
-const Atom = () => {
-  const router = useRouter();
-  const { slug } = router.query;
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+  const { slug } = params;
 
-  if (slug) {
-    return <GetAtom atomId={slug as string} />;
-  }
+  const atomName = capitalize.words(slug as string).replace(/-/g, '');
 
-  return 'loading...';
+  return {
+    props: {
+      atomName,
+      propData: {
+        href: 'hello.com',
+        children: 'hello',
+      },
+    },
+  };
+};
+
+const Atom = ({ atomName, propData }: { slug: string }) => {
+  const AtomComponent = componentList[atomName];
+
+  return <AtomComponent {...propData} />;
 };
 
 export default Atom;
