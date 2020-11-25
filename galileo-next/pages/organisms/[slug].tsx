@@ -1,7 +1,7 @@
 import capitalize from 'capitalize';
 import { toCamelCase } from '@caerusjs/helpers';
 import { GetServerSideProps } from 'next';
-import { componentList } from '../../organisms/list';
+import { ComponentList } from '../../organisms/list';
 import * as Props from '../../server/componentProps';
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
@@ -11,8 +11,10 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     };
   }
 
-  const organismName = capitalize.words(params.slug).replace(/-/g, '');
-  const propExport = `${toCamelCase(params.slug)}Props`;
+  const organismName = capitalize
+    .words(params.slug)
+    .replace(/-/g, '') as keyof typeof ComponentList;
+  const propExport = `${toCamelCase(params.slug)}Props` as keyof typeof Props;
 
   return {
     props: {
@@ -27,9 +29,9 @@ const Organism = ({
   propData,
 }: {
   organismName: string;
-  propData: unknown;
+  propData: typeof Props;
 }) => {
-  const OrganismComponent = componentList[organismName];
+  const OrganismComponent = ComponentList[organismName];
 
   return <OrganismComponent {...propData} />;
 };

@@ -1,10 +1,17 @@
-import dynamic from 'next/dynamic';
+import dynamic, { LoaderComponent } from 'next/dynamic';
+import { ComponentType } from 'react';
 
 // build this file dynamically in future using a script on boot
-export const componentList = {
-  NavigationBar: dynamic(() =>
-    import(`@caerusjs/dalton/organisms/NavigationBar`).then(
-      (mod) => mod.NavigationBar,
-    ),
+
+export interface ComponentList {
+  [propertyName: string]: ComponentType<any>;
+}
+
+export const ComponentList: ComponentList = {
+  NavigationBar: dynamic(
+    () =>
+      import(`@caerusjs/dalton/organisms/NavigationBar`).then(
+        (mod) => mod.NavigationBar,
+      ) as LoaderComponent,
   ),
 };

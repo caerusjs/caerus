@@ -1,7 +1,7 @@
 import capitalize from 'capitalize';
 import { toCamelCase } from '@caerusjs/helpers';
 import { GetServerSideProps } from 'next';
-import { componentList } from '../../atoms/list';
+import { ComponentList } from '../../atoms/list';
 import * as Props from '../../server/componentProps';
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
@@ -12,7 +12,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   }
 
   const atomName = capitalize.words(params.slug).replace(/-/g, '');
-  const propExport = `${toCamelCase(params.slug)}Props`;
+  const propExport = `${toCamelCase(params.slug)}Props` as keyof typeof Props;
 
   return {
     props: {
@@ -27,9 +27,9 @@ const Atom = ({
   propData,
 }: {
   atomName: string;
-  propData: unknown;
+  propData: typeof Props;
 }) => {
-  const AtomComponent = componentList[atomName];
+  const AtomComponent = ComponentList[atomName];
 
   return <AtomComponent {...propData} />;
 };
