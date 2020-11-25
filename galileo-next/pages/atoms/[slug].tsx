@@ -1,25 +1,34 @@
 import capitalize from 'capitalize';
+import { toCamelCase } from '@caerusjs/helpers';
 import { GetServerSideProps } from 'next';
 import { componentList } from '../../atoms/list';
-// import NullAtom from '../../atoms/null';
+import * as Props from '../../server/componentProps';
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-  const { slug } = params;
+  if (!params?.slug || Array.isArray(params?.slug)) {
+    return {
+      props: {},
+    };
+  }
 
-  const atomName = capitalize.words(slug as string).replace(/-/g, '');
+  const atomName = capitalize.words(params.slug).replace(/-/g, '');
+  const propExport = `${toCamelCase(params.slug)}Props`;
 
   return {
     props: {
       atomName,
-      propData: {
-        href: 'hello.com',
-        children: 'hello',
-      },
+      propData: Props[propExport],
     },
   };
 };
 
-const Atom = ({ atomName, propData }: { slug: string }) => {
+const Atom = ({
+  atomName,
+  propData,
+}: {
+  atomName: string;
+  propData: unknown;
+}) => {
   const AtomComponent = componentList[atomName];
 
   return <AtomComponent {...propData} />;
