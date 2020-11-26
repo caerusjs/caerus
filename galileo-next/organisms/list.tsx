@@ -14,4 +14,10 @@ export const ComponentList: ComponentList = {
         (mod) => mod.NavigationBar,
       ) as LoaderComponent,
   ),
+  PageCallToAction: dynamic(
+    () =>
+      import(`@caerusjs/dalton/organisms/PageCallToAction`).then(
+        (mod) => mod.PageCallToAction,
+      ) as LoaderComponent,
+  ),
 };

@@ -87,3 +87,12 @@ export const navigationBarProps = {
     })),
   },
 };
+
+export const pageCallToActionProps = {
+  backgroundImage: 'http://placeimg.com/640/480/nature',
+  titleDescriptionLinkArrowProps: {
+    heading2Props: { children: toTitleCase(lorem.words(3)) },
+    paragraphProps: { children: lorem.paragraph(15) },
+    anchorProps: { children: lorem.word(), href: internet.url() },
+  },
+};
