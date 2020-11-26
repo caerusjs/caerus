@@ -1,5 +1,4 @@
 import React from 'react';
-import '@caerusjs/themes/aruna.css';
 import { NavigationBar, Heading2, AnchorLink } from '@caerusjs/dalton';
 import Head from 'next/head';
 
@@ -58,6 +57,7 @@ const ApplicationLayout: React.FC = ({ children }) => {
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
         <link href='/fonts.css' rel='stylesheet' />
         <link href='/simple-grid.css' rel='stylesheet' />
+        <link href='/aruna.css' rel='stylesheet' />
       </Head>
       <NavigationBar
         heading1='Galileo'
