@@ -7,6 +7,11 @@ export const anchorProps = {
   children: lorem.word(),
 };
 
+export const anchorLinkProps = {
+  href: internet.url(),
+  children: lorem.word(),
+};
+
 export const arrowProps = {};
 
 export const buttonProps = {

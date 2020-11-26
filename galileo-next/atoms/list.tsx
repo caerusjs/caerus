@@ -13,6 +13,12 @@ export const ComponentList: ComponentList = {
         (mod) => mod.Anchor,
       ) as LoaderComponent,
   ),
+  AnchorLink: dynamic(
+    () =>
+      import(`@caerusjs/dalton/atoms/AnchorLink`).then(
+        (mod) => mod.AnchorLink,
+      ) as LoaderComponent,
+  ),
   Arrow: dynamic(
     () =>
       import(`@caerusjs/dalton/atoms/Arrow`).then(
