@@ -1,5 +1,3 @@
-import { toTitleCase } from '@caerusjs/helpers';
-import { lorem } from 'faker';
 import React from 'react';
 
 import styles from './styles.module.css';
@@ -12,14 +10,10 @@ export interface Heading2
   children: React.ReactNode;
 }
 
-export const Heading2 = ({ children, ...props }: Heading2) => {
+export const Heading2: React.FC<Heading2> = ({ children, ...props }) => {
   return (
     <h2 className={styles.root} {...props}>
       {children}
     </h2>
   );
-};
-
-export const heading2Props = {
-  children: toTitleCase(lorem.words(3)),
 };

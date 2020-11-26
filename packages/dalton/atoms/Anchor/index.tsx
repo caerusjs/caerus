@@ -1,25 +1,17 @@
-import React from 'react';
-import { internet, lorem } from 'faker';
+import React, { RefObject } from 'react';
 
 import styles from './styles.module.css';
 
-export interface Anchor
-  extends React.DetailedHTMLProps<
-    React.AnchorHTMLAttributes<HTMLAnchorElement>,
-    HTMLAnchorElement
-  > {
+export interface Anchor extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   children?: React.ReactNode;
+  ref?: RefObject<HTMLAnchorElement>;
+  referrerPolicy?: any;
 }
 
-export const Anchor = ({ children, ...props }: any) => {
+export const Anchor: React.FC<Anchor> = ({ children, ...props }) => {
   return (
     <a className={styles.root} {...props}>
       {children}
     </a>
   );
-};
-
-export const anchorProps = {
-  href: internet.url(),
-  children: lorem.word(),
 };

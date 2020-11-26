@@ -6,7 +6,7 @@ export interface Arrow
     HTMLOrSVGElement
   > {}
 
-export const Arrow = () => {
+export const Arrow: React.FC<Arrow> = () => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -22,5 +22,3 @@ export const Arrow = () => {
     </svg>
   );
 };
-
-export const arrowProps = {};

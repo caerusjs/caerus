@@ -1,4 +1,3 @@
-import { lorem } from 'faker';
 import React from 'react';
 
 import styles from './styles.module.css';
@@ -11,14 +10,13 @@ export interface UnorderedList
   children: React.ReactNode;
 }
 
-export const UnorderedList = ({ children, ...props }: UnorderedList) => {
+export const UnorderedList: React.FC<UnorderedList> = ({
+  children,
+  ...props
+}) => {
   return (
     <ul className={styles.root} {...props}>
       {children}
     </ul>
   );
-};
-
-export const unorderedListProps = {
-  children: lorem.paragraph(15),
 };

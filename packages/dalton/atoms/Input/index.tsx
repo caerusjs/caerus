@@ -1,5 +1,4 @@
 import React from 'react';
-import { lorem } from 'faker';
 
 import styles from './styles.module.css';
 
@@ -9,10 +8,6 @@ export interface Input
     HTMLInputElement
   > {}
 
-export const Input = ({ ...props }: Input) => {
+export const Input: React.FC<Input> = ({ ...props }) => {
   return <input className={styles.root} {...props} />;
-};
-
-export const inputProps = {
-  placeholder: lorem.word(),
 };

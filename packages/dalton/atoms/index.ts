@@ -1,4 +1,5 @@
 export * from './Anchor';
+export * from './AnchorLink';
 export * from './Heading1';
 export * from './Heading2';
 export * from './Heading3';

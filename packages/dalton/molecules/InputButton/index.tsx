@@ -1,5 +1,4 @@
 import React from 'react';
-import { lorem } from 'faker';
 
 import styles from './styles.module.css';
 import { Input, Button } from '../../atoms';
@@ -9,16 +8,14 @@ export interface InputButton {
   buttonProps: Button;
 }
 
-export const InputButton = ({ inputProps, buttonProps }: InputButton) => {
+export const InputButton: React.FC<InputButton> = ({
+  inputProps,
+  buttonProps,
+}) => {
   return (
     <div className={styles.root}>
       <Input {...inputProps} />
       <Button {...buttonProps} />
     </div>
   );
-};
-
-export const inputButtonProps = {
-  inputProps: { placeholder: lorem.word() },
-  buttonProps: { children: lorem.word() },
 };

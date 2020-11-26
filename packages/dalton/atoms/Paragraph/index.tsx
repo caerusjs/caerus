@@ -1,4 +1,3 @@
-import { lorem } from 'faker';
 import React from 'react';
 
 import styles from './styles.module.css';
@@ -11,14 +10,10 @@ export interface Paragraph
   children: React.ReactNode;
 }
 
-export const Paragraph = ({ children, ...props }: Paragraph) => {
+export const Paragraph: React.FC<Paragraph> = ({ children, ...props }) => {
   return (
     <p className={styles.root} {...props}>
       {children}
     </p>
   );
-};
-
-export const paragraphProps = {
-  children: lorem.paragraph(15),
 };

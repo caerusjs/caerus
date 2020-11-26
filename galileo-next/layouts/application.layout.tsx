@@ -1,7 +1,6 @@
-// TODO: Should this be imported from index.html instead?
+import React from 'react';
 import '@caerusjs/themes/aruna.css';
-import '@caerusjs/themes/simple-grid.css';
-import { Anchor, NavigationBar, Heading2 } from '@caerusjs/dalton';
+import { NavigationBar, Heading2, AnchorLink } from '@caerusjs/dalton';
 import Head from 'next/head';
 
 import * as Atoms from '@caerusjs/dalton/atoms';
@@ -17,8 +16,8 @@ const ApplicationLayout: React.FC = ({ children }) => {
   const atomList = atoms.map((atom: string) => {
     return (
       <li key={atom}>
-        <Link href={`/atoms/${toKebabCase(atom)}`}>
-          <Anchor>{atom}</Anchor>
+        <Link href={`/atoms/${toKebabCase(atom)}`} passHref>
+          <AnchorLink>{atom}</AnchorLink>
         </Link>
       </li>
     );
@@ -31,8 +30,8 @@ const ApplicationLayout: React.FC = ({ children }) => {
   const moleculeList = molecules.map((molecule: string) => {
     return (
       <li key={molecule}>
-        <Link href={`/molecules/${toKebabCase(molecule)}`}>
-          <Anchor>{molecule}</Anchor>
+        <Link href={`/molecules/${toKebabCase(molecule)}`} passHref>
+          <AnchorLink>{molecule}</AnchorLink>
         </Link>
       </li>
     );
@@ -45,8 +44,8 @@ const ApplicationLayout: React.FC = ({ children }) => {
   const organismList = organisms.map((organism: string) => {
     return (
       <li key={organism}>
-        <Link href={`/organisms/${toKebabCase(organism)}`}>
-          <Anchor>{organism}</Anchor>
+        <Link href={`/organisms/${toKebabCase(organism)}`} passHref>
+          <AnchorLink>{organism}</AnchorLink>
         </Link>
       </li>
     );
@@ -57,12 +56,16 @@ const ApplicationLayout: React.FC = ({ children }) => {
       <Head>
         <title>Galileo: Component Viewer</title>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+        <link href='/fonts.css' rel='stylesheet' />
+        <link href='/simple-grid.css' rel='stylesheet' />
       </Head>
       <NavigationBar
         heading1='Galileo'
         heading2='Component Viewer'
         href='/'
-        navigationProps={{ anchors: [{ href: '/', children: 'components' }] }}
+        navigationProps={{
+          anchors: [{ href: '/', children: 'components', id: '1' }],
+        }}
       />
       <div className='row'>
         <div className='col-2'>

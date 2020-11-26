@@ -1,9 +1,7 @@
-import { toTitleCase } from '@caerusjs/helpers/dist';
-import { internet, lorem } from 'faker';
 import React from 'react';
 import Link from 'next/link';
 
-import { Anchor, Heading1, Heading2 } from '../../atoms';
+import { AnchorLink, Heading1, Heading2 } from '../../atoms';
 import { Navigation } from '../../molecules';
 
 import styles from './styles.module.css';
@@ -15,34 +13,21 @@ export interface NavigationBar {
   navigationProps: Navigation;
 }
 
-export const NavigationBar = ({
+export const NavigationBar: React.FC<NavigationBar> = ({
   href,
   heading1,
   heading2,
   navigationProps,
-}: NavigationBar) => {
+}) => {
   return (
     <div className={styles.root}>
-      <Link href={href}>
-        <Anchor>
+      <Link href={href} passHref>
+        <AnchorLink>
           <Heading1>{heading1}</Heading1>
           {heading2 && <Heading2>{heading2}</Heading2>}
-        </Anchor>
+        </AnchorLink>
       </Link>
       <Navigation {...navigationProps} />
     </div>
   );
-};
-
-export const navigationBarProps = {
-  href: internet.url(),
-  heading1: toTitleCase(lorem.words(3)),
-  heading2: toTitleCase(lorem.words(3)),
-  navigationProps: {
-    anchors: [1, 2, 3, 4, 5].map((id) => ({
-      id: id,
-      href: internet.url(),
-      children: lorem.word(),
-    })),
-  },
 };

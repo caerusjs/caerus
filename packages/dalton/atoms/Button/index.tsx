@@ -1,5 +1,4 @@
 import React from 'react';
-import { lorem } from 'faker';
 
 import styles from './styles.module.css';
 
@@ -11,14 +10,10 @@ export interface Button
   children: React.ReactNode;
 }
 
-export const Button = ({ children, ...props }: Button) => {
+export const Button: React.FC<Button> = ({ children, ...props }) => {
   return (
     <button className={styles.root} {...props}>
       {children}
     </button>
   );
-};
-
-export const buttonProps = {
-  children: lorem.word(),
 };
