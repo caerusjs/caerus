@@ -3,7 +3,7 @@
   "name": "@caerusjs/monorepo",
   "version": "0.7.0",
   "workspaces": [
-    "galileo-next",
+    "galileo",
     "packages/*"
   ],
   "scripts": {
