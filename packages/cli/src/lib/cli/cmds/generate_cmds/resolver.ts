@@ -1,6 +1,6 @@
 import { Argv } from 'yargs';
 
-import { createFile } from '@caerusjs/helpers';
+import { createFile } from '@caerusjs/server-helpers';
 
 import { createResolver } from './resolver/create-resolver';
 import { createTest } from './resolver/create-test';

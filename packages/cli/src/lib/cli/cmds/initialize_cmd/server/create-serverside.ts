@@ -18,7 +18,7 @@ import { createExampleResolver } from './resolvers/example/create-example-resolv
 import { createExampleEntity } from './entities/create-example-entity';
 import { createServerEnv } from './create-server-env';
 import { createJestConfig } from './support/jest/create-jest-config';
-import { createFile } from '@caerusjs/helpers';
+import { createFile } from '@caerusjs/server-helpers';
 
 export const createServerside = (name: string) => {
   createServersideFolders(name);

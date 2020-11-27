@@ -1,5 +1,5 @@
 import capitalize from 'capitalize';
-import { toCamelCase } from '../../server/node_modules/@caerusjs/helpers';
+import { toCamelCase } from '@caerusjs/helpers';
 import { GetServerSideProps } from 'next';
 import { ComponentList } from '../../organisms/list';
 import * as Props from '../../server/componentProps';

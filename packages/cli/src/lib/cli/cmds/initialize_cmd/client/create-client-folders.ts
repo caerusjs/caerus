@@ -1,4 +1,4 @@
-import { createFolder } from '@caerusjs/helpers';
+import { createFolder } from '@caerusjs/server-helpers';
 
 export const folders = [
   '/client/src/atoms',

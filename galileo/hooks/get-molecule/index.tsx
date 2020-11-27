@@ -1,6 +1,6 @@
 import React, { lazy, useState } from 'react';
 
-import { toCamelCase } from '../../server/node_modules/@caerusjs/helpers';
+import { toCamelCase } from '@caerusjs/helpers';
 import capitalize from 'capitalize';
 
 export const GetMolecule: React.FC<{ moleculeId: string }> = ({

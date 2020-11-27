@@ -1,6 +1,6 @@
 import { Argv } from 'yargs';
 
-import { createFile } from '@caerusjs/helpers';
+import { createFile } from '@caerusjs/server-helpers';
 
 import { createGitIgnore } from './initialize_cmd/root/create-gitignore';
 import { createCodegen } from './initialize_cmd/root/create-codegen';

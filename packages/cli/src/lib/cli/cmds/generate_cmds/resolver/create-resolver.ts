@@ -1,5 +1,5 @@
-import { toTitleCase } from '@caerusjs/helpers';
-import { toCamelCase } from '@caerusjs/helpers';
+import { toTitleCase } from '@caerusjs/client-helpers';
+import { toCamelCase } from '@caerusjs/client-helpers';
 
 export const createResolver = (name: string) => {
   return `import {

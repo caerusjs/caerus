@@ -1,4 +1,4 @@
-import { toTitleCase } from '@caerusjs/helpers';
+import { toTitleCase } from '@caerusjs/client-helpers';
 
 export const createHook = (
   name: string,

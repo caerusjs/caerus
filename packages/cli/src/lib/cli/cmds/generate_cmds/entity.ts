@@ -1,6 +1,6 @@
 import { Argv } from 'yargs';
 
-import { createFile } from '@caerusjs/helpers';
+import { createFile } from '@caerusjs/server-helpers';
 import { createEntity } from './entity/create-entity';
 
 export const command = 'entity <name>';
