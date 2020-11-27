@@ -24,4 +24,5 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: yarn bootstrap
-      - run: yarn workspace galileo-next test
+      - run: yarn workspace galileo test
+      - run: yarn workspace @caerusjs/cli test
