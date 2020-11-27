@@ -1,5 +1,5 @@
 import { internet, lorem } from 'faker';
-import { toTitleCase } from '@caerusjs/helpers';
+import { toTitleCase } from '@caerusjs/client-helpers';
 
 // Atoms
 export const anchorProps = {

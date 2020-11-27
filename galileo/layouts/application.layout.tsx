@@ -7,7 +7,7 @@ import * as Molecules from '@caerusjs/dalton/molecules';
 import * as Organisms from '@caerusjs/dalton/organisms';
 
 import Link from 'next/link';
-import { toKebabCase } from '@caerusjs/helpers';
+import { toKebabCase } from '@caerusjs/client-helpers';
 
 const ApplicationLayout: React.FC = ({ children }) => {
   const atoms = Object.keys(Atoms).filter((atom) => !atom.includes('Props'));

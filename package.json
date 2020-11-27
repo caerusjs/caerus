@@ -7,7 +7,7 @@
     "packages/*"
   ],
   "scripts": {
-    "heroku-postbuild": "yarn workspace @caerusjs/helpers build && yarn workspace galileo build",
+    "heroku-postbuild": "yarn workspace @caerusjs/client-helpers build && yarn workspace galileo build",
     "bootstrap": "yarn install && yarn workspace @caerusjs/server-helpers build && yarn workspace @caerusjs/client-helpers build && yarn workspace @caerusjs/cli build",
     "dev": "yarn concurrently \"yarn workspace galileo dev\" \"yarn uno watch\""
   },
