@@ -1,1 +1,1 @@
-web: yarn workspace galileo-next start
+web: yarn workspace galileo start
