@@ -1,15 +1,19 @@
 # Caerus Framework
+
 ![](https://github.com/krisquigley/caerus/workflows/Node.js%20CI/badge.svg)
 
 ## What is it?
+
 An opinionated framework for building web applications with the goal of rapid development and low maintenence.
 
 The stack will evolve over time by adopting newer and better technologies, in order to improve performance and power; whilst identifying common, stable patterns for abstraction and generation, leading to increases in productivity.
 
 ## Project Goal
-Productivity, Power and Performance. 
+
+Productivity, Power and Performance.
 
 ## Values
+
 - Fast
 - Extensible
 - Maintainable
@@ -17,13 +21,15 @@ Productivity, Power and Performance.
 - Experimental
 
 ## What Caerus Provides
- - A default tech stack proven to work together, which provide rapid development, low maintenence, security and accessibility out of the box.
- - Atomic approach to frontend development.
- - A CLI tool to generate the project folder structure. Resource scaffolding, database migrations and type generation.
- - A standard library with commonly used functions, e.g. pluralize, titalize, async forEach() and more.
- - Templating support for generating projects with a different default stack.
+
+- A default tech stack proven to work together, which provide rapid development, low maintenence, security and accessibility out of the box.
+- Atomic approach to frontend development.
+- A CLI tool to generate the project folder structure. Resource scaffolding, database migrations and type generation.
+- A standard library with commonly used functions, e.g. pluralize, titalize, async forEach() and more.
+- Templating support for generating projects with a different default stack.
 
 ## Folder Structure
+
 ```
 {project-name}/
   client/
@@ -74,14 +80,16 @@ Productivity, Power and Performance.
       server.ts
       ormconfig.js
 ```
- 
+
 ## Test suite
-  - End-to-end acceptance tests through `jest-cucumber` (WIP)
-  - Resolver tests through `jest`
+
+- End-to-end acceptance tests through `jest-cucumber` (WIP)
+- Resolver tests through `jest`
 
 ## Clientside
 
 ### Packages
+
 - TypeScript
 - create-react-app
 - React Router
@@ -91,19 +99,20 @@ Productivity, Power and Performance.
 - Jest
 - React Testing Library
 
-## Serverside 
+## Serverside
 
 ### Packages and Services
- - TypeScript
- - Apollo Server
- - Express
- - TypeORM
- - TypeGraphQL
- - Class Validator
- - DotEnv
- - Jest
- - Jest Puppeteer
- - Jest Cucumber
+
+- TypeScript
+- Apollo Server
+- Express
+- TypeORM
+- TypeGraphQL
+- Class Validator
+- DotEnv
+- Jest
+- Jest Puppeteer
+- Jest Cucumber
 
 ## Getting Started
 
@@ -114,7 +123,6 @@ The Caerus Command Line Interface (CLI) makes it easy to initialise new projects
 The commands that are executed require you to have access to a Bash shell. Assuming you have installed e.g. Git on your machine, the following command will configure your environment such that the Bash shell is used when executing the `caerus` commands:
 
 For x64 variants:
-
 
 `npm config set script-shell "c:\Program Files\Git\bin\bash.exe"`
 
@@ -140,7 +148,7 @@ From your workspace folder run the following:
 
 `$ yarn caerus init <name>`
 
-Where `name` is the name of your project.  Use `-` for multiple words, e.g. `my-project`.
+Where `name` is the name of your project. Use `-` for multiple words, e.g. `my-project`.
 
 This will then create a folder based on the project name you provided and generate all relevant files and folders needed to get you started.
 
@@ -178,7 +186,7 @@ From the root folder of your application run the following command:
 
 This will then generate the relevant files and folders associated with your resource.
 
-* In a future version of Caerus the following steps will be automated by the generator. The proposed API being `yarn caerus g resource <name> [column:type:options] `.  For example, `yarn caerus g resource post title:string author:string:null`, would generate a Post resource with the columns title and author; both of which are strings with author being nullable.
+- In a future version of Caerus the following steps will be automated by the generator. The proposed API being `yarn caerus g resource <name> [column:type:options] `. For example, `yarn caerus g resource post title:string author:string:null`, would generate a Post resource with the columns title and author; both of which are strings with author being nullable.
 
 ### Adding extra columns to our entity
 
@@ -193,40 +201,36 @@ title: string
 `@Field()` Exposes the column for the GraphQL API.
 `@Column()` Defines the column for the database.
 
-See https://typeorm.io/#/entities for more information about defining entities for the database, and https://typegraphql.com/docs/types-and-fields.html about exposing GraphQL fields. 
+See https://typeorm.io/#/entities for more information about defining entities for the database, and https://typegraphql.com/docs/types-and-fields.html about exposing GraphQL fields.
 
 Update `post.entity.ts` to the following:
 
 ```typescript
-import { 
-  Entity, 
+import {
+  Entity,
   PrimaryGeneratedColumn,
   CreateDateColumn,
-  UpdateDateColumn, 
-  Column, 
-} from 'typeorm'
-import {
-  ObjectType,
-  Field,
-  ID,
-} from 'type-graphql'
+  UpdateDateColumn,
+  Column,
+} from 'typeorm';
+import { ObjectType, Field, ID } from 'type-graphql';
 
 @ObjectType()
 @Entity()
 export class Post {
-  @Field(type => ID)
+  @Field((type) => ID)
   @PrimaryGeneratedColumn('uuid')
-  readonly id: string
-  
+  readonly id: string;
+
   @Field()
   @Column()
-  title: string
+  title: string;
 
   @CreateDateColumn({ type: 'date' })
-  createdAt: Date
-  
+  createdAt: Date;
+
   @UpdateDateColumn({ type: 'date' })
-  updatedAt: Date
+  updatedAt: Date;
 }
 ```
 
@@ -248,16 +252,16 @@ Within `post.input.ts`, update the classes to the following:
 @InputType()
 export class AddPostInput implements Partial<Post> {
   @Field()
-  title: string
+  title: string;
 }
 
 @InputType()
 export class UpdatePostInput implements Partial<Post> {
-  @Field(type => ID)
-  id: string
+  @Field((type) => ID)
+  id: string;
 
   @Field()
-  title: string
+  title: string;
 }
 ```
 
@@ -306,57 +310,58 @@ mutation UpdatePost($post: UpdatePostInput!) {
   }
 }
 ```
-  
-* In a future version of Caerus, these documents will share a common fragment so that only one document need updating.
+
+- In a future version of Caerus, these documents will share a common fragment so that only one document need updating.
 
 ### Adding a Title Field to our Form
 
 Within `post-form-fields/index.tsx` add the following `Field` **AND** `yup` validation:
 
 ```typescript
-import React from 'react'
-import { object, string } from 'yup'
+import React from 'react';
+import { object, string } from 'yup';
 
-import { IFormFields } from 'types/props'
-import { Field } from 'formik'
+import { IFormFields } from 'types/props';
+import { Field } from 'formik';
 
 export const postFormSchema = object().shape({
-  title: string().required()
-})
+  title: string().required(),
+});
 
-const PostFormFields: React.FC<IFormFields> = ({ errors, handleChange, values }) => {
+const PostFormFields: React.FC<IFormFields> = ({
+  errors,
+  handleChange,
+  values,
+}) => {
   return (
     <>
-        <label htmlFor='title'>Title *</label>
-        <Field
-          name='title'
-          type='text'
-          aria-labelledby='title'
-          placeholder='Title'
-          value={values.title}
-          onChange={handleChange}
-        />
-        <div>
-          {errors.name}
-        </div>
+      <label htmlFor='title'>Title *</label>
+      <Field
+        name='title'
+        type='text'
+        aria-labelledby='title'
+        placeholder='Title'
+        value={values.title}
+        onChange={handleChange}
+      />
+      <div>{errors.name}</div>
     </>
-  )
-}
+  );
+};
 
-
-export default PostFormFields
+export default PostFormFields;
 ```
 
-This adds a title field to our form and also validates it's presence when submitting the form.  For more information on form fields see https://formik.org/docs/api/field and https://github.com/jquense/yup about validation.
+This adds a title field to our form and also validates it's presence when submitting the form. For more information on form fields see https://formik.org/docs/api/field and https://github.com/jquense/yup about validation.
 
 ### Adding a Default Value for the Title Field
 
 Within `add-post/index.tsx`, add title to the list of initial values:
 
 ```typescript
-  const initialPostValues: IAddPostInput = {
-    title: ''
-  }
+const initialPostValues: IAddPostInput = {
+  title: '',
+};
 ```
 
 ### Adding the Post Routes to our application
@@ -364,16 +369,12 @@ Within `add-post/index.tsx`, add title to the list of initial values:
 Update `routes/index.tsx` to the following:
 
 ```typescript
-import React, { Suspense, lazy } from 'react'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from 'react-router-dom'
-import Loading from 'molecules/loading'
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Loading from 'molecules/loading';
 
-const ExampleRoutes = lazy(() => import('routes/example.routes'))
-const PostRoutes = lazy(() => import('routes/post.routes'))
+const ExampleRoutes = lazy(() => import('routes/example.routes'));
+const PostRoutes = lazy(() => import('routes/post.routes'));
 
 const AppRoutes = () => {
   return (
@@ -385,10 +386,10 @@ const AppRoutes = () => {
         </Switch>
       </Suspense>
     </Router>
-  )
-}
+  );
+};
 
-export default AppRoutes
+export default AppRoutes;
 ```
 
 Voila, you should now be able to visit `http://localhost:3000/posts` to start adding some new posts!
@@ -397,11 +398,11 @@ Voila, you should now be able to visit `http://localhost:3000/posts` to start ad
 
 The Caerus CLI supports the following abilities:
 
-- Initialising projects 
+- Initialising projects
 - Generating end-to-end resources including tests (v0.5.0)
 - Generating entities
 - Generating resolvers
-- Generating views 
+- Generating views
 - Generating migrations (v0.6.0)
 - Generating types (v0.6.0)
 
@@ -413,7 +414,7 @@ To generate an entity with default columns (id, createdAt and updatedAt) and gra
 
 `$ yarn caerus generate entity <name>`
 
-Where `name` is the name of your entity.  Entities should be singular and use `-` for multiple words, e.g. `blog-post`.
+Where `name` is the name of your entity. Entities should be singular and use `-` for multiple words, e.g. `blog-post`.
 
 ### Generating Resolvers
 
@@ -421,7 +422,7 @@ To generate a resolver, as well as input and arguments types and test scaffold, 
 
 `$ yarn caerus generate resolver <name>`
 
-Where `name` is the name of your resolver.  Resolvers should be singular and use `-` for multiple words, e.g. `blog-post`.
+Where `name` is the name of your resolver. Resolvers should be singular and use `-` for multiple words, e.g. `blog-post`.
 
 ### Generating Views
 
@@ -429,7 +430,7 @@ To generate views and routes for a given resource, run the following command fro
 
 `$ yarn caerus generate views <name>`
 
-Where `name` is the name of your resource.  Views should be singular and use `-` for multiple words, e.g. `blog-post`.
+Where `name` is the name of your resource. Views should be singular and use `-` for multiple words, e.g. `blog-post`.
 
 ### Generating Resources
 
@@ -437,25 +438,52 @@ To generate an entity, resolvers, organisms, views, routes and tests for a given
 
 `$ yarn caerus generate resource <name>`
 
-Where `name` is the name of your resource.  Views should be singular and use `-` for multiple words, e.g. `blog-post`.
+Where `name` is the name of your resource. Views should be singular and use `-` for multiple words, e.g. `blog-post`.
 
 ## Roadmap
 
 Road to v1.0.0:
 
-|Feature|Implemented?|
-|---|:-:|
-|Generate Entity Command|:white_check_mark:|
-|Generate Resolver Command|:white_check_mark:|
-|Generate Views Command|:white_check_mark:|
-|Initialize Project Command|:white_check_mark:|
-|Generate Resource Command|:white_check_mark:|
-|Generate Entity Column Argument Support||
-|Generate Resource with Column Argument Support||
-|More Atoms and Molecules||
-|Default Styling||
-|Theme Support||
-|Feature Tests||
-|Better Code Splitting||
-|SSR Support||
-|Stack Template Support||
+| Feature                                        |    Implemented?    |
+| ---------------------------------------------- | :----------------: |
+| Generate Entity Command                        | :white_check_mark: |
+| Generate Resolver Command                      | :white_check_mark: |
+| Generate Views Command                         | :white_check_mark: |
+| Initialize Project Command                     | :white_check_mark: |
+| Generate Resource Command                      | :white_check_mark: |
+| Generate Entity Column Argument Support        |                    |
+| Generate Resource with Column Argument Support |                    |
+| More Atoms and Molecules                       | :white_check_mark: |
+| Default Styling                                | :white_check_mark: |
+| Theme Support                                  | :white_check_mark: |
+| Feature Tests                                  |                    |
+| Better Code Splitting                          |                    |
+| SSR Support                                    |                    |
+| Stack Template Support                         |                    |
+
+# How to contribute
+
+- Pull down repo
+- `yarn` in root
+- `yarn` in galileo
+- `yarn build` in helpers then, dalton, themes, cli
+- `yarn dev` to boot the application
+- create env file with the following in client
+
+```
+BROWSER=none
+REACT_APP_SERVER_HOST=http://caerus:4000
+SKIP_PREFLIGHT_CHECK=true
+```
+
+- create env file with the following in server
+
+```
+ORIGINS=*
+```
+
+- run yarn build in packages/helpers
+- run yarn build in packages/dalton
+- run yarn build in packages/themes
+- run yarn build in packages/cli
+- link all of the packages

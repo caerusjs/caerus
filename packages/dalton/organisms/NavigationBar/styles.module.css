@@ -1,0 +1,22 @@
+.root {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-top: var(--even-larger);
+  padding-bottom: var(--even-larger);
+}
+
+.root > a {
+  display: flex;
+  color: var(--dark-font-color);
+  align-items: baseline;
+}
+
+.root > a > h1 {
+  margin-right: var(--small);
+  font-size: var(--even-larger);
+}
+
+.root > a > h2 {
+  font-size: var(--even-larger);
+}

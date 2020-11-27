@@ -1,0 +1,8 @@
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+.root > h2 {
+  margin-bottom: var(--normal);
+}

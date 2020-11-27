@@ -1,0 +1,39 @@
+{
+  "name": "galileo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -p $PORT",
+    "test": "JEST_PUPPETEER_CONFIG=tests/config/jest-puppeteer.config.js jest -c tests/config/jest.config.js --runInBand"
+  },
+  "dependencies": {
+    "@svgr/webpack": "^5.5.0",
+    "@types/capitalize": "^2.0.0",
+    "capitalize": "^2.0.3",
+    "faker": "^5.1.0",
+    "next": "10.0.1",
+    "next-transpile-modules": "^4.1.0",
+    "react": "17.0.1",
+    "react-dom": "17.0.1"
+  },
+  "devDependencies": {
+    "@types/expect-puppeteer": "^4.4.5",
+    "@types/jest": "^26.0.15",
+    "@types/jest-environment-puppeteer": "^4.4.0",
+    "@types/node": "^14.14.7",
+    "@types/puppeteer": "^5.4.0",
+    "@types/react": "^16.9.56",
+    "jest": "^26.6.3",
+    "jest-cucumber": "^3.0.0",
+    "jest-environment-puppeteer": "^4.4.0",
+    "jest-puppeteer": "^4.4.0",
+    "puppeteer": "^5.5.0",
+    "ts-jest": "^26.4.4",
+    "typescript": "^4.0.5"
+  },
+  "cacheDirectories": [
+    ".next/cache"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "name": "@caerusjs/dalton",
+  "version": "0.0.2",
+  "description": "The Caerus Atomic Standard Library",
+  "main": "index.ts",
+  "repository": "https://github.com/caerusjs/dalton",
+  "homepage": "https://github.com/caerusjs/dalton",
+  "author": "Kris Quigley <kris@krisquigley.co.uk>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "caerus",
+    "atomic",
+    "reactjs",
+    "graphql",
+    "apollo-client"
+  ],
+  "scripts": {
+    "build": "yarn tsc --build --verbose",
+    "postbuild": "yarn run copy-files",
+    "watch": "npm-watch",
+    "test": "./bin/test -c ./src/tests/support/jest.config.js --detectOpenHandles --runInBand",
+    "copy-files": "copyfiles -u 1 src/**/*.css src/**/*.svg dist/"
+  },
+  "preferGlobal": true,
+  "devDependencies": {
+    "@types/faker": "^5.1.2",
+    "@types/jest": "^26.0.14",
+    "@types/node": "^14.11.2",
+    "@types/react": "16.9.49",
+    "@types/react-dom": "16.9.8",
+    "@types/react-router-dom": "^5.1.3",
+    "copyfiles": "^2.4.0",
+    "faker": "^5.1.0",
+    "jest": "^26.0.1",
+    "next": "^10.0.1",
+    "npm-watch": "^0.7.0",
+    "react": "^16.13.1",
+    "react-router-dom": "^5.1.2",
+    "ts-jest": "^26.1.0",
+    "typescript": "^4.0.3",
+    "typescript-plugin-css-modules": "^2.7.0"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "next": "10.0.1"
+  },
+  "watch": {
+    "build": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": "ts,css"
+    }
+  }
+}

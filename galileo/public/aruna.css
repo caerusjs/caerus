@@ -1,0 +1,46 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Aruna  */
+:root {
+  /* Fonts */
+  --base-font-size: 16px; /* 13 px in the design */
+  --font-family: 'Source Sans Pro', sans-serif;
+  --light: 300;
+  --normal-weight: 400;
+  --heavy: 600;
+
+  /* Colours */
+  --font-color: #878787;
+  --dark-font-color: #464646;
+  --primary-color: #ad841f;
+  --secondary-color: white;
+  --border-color: #f1eeeb;
+
+  /* Sizing for padding, margins, etc */
+  --largest: 3.1rem;
+  --even-larger: 1.5rem;
+  --larger: 1.2rem;
+  --large: 1.1rem;
+  --normal: 1rem;
+  --small: 0.9rem;
+  --smaller: 0.8rem;
+  --smallest: 0.7rem;
+
+  /* Borders */
+  --border-default: 1px solid #d1d1d1;
+  --border-primary: 1px solid #ad841f;
+}
+
+/* Add breakpoints for just the root fonts */
+html {
+  font-weight: var(--normal-weight);
+  color: var(--font-color);
+  font-size: var(--base-font-size);
+  font-family: var(--font-family);
+  line-height: var(--even-larger);
+}

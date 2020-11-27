@@ -1,0 +1,29 @@
+{
+  "name": "@caerusjs/server-helpers",
+  "version": "0.0.1",
+  "description": "The Caerus Helper Library",
+  "main": "./dist/",
+  "repository": "https://github.com/caerusjs/helpers",
+  "homepage": "https://github.com/caerusjs/helpers",
+  "author": "Kris Quigley <kris@krisquigley.co.uk>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "caerus"
+  ],
+  "scripts": {
+    "build": "yarn tsc --build --verbose",
+    "build:watch": "yarn tsc --build --verbose --watch",
+    "test": "./bin/test -c ./src/tests/support/jest.config.js --detectOpenHandles --runInBand"
+  },
+  "files": [
+    "./dist/"
+  ],
+  "preferGlobal": true,
+  "devDependencies": {},
+  "dependencies": {
+    "title-case": "^3.0.2"
+  }
+}

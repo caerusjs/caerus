@@ -1,6 +1,3 @@
-node_modules
-/server
-/client
-/dist
-/coverage
-my-blog
+**/node_modules
+**/dist
+**/.yalc

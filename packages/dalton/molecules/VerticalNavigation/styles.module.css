@@ -1,0 +1,16 @@
+.root > ul {
+  display: inline-flex;
+}
+
+.root > ul > li {
+  margin-right: var(--smallest);
+}
+
+.root > ul > li:last-child {
+  margin-right: 0;
+}
+
+.root > ul > li > a {
+  color: var(--dark-font-color);
+  text-transform: capitalize;
+}
