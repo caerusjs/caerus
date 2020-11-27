@@ -15,5 +15,8 @@
     "concurrently": "^5.3.0",
     "lerna": "^3.22.1",
     "unorepo": "^0.1.0"
-  }
+  },
+  "cacheDirectories": [
+    ".next/cache"
+  ]
 }
