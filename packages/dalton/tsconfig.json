@@ -23,7 +23,7 @@
     "resolveJsonModule": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "types": ["jest", "jest-extended"]
+    "types": ["jest", "@testing-library/jest-dom"]
   },
   "exclude": ["node_modules", "dist"],
   "include": ["*"]
